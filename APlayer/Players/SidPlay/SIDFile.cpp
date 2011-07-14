@@ -133,7 +133,7 @@ ap_result SIDFile::TestIt(void)
 				{
 					// Create filename to check
 					pos = fileName.ReverseFind('.');
-					if (pos >= 0)
+					if (pos >= 0 && fileName.GetAt(pos - 1) != '/')
 						testFileName = fileName.Left(pos) + *tempExt;
 					else
 						testFileName = fileName + *tempExt;
