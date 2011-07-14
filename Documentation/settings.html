@@ -1,0 +1,265 @@
+<HTML>
+<HEAD><TITLE>APlayer settings</TITLE></HEAD>
+<BODY BGCOLOR="#999966">
+<!-- Make background table  -->
+<CENTER>
+<TABLE WIDTH="800" BGCOLOR="#999966" BORDER="0">
+<TR><TD VALIGN="TOP" ALIGN="LEFT" WIDTH="150">
+
+<!-- Left side starts here  -->
+<!-- Black border starts here  -->
+<TABLE BGCOLOR="#000000" BORDER="0" CELLSPACING="0" CELLPADDING="2" WIDTH="100%"><TR><TD>
+<!-- Left content starts here  -->
+<TABLE BGCOLOR="#FFFFCC" BORDER="0" CELLSPACING="2" CELLPADDING="2" WIDTH="100%">
+<TR><TD VALIGN="TOP" ALIGN="LEFT">
+
+<TABLE BORDER="0">
+<TR><TD><H2>APlayer:</H2></TD></TR>
+<TR><TD>- <A HREF="contact.html"><BIG>Contact info</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="disclaimer.html"><BIG>Disclaimer</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="features.html"><BIG>Features</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="howtouse.html"><BIG>How to use</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="modtypes.html"><BIG>Module types</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="requirements.html"><BIG>Requirements</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="thanks.html"><BIG>Thanks</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="history.html"><BIG>Version history</BIG></A><BR></TD></TR>
+</TABLE>
+&nbsp;<BR>
+
+</TD></TR>
+</TABLE><!-- Left content ends here  -->
+</TD></TR>
+</TABLE><!-- Black border ends here  -->
+</TD><TD VALIGN="TOP" ALIGN="LEFT" WIDTH="650">
+
+<!-- Right side starts here  -->
+<!-- Black border starts here  -->
+<TABLE BGCOLOR="#000000" BORDER="0" CELLSPACING="0" CELLPADDING="2" WIDTH="100%"><TR><TD>
+<!-- Right content starts here  -->
+<TABLE BGCOLOR="#FFFFCC" BORDER="0" CELLSPACING="2" CELLPADDING="2" WIDTH="100%">
+<TR><TD HEIGHT="800" VALIGN="TOP" ALIGN="LEFT">
+<CENTER>
+<TABLE BORDER="0" WIDTH="95%">
+<TR><TD>
+<!-- Stuff inside right content starts here  -->
+
+<H2><A NAME="top"></A>Settings</H2>
+<TABLE BORDER="0">
+<TR><TD>
+The settings window can be used to change and test the many options APlayer provides. All changes to the settings takes effect immediately and you have to press cancel to go back to the settings as they were when you entered the settings window.<P>
+</TD></TR>
+</TABLE>
+ 
+<TABLE>
+<TR>
+<TD>
+<B>Click picture with mouse to get more information</B><P>
+<MAP NAME="mainMap2">
+<AREA SHAPE="rect" COORDS="1,1,71,24" HREF="settings.html#settings1">
+<AREA SHAPE="rect" COORDS="72,1,116,24" HREF="settings.html#settings2">
+<AREA SHAPE="rect" COORDS="117,1,162,24" HREF="settings.html#settings3">
+<AREA SHAPE="rect" COORDS="163,1,222,24" HREF="settings.html#settings4">
+<AREA SHAPE="rect" COORDS="223,1,290,24" HREF="settings.html#settings5">
+<AREA SHAPE="rect" COORDS="291,1,450,24" HREF="settings.html#settings6">
+</MAP>
+<IMG SRC="pictures/settingstabs.png" BORDER="0" USEMAP="#mainMap2" ISMAP>
+</TD>
+</TR>
+</TABLE>
+<P>
+<IMG SRC="pictures/settingsbutton.png"><P>
+<TABLE BORDER="0">
+<TR><TD><B>Save:</B><BR>Save the settings (does not close the settings window).</TD></TR>
+<TR><TD><B>Use:</B><BR>Use settings, but do not save them (closes the settings window).</TD></TR>
+<TR><TD><B>Cancel:</B><BR>Cancel changes and close the settings window.</TD></TR>
+</TABLE>
+<P>
+
+<H2><A NAME="settings1"></A>Options</H2>
+<IMG SRC="pictures/settings1.png"><P>
+<H3>General</H3>
+<TABLE BORDER="0">
+<TR><TD><B>Jump to added module:</B><BR>Automatically start playing an newly added module.</TD></TR>
+<TR><TD><B>Add to list as default:</B><BR>Set playlist clearing off / on when a module is added by double-clicking the file.</TD></TR>
+<TR><TD><B>Remember list when exit:</B><BR>Save playlist when APlayer quits and load it when APlayer starts again.</TD></TR>
+<TR><TD><B>&nbsp;Remember playing module:</B><BR>&nbsp;Save playing module info when APlayer quits and load it when APlayer starts again.</TD></TR>
+<TR><TD><B>&nbsp;Remember module position:</B><BR>&nbsp;Save playing module position info when APlayer quits and load it when APlayer starts again.</TD></TR>
+<TR><TD><B>Show item number in list:</B><BR>Shows item number before filename in playlist.</TD></TR>
+<TR><TD><B>Button tooltips:</B><BR>APlayer shows small hints regarding the button under the mouse-pointer, whenever the mouse rests for more than 1 second.</TD></TR>
+<TR><TD><B>Show module name in titlebar:</B><BR>Show the name of the playing module in the main window titlebar.</TD></TR>
+<TR><TD><B>Set Audio:Length attribute:</B><BR>APlayer will set playing length of module to its file attribute. This setting speeds up scan added files option.</TD></TR>
+<TR><TD><B>Scan added files:</B><BR>APlayer tries to find and add module playing time to playlist. This scans playlist for all modules with missing playing time.</TD></TR>
+</TABLE>
+<P>
+<H3>Loading</H3>
+<TABLE BORDER="0">
+<TR><TD><B>Double buffering:</B><BR>APlayer loads next module in the list when the actual module is playing. Early load tells APlayer how far (positions) from the ending of the current module APlayer will start loading the next one. Enabling this feature will make the small pause between modules very short. It can be used if you e.g. play a MP3 album where each song is merged into each other.</TD></TR>
+<TR><TD><B>When module error is reached:</B><BR>Tells what APlayer should do when module loading fails.<P>Possible choises:<BR>
+<TABLE BORDER="0">
+<TR>
+<TD><B>Show error dialog</B></TD>
+<TD>Asks user what to do.</TD>
+</TR>
+<TR>
+<TD><B>Skip file</B></TD>
+<TD>Skips file and starts playing next one in playlist.</TD>
+</TR>
+<TR>
+<TD><B>Skip file and remove from list</B></TD>
+<TD>Removes file from playlist and starts playing next one in playlist.</TD>
+</TR>
+<TR>
+<TD><B>Stop playing</B></TD>
+<TD>Stops playing.</TD>
+</TR>
+</TABLE>
+</TD></TR>
+</TABLE>
+<P>
+
+<H3>Playing</H3>
+<TABLE BORDER="0">
+<TR><TD><B>Never ending module timeout:</B><BR>Sets playing time (in seconds) for module if its playing time cannot be calculated. After selected time APlayer skips to next module in playlist. This option can be used with e.g. sid files.</TD></TR>
+<TR><TD><B>At end of module list:</B><BR>Tells what APlayer should do when it has played last module in playlist.
+<P>Possible choises:<BR>
+<TABLE BORDER="0">
+<TR>
+<TD><B>Eject module</B></TD>
+<TD>Eject module and stops playing.</TD>
+</TR>
+<TR>
+<TD><B>Jump to start</B></TD>
+<TD>Starts playing first module in playlist.</TD>
+</TR>
+<TR>
+<TD><B>Loop module</B></TD>
+<TD>Plays last module forever.</TD>
+</TR>
+</TABLE>
+</TD></TR>
+</TABLE>
+<P>
+
+<H2><A NAME="settings2"></A>Paths</H2>
+<IMG SRC="pictures/settings2.png"><P>
+<TABLE BORDER="0">
+<TR><TD><B>Start scan path:</B><BR>Defines a directory which APlayer will recursively scan through and add all present files to the modulelist when APlayer is started.</TD></TR>
+<TR><TD><B>Module path:</B><BR>Default path for the filerequester to use when you press the play button, the plus button or open command in menus.</TD></TR>
+<TR><TD><B>APML path:</B><BR>Tells APlayer where you keep your modulelist files.</TD></TR>
+</TABLE>
+<P>
+
+<H2><A NAME="settings3"></A>Mixer</H2>
+<IMG SRC="pictures/settings3.png"><P>
+<H3>General</H3>
+<TABLE BORDER="0">
+<TR><TD><B>Mixer frequency:</B><BR>Allows you to change the output-quality of the played sound. The quality ranges from 8268 to 48000 hertz. Note that this won't affect APlayer until the next song is played.</TD></TR>
+<TR><TD><B>Stereo separation:</B><BR>100% is total stereo separation ie. left is left and rigth is right. 0% is mono, which forces APlayer to play all sounds in both channels. This can be useful for listening to modules in headphones, where a stereo-separation of 50% will make them sound much better.</TD></TR>
+<TR><TD><B>Interpolation:</B><BR>Helps the sound to be less "rough" and make lesser clicks'n'pops. This pretty much resembles the effect of the filter on the Amiga. Interpolation consumes about 25% more cpu-power than usual.</TD></TR>
+<TR><TD><B>Dolby Prologic surround:</B><BR>Only supported by a few trackers (ImpulseTracker) and is rarely used. If you want APlayer to reckon this and make a difference between the front and rear speakers, enable this function. Ofcourse this requires a Dolby Prologic amplifier connected to your computer. Module called "Rippless.it" uses surround with the speech sample, so it can be used for testing purposes.</TD></TR>
+<TR><TD><B>Emulate Amiga led filter:</B><BR>Sets on Amiga led filter emulation which is basically a low bass filter. Only few mod trackers support this feature.</TD></TR>
+</TABLE>
+<P>
+
+<H3>Mixer output</H3>
+<TABLE BORDER="0">
+<TR><TD><B>Output agent:</B><BR>You select the <A HREF="settings.html#outputagents">agent</A> you wish to use for outputting the sound. If the agent (e.g. the disksaver agent) has any settings they will be displayed below.</TD></TR>
+</TABLE>
+<P>
+
+<H3>Channels</H3>
+<TABLE BORDER="0">
+<TR><TD>Most [read: all] modules uses more than one channel, and sometimes you would want to disable certain channels (e.g. the annoying hihat in channel xx). You have the choice between finding the given channel by trying every button one after one, or you can use the buttons to the left which change the state of all the given channels. Try it out!</TD></TR>
+</TABLE>
+<P>
+
+<H2><A NAME="settings4"></A>Network</H2>
+<IMG SRC="pictures/settings4.png"><P>
+<H3>Proxy Server</H3>
+<TABLE BORDER="0">
+<TR><TD><B>Use Proxy:</B><BR>If this checkbox is checked APlayer will use proxy. Proxy address tells to APlayer which address and port it should use. APlayer support only HTTP proxy.</TD></TR>
+</TABLE>
+<P>
+
+<H3>Updates</H3>
+<TABLE BORDER="0">
+<TR><TD><B>Check for APlayer updates:</B><BR>This selection tells when APlayer should check for updated version.<P>Possible choices:<BR>
+<TABLE BORDER="0">
+<TR>
+<TD><B>Never</B></TD>
+<TD>Does not check for updates.</TD>
+</TR>
+<TR>
+<TD><B>On Startup</B></TD>
+<TD>Checks every time APlayer is started.</TD>
+</TR>
+<TR>
+<TD><B>Daily</B></TD>
+<TD>Checks once every day.</TD>
+</TR>
+<TR>
+<TD><B>Weekly</B></TD>
+<TD>Checks once every week.</TD>
+</TR>
+<TR>
+<TD><B>Monthly</B></TD>
+<TD>Checks once every month.</TD>
+</TR>
+</TABLE>
+<BR>&nbsp;
+</TD></TR>
+<TR><TD><B>Download to:</B><BR>Tells where updates should be downloaded to.</TD></TR>
+<TR><TD><B>Check now:</B><BR>This buttons forces APlayer to check for updated version.<P><B>NOTE:</B> Update checking needs working internet connection.</TD></TR>
+</TABLE>
+<P>
+
+<H2><A NAME="settings5"></A>File types</H2>
+<IMG SRC="pictures/settings5.png"><P>
+
+<H3>File types</H3>
+<TABLE BORDER="0">
+<TR><TD><B>Register selected types:</B><BR>Registers file types which you have selected from list.</TD></TR>
+<TR><TD><B>Register all types:</B><BR>Registers all file types supported by APlayer.</TD></TR>
+<TR><TD>&nbsp;<BR><B>NOTE:</B> Registering filetypes makes APlayer preferred application with those filetypes. This means that after registering APlayer will play all filetypes you registered instead of possible other application which you may have used before.</TD></TR>
+</TABLE>
+<P>
+
+<H3>Options</H3>
+<TABLE BORDER="0">
+<TR><TD><B>Change module file type:</B><BR>APlayer corrects wrong mime-types on modules.</TD></TR>
+<TR><TD><B>Register file types on startup:</B><BR>Registers file types every time APlayer is started.<P><B>NOTE:</B> Registering file types on startup causes a few second delay during which Tracker does not respond, so you may want to turn this option off later. This delay is caused by a bug in Tracker and APlayer can't do anything about it.</TD></TR>
+</TABLE>
+<P>
+
+<H2><A NAME="settings6"></A>Player / Agents / Clients</H2>
+<IMG SRC="pictures/settings6.png"><P>
+<IMG SRC="pictures/settings7.png"><P>
+<IMG SRC="pictures/settings8.png"><P>
+
+<TABLE BORDER="0">
+<TR><TD>The players, agents and clients are considered as add-ons, hence this common description of their setting-windows. To the left you can see a list of the available add-ons with their name and version. If add-on name is in blue color it means that it is in use and is used 
+when playing modules, so it is easy to see which player and output agent is used to play that module. Just like in the tracker, columns can be sorted and moved around as you like. To the right the description of the currently selected add-on is shown.<P>
+To disable (prevent it from being loaded) you can double-click any add-on.<P>
+Some players/agents/clients have special <A HREF="playersettings.html">settings</A> (e.g. the SID-player) and to set those you select the add-on and press Settings.<P>
+Some add-ons have something to display while the music is being played and it can showed by using the Display button.</TR></TD>
+</TABLE>
+
+<P><CENTER><A HREF="settings.html#top"><IMG SRC="pictures/arrow.png" BORDER="0"></A></CENTER>
+
+<!-- Stuff inside right content ends  -->
+</TD></TR>
+</TABLE>
+</CENTER>
+</TD></TR>
+</TABLE>
+<!-- Right content ends here  -->
+</TD></TR>
+</TABLE>
+<!-- Black border ends here  -->
+
+</TD></TR>
+</TABLE>
+</CENTER>
+<!-- Background table ends here  -->
+</BODY>
+</HTML>

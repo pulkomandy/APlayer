@@ -1,0 +1,34 @@
+NAME := IFF-16SV
+
+ROOTDIR := ../APlayer/Converters/IFF-16SV
+
+$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_x86/add-ons/Converters
+
+$(NAME)_SOURCE_PATHS := $(ROOTDIR)
+
+$(NAME)_EXTRA_SOURCES := 
+
+$(NAME)_EXTRA_DEENDENCIES := $(APlayerKit.so_TARGET)
+
+$(NAME)_TYPE := SHARED
+
+$(NAME)_LIBS := $(APLAYER_LIBS) be
+
+$(NAME)_RSRCS := $(ROOTDIR)/BeOS/IFF-16SV_x86.rsrc
+
+#
+$(NAME)_LOCAL_INCLUDE_PATHS := $(APLAYER_INCLUDES)
+
+#
+$(NAME)_SYSTEM_INCLUDE_PATHS := 
+
+#
+$(NAME)_LIBRARY_PATHS := 
+
+#
+$(NAME)_EXTRA_CFLAGS :=
+
+#
+$(NAME)_EXTRA_LDFLAGS :=
+
+include Makefile.rules

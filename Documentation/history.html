@@ -1,0 +1,159 @@
+<HTML>
+<HEAD><TITLE>APlayer history</TITLE></HEAD>
+<BODY BGCOLOR="#999966">
+<!-- Make background table  -->
+<CENTER>
+<TABLE WIDTH="800" BGCOLOR="#999966" BORDER="0">
+<TR><TD VALIGN="TOP" ALIGN="LEFT" WIDTH="150">
+
+<!-- Left side starts here  -->
+<!-- Black border starts here  -->
+<TABLE BGCOLOR="#000000" BORDER="0" CELLSPACING="0" CELLPADDING="2" WIDTH="100%"><TR><TD>
+<!-- Left content starts here  -->
+<TABLE BGCOLOR="#FFFFCC" BORDER="0" CELLSPACING="2" CELLPADDING="2" WIDTH="100%">
+<TR><TD VALIGN="TOP" ALIGN="LEFT">
+
+<TABLE BORDER="0">
+<TR><TD><H2>APlayer:</H2></TD></TR>
+<TR><TD>- <A HREF="contact.html"><BIG>Contact info</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="disclaimer.html"><BIG>Disclaimer</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="features.html"><BIG>Features</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="howtouse.html"><BIG>How to use</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="modtypes.html"><BIG>Module types</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="requirements.html"><BIG>Requirements</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="thanks.html"><BIG>Thanks</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="history.html"><BIG>Version history</BIG></A><BR></TD></TR>
+</TABLE>
+&nbsp;<BR>
+
+</TD></TR>
+</TABLE><!-- Left content ends here  -->
+</TD></TR>
+</TABLE><!-- Black border ends here  -->
+</TD><TD VALIGN="TOP" ALIGN="LEFT" WIDTH="650">
+
+<!-- Right side starts here  -->
+<!-- Black border starts here  -->
+<TABLE BGCOLOR="#000000" BORDER="0" CELLSPACING="0" CELLPADDING="2" WIDTH="100%"><TR><TD>
+<!-- Right content starts here  -->
+<TABLE BGCOLOR="#FFFFCC" BORDER="0" CELLSPACING="2" CELLPADDING="2" WIDTH="100%">
+<TR><TD HEIGHT="800" VALIGN="TOP" ALIGN="LEFT">
+<CENTER>
+<TABLE BORDER="0" WIDTH="95%">
+<TR><TD>
+<!-- Stuff inside right content starts here  -->
+
+<H2><A NAME="top"></A>APlayer version history:</H2>
+<A HREF="oldhistory.html">APlayer v3.X.X version history</A><P>
+<A HREF="history.html#400">APlayer 4.0.0 (released 3 November 2002)</A><BR>
+<A HREF="history.html#401">Aplayer 4.0.1 (released 23 Marts 2003)</A>
+<A NAME="400"></A>
+<H3>Version 4.0</H3>
+<UL TYPE="disc">
+
+<LI> <B>Merged</B> the Module List Editor window with the Main window.</LI> 
+<LI> Shows how long a module takes to play directly in the list.</LI> 
+<LI> <B>Improved</B> the position slider, so when changing the position, both the time and module speed is set correctly.</LI> 
+<LI> <B>Changed</B> the volume button, so it's more intuitive as a mute button.</LI> 
+<LI> <B>Changed</B> the play button functionality in the tape deck. It will now remove any modules from the list before it adds the new modules.</LI> 
+<LI> If you have the module loop on and a module loops, the time will now begin from the right position time again.</LI> 
+<LI> You can now use right mouse button on the module list as a quick load button. Only one click is needed instead of two with left mouse button. Will be made as an option later, because I want to use the right mouse button to show a pop-up menu in a later version.</LI> 
+<LI> You can now drag'n'drop into the module list + around in the list. When draging from the Tracker into the list, you can hold down ctrl to insert, shift + ctrl to append and without any key modifiers to replace the whole list.</LI> 
+<LI> If you press the left mouse button on the information bar (the one with the positions and time), you can switch between to show elapsed or remainin time on the playing module.</LI> 
+<LI> When changing the volume, APlayer now respons immediately, even when playing MP3 files.</LI> 
+<LI> <B>Added</B> some extra items in the Module Information window.</LI> 
+<LI> Can now play ProTracker modules that runs backward, e.g. Coffee Blues III, correctly.</LI> 
+<LI> <B>Upgraded</B> the MikMod player and converter agent to 3.1.10.</LI> 
+<LI> <B>Optimized the</B> Mpg123 player alot. It now supports MMX and 3DNow! optimized decode routines, which will reduce the CPU load. There are also support for the free format now.</LI> 
+<LI> MP3 VBR files encoded with Lame shows a wrong song time.</LI> 
+<LI> In the MikMod player, the XM and IT effect P (panning slide) didn't work probably. In fact, they made the player out of sync with the module data, which could cause funny things to happen.</LI> 
+<LI> MikMod couldn't play the Enantiodromia.xm module at all.</LI> 
+<LI> Extraction of the track number in MP3 files is now more intelligent.</LI> 
+<LI> In the error window when loading modules, some extra buttons has been added. These buttons are "Skip", "Skip and remove" and "Stop playing".</LI> 
+<LI> <B>Removed</B> a memory leak in the module information window. It didn't free all the items in the list when APlayer exits.</LI> 
+<LI> <B>Changed</B> the file name information in the module information window to a button. When you press it, the directory where the file lies will be opened in the Tracker.</LI> 
+<LI> The add-ons couldn't be renamed because the filenames was hardcoded into the sources. This has been fixed now, so if you don't like my filenames, just rename them :)</LI> 
+<LI> <B>Improved</B> the author finding system in the sample names.</LI> 
+<LI> It is now possible to drag'n'drop and double click on a list file (all the supported ones, inclusive .m3u files).</LI> 
+<LI> <B>Upgraded</B> the SID player to version 1.36.57.</LI> 
+<LI> <B>Added</B> HVSC STIL support in the SID player. To enable it, go to the player settings and select the root directory for the HVSC collection in the STIL path. Notice that the first SID file you try to play, may take some while before it starts. That's because the STIL file need to be parsed and it's big!</LI> 
+<LI> <B>Fixed</B> the mouse-button-on-slider bug, which made APlayer not moving the slider in some situations. A big thanks to Jaakko Leikas for the descriptive bug report which made it very easy to track the bug down.</LI> 
+<LI> You can now use the keyboard to control APlayer. See the documentation on how and which keys.</LI> 
+<LI> <B>Fixed</B> an envelope volume calculation bug in the MikMod player. Thanks to Jaakko Leikas for reporting this.</LI> 
+<LI> The MikMod player now shows the number of instruments used in the information window.</LI> 
+<LI> <B>Added</B> a sleep cursor for all the list operation that can take some time.</LI> 
+<LI> The MikMod player plays Peripheral Evolutions Pt. 1.s3m correct.</LI> 
+<LI> <B>Added</B> the "Set length" and "Scan files" options in the settings window. Note that the "scan files" is faster if it can find the length attributes on the files added. Also note, that the "scan files" will change the file type and set the length if these checkboxes are checked.</LI> 
+<LI> The .mod files does not have subsongs in the format description, but some composers simulate subsongs by starting a new song at different positions. APlayer (the ModTracker player) is now able to detect this and then create them as subsongs you can select between. 
+<LI> <B>Added</B> the above feature to MikMod too.</LI> 
+<LI> If the speed is set to 0 in old mod trackers, e.g. NoiseTracker, it is ignored now. By doing this, APlayer can now play the Arena game music without the speed problems.</LI> 
+<LI> The loader for SoundTracker15 failed on some modules.</LI> 
+<LI> <B>Fixed</B> a crash in the AHX player when playing illegal instrument numbers.</LI> 
+<LI> Some modules can have a corrupt sample header. The ModTracker player fixes these now.</LI> 
+<LI> When playing ImpulseTracker modules which uses Prologic Surround, and you change the stereo separator, it didn't work probably. 
+<LI> <B>Added</B> support for 8-Voices StarTrekker modules.</LI> 
+<LI> Because of so many modules that uses the F20 speed command and is detected as ProTracker modules, I have increased the border between BPM tempo and normally speed to 33 instead of 32 in the ModTracker player.</LI> 
+<LI> <B>Improved</B> the Disk Saver agent so you can hear what is saved to disk. When using this option, the sample created will be in the format the other sound output agent deliver the sound in.</LI> 
+<LI> <B>Fixed</B> a bug and adjusted the Fred Final module loader.</LI> 
+<LI> <B>Added</B> the "Show item number in list" option in the settings window.</LI> 
+<LI> When starting over a module that uses the ringbuffer system, e.g. the MP3 player, it took a few seconds before the module starts over.</LI> 
+<LI> Finally, the OggVorbis player got added.</LI> 
+<LI> <B>Fixed</B> a little bug in the envelope routine in the MikMod player, so it can now play Dreams of hope 2.xm.</LI> 
+<LI> In some rare conditions, when a ModTracker module start over again, it didn't play with the right speed.</LI> 
+<LI> Modules that uses the Ring Buffer system, like MP3 and OggVorbis, didn't loop when the "at end of list" settings was "Loop module". 
+<LI> <B>Improved</B> the Noise- and ProTracker detection a little bit.</LI> 
+<LI> <B>Added</B> support for Amiga led filter emulation. Try out either Gateway or Liberation from Tip & Mantronix to hear the difference.</LI> 
+<LI> <B>Added</B> support for the SoundMonitor BPSM files.</LI> 
+<LI> <B>Fixed</B> a bug when loading AHX modules with subsongs and they start at a position that does not exists.</LI> 
+<LI> If you use the DiskSaver output agent and answer no to overwrite a file, APlayer crashed. This is fixed now.</LI> 
+<LI> If the last module in the list couldn't be loaded and you have the loop list enabled, APlayer didn't loop the list when you skip the unloadable module.</LI> 
+<LI> If you using a larger font than the normal 10 pt., some of the settings tab wasn't drawn right.</LI> 
+<LI> If you have a module in the playlist and you have moved or renamed the file, and then try to play the module from the list, APlayer crashed.</LI> 
+<LI> If you have the "remember list" and "show module name in title" options on and you start APlayer where it doesn't play any modules, the window title was blank.</LI> 
+<LI> <B>Added</B> support for StilView in the SIDPlayer.</LI> 
+<LI> If you have set the "At end of module list" to "Jump to start" and you skip files either manually or setting the "module error" option to "skip file", and you then only have unknown modules in the list, APlayer will try again and again to find a module to load.</LI> 
+<LI> <B>Added</B> two new remember list options in the settings window.</LI> 
+<LI> When the ModTracker player restarts a module, it will make sure that the speed and tempo are initialized to they proper start values.</LI> 
+<LI> When a ProTracker module use the F00 effect to stop the module, the module didn't loop over right if loop is on.</LI> 
+<LI> <B>Added</B> the OctaMED player. It's totally rewritten by using the original C++ player by Teijo Kinnunen and modified a lot by me. It replaces the beta version of the player that was released with earlier versions of APlayer.</LI> 
+<LI> <B>Upgraded</B> the SIDPlayer to 1.36.55.</LI> 
+<LI> <B>Added</B> support for writing MSADPCM format in the RIFF-WAVE converter + added a settings window where the user can change between MSADPCM and PCM format.</LI> 
+<LI> <B>Cleaned</B> up the mixer sources and removed some confusing parts (hopefully, it's more clearer now what is going on) + fixed a crash when using the ringbuffer system with the DiskSaver agent (like playing mp3s.)</LI> 
+<LI> <B>Fixed</B> a bug in the MikMod converter that make it crash on IT modules with large packed samples.</LI> 
+<LI> <B>Fixed</B> a bug in the MikMod player, that makes it calculate a wrong envelope value when the envelope table is empty.</LI> 
+<LI> Finally I got rid of this bug! Converted Future Composer 1.3 modules with portamento slides didn't always sound right.</LI> 
+<LI> Made a workaround when loading settings files that does not exists, to prevent a crash on PPC.</LI> 
+<LI> <B>Rewrote</B> the time calculation routines in the MPG123 player. With some files, it didn't calculate the right time.</LI>
+<LI> Finally got rid of a annoying bug in the AHX player that made it crash sometimes.</LI> 
+</UL>
+<A NAME="401"></A>
+<H3>Version 4.0.1</H3>
+<UL TYPE="disc">
+<LI> <B>Added</B> visual agent interface and then created the scope agent.</LI>
+<LI> <B>Added</B> the IFF-16SV converter.</LI>
+<LI> <B>Added</B> the IFF-8SVX converter with support for both plain PCM and Fibonnaci encoded samples.</LI>
+<LI> <B>Upgraded</B> the APlayer Tracker Add-on by Ove Peter to version 1.03. It can be found in the Bonus folder.</LI>
+<LI> The "File Types" tab in the settings window will now show the mime-string for file types that does not have a description.</LI>
+<LI> <B>Added</B> Spinning Squares visual agent.</LI>
+<LI> <B>Fixed</B> few bugs from OctaMED player.</LI>
+</UL>
+
+<P><CENTER><A HREF="history.html#top"><IMG SRC="pictures/arrow.png" BORDER="0"></A></CENTER>
+
+<!-- Stuff inside right content ends  -->
+</TD></TR>
+</TABLE>
+</CENTER>
+</TD></TR>
+</TABLE>
+<!-- Right content ends here  -->
+</TD></TR>
+</TABLE>
+<!-- Black border ends here  -->
+
+</TD></TR>
+</TABLE>
+</CENTER>
+<!-- Background table ends here  -->
+</BODY>
+</HTML>

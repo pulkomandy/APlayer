@@ -1,0 +1,11 @@
+APlayer4 introduces an improved APML playlist format with info about playing time. Unfortunately these changes are not compatible with old APlayer3.  Timefix is a quickly made bash script to remove those incompatible parts of playlist.
+
+Timefix can fix one playlist at a time, so you must run it separately for each file you want to fix. Timefix removes incompatible parts of playlist and write new playlist with different name, so it should not not overwrite existing playlist.
+
+Copy timefix to /boot/home/config/bin directory. Then you can start timefix from Terminal.
+
+How to use it:
+timefix [playlistname.apml]
+example: timefix improved_list.apml
+
+-Jaakko Leikas

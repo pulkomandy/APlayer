@@ -1,0 +1,32 @@
+NAME := SoundMonitor
+
+$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_x86/add-ons/Players
+
+$(NAME)_SOURCE_PATHS := ../APlayer/Players/SoundMonitor
+
+$(NAME)_EXTRA_SOURCES := 
+
+$(NAME)_EXTRA_DEENDENCIES := $(APlayerKit.so_TARGET)
+
+$(NAME)_TYPE := SHARED
+
+$(NAME)_LIBS := $(APLAYER_LIBS)
+
+$(NAME)_RSRCS := $($(NAME)_SOURCE_PATHS)/BeOS/SoundMonitor_x86.rsrc
+
+#
+$(NAME)_LOCAL_INCLUDE_PATHS := $(APLAYER_INCLUDES)
+
+#
+$(NAME)_SYSTEM_INCLUDE_PATHS := 
+
+#
+$(NAME)_LIBRARY_PATHS := 
+
+#
+$(NAME)_EXTRA_CFLAGS :=
+
+#
+$(NAME)_EXTRA_LDFLAGS :=
+
+include Makefile.rules

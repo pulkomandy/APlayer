@@ -1,0 +1,32 @@
+#!/bin/sh
+#
+# (C) 2000-2001 Jaakko Leikas
+# Report bugs to: garjala@iobox.com
+#
+MyTemp=
+MyFile=
+
+RemoveTime()
+{
+while read MyTemp; do
+	echo $MyTemp | cut -d":" -f1 >>"New_$MyFile"
+done
+} <$MyFile
+
+clear
+if [ "$1" = "" ];
+then
+	echo "TimeFix v1.0"
+	echo ""
+	echo "This script can remove time information from APlayer4 playlists"
+	echo "therefore making APlayer4 playlist compatible with APlayer3"
+	echo ""
+	echo "Usage: timefix [PLAYLIST NAME]"
+	echo "Example: timefix playlist.apml"
+else
+	MyFile=$1
+	echo -n >"New_$MyFile"
+	echo "Removing time info from APML playlist...."
+	RemoveTime
+	echo "Done."
+fi

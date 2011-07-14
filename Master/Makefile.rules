@@ -1,0 +1,150 @@
+$(NAME)_OBJDIR := $(OBJDIR)/$(NAME)
+$(NAME)_DEPDIR := $(DEPDIR)/$(NAME)
+
+$(NAME)_SOURCES := $(foreach path, $($(NAME)_SOURCE_PATHS), \
+	$(wildcard $(path)/*.cpp) $(wildcard $(path)/*.c) $(wildcard $(path)/*.asm))
+$(NAME)_SOURCES += $(foreach file, $($(NAME)_EXTRA_SOURCES), $(file) )
+$(NAME)_SOURCE_PATHS := $(sort $(dir $($(NAME)_SOURCES)))
+
+#GRRR... $(call bla) seems to be broken!!!
+#gather_files = $(foreach file, $(filter %.$(1), $($(NAME)_SOURCES)), $(addprefix $(NAME)_OBJDIR/$(1)/, $(addsuffix .$(2),$(basename $(notdir $(file))))))
+
+$(NAME)_CPPOBJECTS := $(foreach file, $(filter %.cpp, $($(NAME)_SOURCES)), \
+	$(addprefix $($(NAME)_OBJDIR)/, $(addsuffix .o,$(basename $(notdir $(file))))))
+$(NAME)_COBJECTS := $(foreach file, $(filter %.c,$($(NAME)_SOURCES)), \
+	$(addprefix $($(NAME)_OBJDIR)/, $(addsuffix .o,$(basename $(notdir $(file))))))
+$(NAME)_ASMOBJECTS := $(foreach file, $(filter %.asm, $($(NAME)_SOURCES)), \
+	$(addprefix $($(NAME)_OBJDIR)/, $(addsuffix .o,$(basename $(notdir $(file))))))
+$(NAME)_OBJECTS := $($(NAME)_CPPOBJECTS) $($(NAME)_COBJECTS) $($(NAME)_ASMOBJECTS)
+
+$(NAME)_CPPDEPENDS := $(foreach file, $(filter %.cpp, $($(NAME)_SOURCES)), \
+	$(addprefix $($(NAME)_DEPDIR)/, $(addsuffix .d,$(basename $(notdir $(file))))))
+$(NAME)_CDEPENDS := $(foreach file, $(filter %.c, $($(NAME)_SOURCES)), \
+	$(addprefix $($(NAME)_DEPDIR)/, $(addsuffix .d,$(basename $(notdir $(file))))))
+$(NAME)_DEPENDS := $($(NAME)_CPPDEPENDS) $($(NAME)_CDEPENDS)
+
+$(NAME)_LOC_INCLUDES := $(addprefix -I, $($(NAME)_SOURCE_PATHS) $($(NAME)_LOCAL_INCLUDE_PATHS) )
+$(NAME)_SYS_INCLUDES := -I-
+$(NAME)_SYS_INCLUDES += $(addprefix -I, $($(NAME)_SYSTEM_INCLUDE_PATHS) )
+$(NAME)_INCLUDES := $($(NAME)_LOC_INCLUDES) $($(NAME)_SYS_INCLUDES)
+
+$(NAME)_EXTRA_LDFLAGS += $(addprefix -L, $($(NAME)_LIBRARY_PATHS) )
+#add non .so libs.
+$(NAME)_EXTRA_LDFLAGS += $(filter %.so %.a _APP_ _KERNEL_, $($(NAME)_LIBS) )
+#add .so libs and add .l prefix to each of those.
+$(NAME)_EXTRA_LDFLAGS += $(foreach lib, $(filter-out %.so %.a _APP_ _KERNEL_, $($(NAME)_LIBS)), $(addprefix -l, $(lib))) 
+
+#VPATH += $(sort $($(NAME)_INCLUDES) $($(NAME)_SOURCE_PATHS))
+#vpath %.cpp %.c %.asm $($(NAME)_SOURCE_PATHS)
+
+$(NAME)_TARGET := $($(NAME)_TARGET_DIR)/$(NAME)
+
+RSRCS := $($(NAME)_RSRCS)
+ifdef RSRCS
+	$(NAME)_EXEC_RSRCS := 	\
+	echo merging resources for $(NAME) && \
+	xres -o "$($(NAME)_TARGET)" $($(NAME)_RSRCS)
+
+else
+#temporary set to true for a bug with multiple "&& &&" after eachother
+#which chokes the "shell".
+	$(NAME)_EXEC_RSRCS := true
+endif
+RSRCS :=
+
+ifeq ($($(NAME)_TYPE),APP)
+	$(NAME)_linker := \
+	$(LD) -o "$($(NAME)_TARGET)" $($(NAME)_OBJECTS) -Xlinker -soname=_APP_ $($(NAME)_EXTRA_LDFLAGS) $(LDFLAGS) && \
+	$($(NAME)_EXEC_RSRCS) && \
+	mimeset -f "$($(NAME)_TARGET)"
+endif
+ifeq ($($(NAME)_TYPE),SHARED)
+	$(NAME)_linker := \
+	$(LD) -o "$($(NAME)_TARGET)" $($(NAME)_OBJECTS) -nostart -Xlinker -soname=$(NAME) $($(NAME)_EXTRA_LDFLAGS) $(LDFLAGS) && \
+	$($(NAME)_EXEC_RSRCS) && \
+	mimeset -f "$($(NAME)_TARGET)"
+endif
+ifeq ($($(NAME)_TYPE),STATIC)
+	$(NAME)_linker := \
+	ar -cru "$($(NAME)_TARGET)" $($(NAME)_OBJECTS) && \
+	$($(NAME)_EXEC_RSRCS) && \
+	mimeset -f "$($(NAME)_TARGET)"
+endif
+
+#Adding sources to the global source variable.
+ALL_SOURCES += $($(NAME)_SOURCES)
+ALL_TARGETS += $($(NAME)_TARGET)
+
+$(NAME)_WRITECC = \
+	printf '\t%s\n' '@echo compiling: $$(notdir $$@)' >> $@ && \
+	printf '\t%s\n' '@mkdir -p $$(dir $$@)' >> $@ && \
+	printf '\t%s\n\n' '@$(CC) "$$<" $(CFLAGS) $($*_EXTRA_CFLAGS) $($*_INCLUDES) -o "$$@"' >> $@
+
+$(NAME)_WRITEASM = \
+	printf '\t%s\n' '@echo compiling: $$(notdir $$@)' >> $@ && \
+	printf '\t%s\n' '@mkdir -p $$(dir $$@)' >> $@ && \
+	printf '\t%s\n\n' '@nasm -o "$$@" -f elf "$$<"' >> $@
+
+$(NAME)_WRITEDEP = \
+	printf '\t%s\n' '@echo generating dependencies: $$(notdir $$@)' >> $@ && \
+	printf '\t%s\n' '@mkdir -p $$(dir $$@)' >> $@ && \
+	printf '\t%s\n' '@printf "%s" $(OBJDIR)/$*/ > $$(addsuffix .D, $$(basename $$@))' >> $@ && \
+	printf '\t%s\n' '@$(DEP) $($*_INCLUDES) "$$<" >> $$(addsuffix .D, $$(basename $$@))' >> $@ && \
+	printf '\t%s\n\n' '@mv $$(addsuffix .D, $$(basename $$@)) $$@' >> $@
+
+#	printf '\t%s\n' '@echo $$@ $$(basename $$(subst $(DEPDIR)/, $(OBJDIR)/, $$@))".o" \\ > $$(addsuffix .D, $$(basename $$@))' >> $@ && \
+
+$(NAME)_WRITEOBJCPP = $(foreach dir, $($*_SOURCE_PATHS), \
+	printf '%s\n' '$(OBJDIR)/$*/%.o: $(dir)%.cpp' >> $@ && \
+	$($*_WRITECC) && \
+	) true
+
+$(NAME)_WRITEOBJC = $(foreach dir, $($*_SOURCE_PATHS), \
+	printf '%s\n' '$(OBJDIR)/$*/%.o: $(dir)%.c' >> $@ && \
+	$($*_WRITECC) && \
+	) true
+
+$(NAME)_WRITEOBJASM = $(foreach dir, $($*_SOURCE_PATHS), \
+	printf '%s\n' '$(OBJDIR)/$*/%.o: $(dir)%.asm' >> $@ && \
+	$($*_WRITEASM) && \
+	) true
+
+$(NAME)_WRITEDEPCPP = $(foreach dir, $($*_SOURCE_PATHS), \
+	printf '%s\n' '$(DEPDIR)/$*/%.d: $(dir)%.cpp' >> $@ && \
+	$($*_WRITEDEP) && \
+	) true
+
+$(NAME)_WRITEDEPC = $(foreach dir, $($*_SOURCE_PATHS), \
+	printf '%s\n' '$(DEPDIR)/$*/%.d: $(dir)%.c' >> $@ && \
+	$($*_WRITEDEP) && \
+	) true
+	
+$($(NAME)_TARGET): $($(NAME)_EXTRA_DEENDENCIES) $($(NAME)_OBJECTS)
+	@echo linking: $(notdir $@)
+	@mkdir -p $(dir $@)
+	@$($(notdir $@)_linker)
+
+.PHONY: $(notdir $($(NAME)_TARGET))
+
+
+$(notdir $($(NAME)_TARGET)): $($(NAME)_TARGET)
+
+DEPENDS := $($(NAME)_DEPENDS)
+ifneq ($(MAKECMDGOALS),clean)
+ ifneq ($(MAKECMDGOALS),depend)
+   -include $(RULESDIR)/makefile.$(NAME).rules
+   ifneq ($(wildcard $(DEPDIR)),)
+     ifdef DEPENDS
+      -include $(DEPENDS)
+     endif
+   endif
+ endif
+endif
+
+ifeq ($(MAKECMDGOALS),depend)
+  -include $(RULESDIR)/makefile.$(NAME).rules
+  ifdef DEPENDS
+   -include $(DEPENDS)
+  endif
+endif
+DEPENDS :=

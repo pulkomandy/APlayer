@@ -1,0 +1,697 @@
+<HTML>
+<HEAD><TITLE>APlayer history</TITLE></HEAD>
+<BODY BGCOLOR="#999966">
+<!-- Make background table  -->
+<CENTER>
+<TABLE WIDTH="800" BGCOLOR="#999966" BORDER="0">
+<TR><TD VALIGN="TOP" ALIGN="LEFT" WIDTH="150">
+
+<!-- Left side starts here  -->
+<!-- Black border starts here  -->
+<TABLE BGCOLOR="#000000" BORDER="0" CELLSPACING="0" CELLPADDING="2" WIDTH="100%"><TR><TD>
+<!-- Left content starts here  -->
+<TABLE BGCOLOR="#FFFFCC" BORDER="0" CELLSPACING="2" CELLPADDING="2" WIDTH="100%">
+<TR><TD VALIGN="TOP" ALIGN="LEFT">
+
+<TABLE BORDER="0">
+<TR><TD><H2>APlayer:</H2></TD></TR>
+<TR><TD>- <A HREF="contact.html"><BIG>Contact info</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="disclaimer.html"><BIG>Disclaimer</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="features.html"><BIG>Features</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="howtouse.html"><BIG>How to use</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="modtypes.html"><BIG>Module types</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="requirements.html"><BIG>Requirements</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="thanks.html"><BIG>Thanks</BIG></A><BR></TD></TR> 
+<TR><TD>- <A HREF="history.html"><BIG>Version history</BIG></A><BR></TD></TR>
+</TABLE>
+&nbsp;<BR>
+
+</TD></TR>
+</TABLE><!-- Left content ends here  -->
+</TD></TR>
+</TABLE><!-- Black border ends here  -->
+</TD><TD VALIGN="TOP" ALIGN="LEFT" WIDTH="650">
+
+<!-- Right side starts here  -->
+<!-- Black border starts here  -->
+<TABLE BGCOLOR="#000000" BORDER="0" CELLSPACING="0" CELLPADDING="2" WIDTH="100%"><TR><TD>
+<!-- Right content starts here  -->
+<TABLE BGCOLOR="#FFFFCC" BORDER="0" CELLSPACING="2" CELLPADDING="2" WIDTH="100%">
+<TR><TD HEIGHT="800" VALIGN="TOP" ALIGN="LEFT">
+<CENTER>
+<TABLE BORDER="0" WIDTH="95%">
+<TR><TD>
+<!-- Stuff inside right content starts here  -->
+
+<H2><A NAME="top"></A>APlayer version history:</H2>
+3.0.0 released 16. November 1997 - alpha release, first version
+for BeOS<BR>
+<A HREF="oldhistory.html#301">3.0.1 released 18. January 1998</A><BR>
+<A HREF="oldhistory.html#302">3.0.2 released 22. February 1998</A><BR>
+<A HREF="oldhistory.html#310">3.1.0 released 6. July 1998</A><BR>
+<A HREF="oldhistory.html#320">3.2.0 released 17. August 1998</A><BR>
+<A HREF="oldhistory.html#330">3.3.0 released 6. January 1999</A><BR>
+<A HREF="oldhistory.html#335">3.3.5 released 20. March 1999</A><BR>
+<A HREF="oldhistory.html#340">3.4.0 released 12. July 1999</A><BR>
+<A HREF="oldhistory.html#342">3.4.2 released 10. August 1999</A><BR>
+<A HREF="oldhistory.html#350">3.5.0 released 8. November 1999</A><BR>
+<A HREF="oldhistory.html#351">3.5.1 released 20. December 1999</A><BR>
+<A HREF="oldhistory.html#352">3.5.2 released 16. February 2000</A><BR>
+<A HREF="oldhistory.html#360">3.6.0 released 26. June 2000</A><BR>
+<A HREF="oldhistory.html#361">3.6.1 released 4. November 2000</A><P>
+
+<A NAME="301"></A>
+<H3>Version 3.0.1 Released 18. January 1998</H3>
+<UL>
+  <LI><B>Fixed</B> a lot of small and big bugs.
+  <LI>Mixer routine <B>fixed</B> so it works with MixTest (thanks
+  Marco Nelissen)
+  <LI><B>Added</B> module information window
+  <LI><B>Added</B> new players: SoundTracker15, SoundTracker31,
+  NoiseTracker, ProTracker, StarTrekker with AM support, FastTracker,
+  TakeTracker and MultiTracker.
+  <LI>Now remembers the window-positions and sizes.
+  <LI><B>Changed</B> the about window.
+</UL>
+
+<A NAME="302"></A>
+<H3>Version 3.0.2 Released 22. February 1998</H3>
+<UL>
+  <LI><B>Added</B> the Module List Editor add-on.
+  <LI><B>Changed</B> the menus a little bit and added online help.
+  <LI><B>Fixed</B> a bug in the mixer routine. It didn't move the
+  sample pointer when a sample was played with volume 0.
+  <LI><B>Changed</B> the mime-type strings in the players to correct
+  mime strings. Thanks goes to Rainer Ried for telling me.
+  <LI><B>Fixed</B> Had reversed the left and right channels in
+  the mixer (oops :)
+  <LI><B>Fixed</B> a lot of small and big bugs.
+</UL>
+
+<A NAME="310"></A>
+<H3>Version 3.1.0 Released 6. July 1998</H3>
+<UL>
+  <LI><B>Added</B> subsong interface.
+  <LI><B>Added</B> C64 player (Based on SidPlay by Michael Schwendt).
+  <LI><B>Bug fixed</B> in the ModTracker player. If loop start
+  was different from 0, it <BR>
+  says the sample is looping, even if loop length is 1 or lower.
+  <LI>If the user press in the main window listview where there
+  isn't any items, it <BR>
+  unselects the current playing item. <B>Fixed</B>.
+  <LI>The quit procedure rewritten a little bit. It didn't work
+  under Release 3 of <BR>
+  BeOS. Thanks to Peter Potrebic from Be for discovering <B>the
+  bug</B>.
+  <LI>Didn't free the playing module when a new APML list was loaded.
+  <LI>Some ProTracker modules do some funny tricks, like playing
+  a pattern <BR>
+  backwards. This result APlayer to skip the module and go on with
+  the next. Now <BR>
+  the player checks to see if the pattern is played backwards and
+  then it won't <BR>
+  jump to the next module.
+  <LI>The config load and save functions are endianess aware, which
+  means you can <BR>
+  take a config file from PPC and use it on an INTEL machine and
+  vice versa.
+  <LI><B>Changed</B> the About window again :) This time the scroll
+  routine is totally <BR>
+  rewritten, added a nice logo and added some more information.
+  <LI><B>Changed</B> the application mime string to application/x-vnd.Polycode.APlayer.
+<BR>
+  Remember to remove the old mime string from the FileType preference
+  program, or <BR>
+  to make really sure, remove the file called: <BR>
+  /boot\home/config/settings/beos_mime/application/x-vnd.APlayer.
+  <LI>The StarTrekker player doesn't require the .nt file anymore.
+  If the module <BR>
+  use AM voices and the .nt file isn't there, silence will appear
+  to your ear :)
+  <LI><B>Changed</B> the way APlayer launches the online-help.
+  Now it asks for the default <BR>
+  browser and start this instead of using NetPositive directly
+  + it checks to see <BR>
+  if the document exists before it launches it.
+  <LI>The behavour when you drag a module into the main window
+  has changed. Now it <BR>
+  frees the playing module and clears the list before it add the
+  dropped modules.
+  <LI>When you save an APML file, the mimetype on the file will
+  be set to <BR>
+  &quot;text/plain&quot;.
+  <LI>Now APlayer remember which windows was open with last exit
+  and open the <BR>
+  windows again when started next time.
+  <LI><B>Added</B> add-on config interface.
+</UL>
+
+<A NAME="320"></A>
+<H3>Version 3.2.0 Released 17. August 1998</H3>
+<UL>
+  <LI><B>Improved</B> the SoundTracker15 and SoundTracker31 test
+  functions.
+  <LI>The loader doesn't crash anymore when you try to load a file
+  which doesn't <BR>
+  exists.
+  <LI>Converter interface <B>added</B>.
+  <LI><B>Added</B> the MikMod player + improved and fixed some
+  bugs in it :), eg. can it <BR>
+  play the Essential.s3m module right. Can now play:<BR>
+<BR>
+  <B>669</B> - Improved a lot. It almost a new converter. The slide
+<BR>
+  effects works now. Some small effects is not supported yet.<BR>
+  <B>Farandole</B> - Almost totally rewritten the MikMod converter.
+  There <BR>
+  was a lot of bugs in it and added some extra effect support.<BR>
+  <B>FastTracker II<BR>
+  ImpulseTracker<BR>
+  ScreamTracker 2.xx<BR>
+  ScreamTracker 3.xx<BR>
+  UltraTracker</B> - Fixed some small bugs + fixed the sample offset
+<BR>
+  effect to handle 0x99 offsets. Only 95% supported.
+  <LI>Now players can tell APlayer how many channels the module
+  use and how many <BR>
+  to reserve. This is used in ImpulseTracker because of the New
+  Note Action.
+  <LI><B>New version</B> of the SidPlay player.
+  <LI><B>Changed</B> the about window again a little bit. Now the
+  logo is placed in the <BR>
+  window to begin with and starts scrolling out.
+</UL>
+
+<A NAME="330"></A>
+<H3>Version 3.3.0 Released 6. January 1999</H3>
+<UL>
+  <LI><B>Changed</B> the NotePlayer interface so it uses a class
+  instead of a structure to tell APlayer what to play.
+  <LI><B>Fixed</B> a little bug in the SID settings slider DrawText()
+  function.
+  <LI><B>Changed</B> the whole add-on interface. Rewritten from
+  scratch. It's now more OO-like. Boy, this took a long time to
+  do. All the players are rewritten to use the new interface.
+  <LI><B>Changed</B> so all the windows are opened at the same
+  time when starting APlayer.
+  <LI><B>Upgraded</B> the ColumnListView from &quot;Santa's gift
+  bag&quot; to version 2.3.
+  <LI><B>Added</B> Dolby Surround support in the mixer.
+  <LI><B>Added</B> the new version of the MikMod player (3.1.2).
+  I have integrated the bug fixes and features from the new version
+  with mine and here are the results:<BR>
+<BR>
+  Loaders:<BR>
+<BR>
+  <B>669</B> - It now plays with the current speed.<BR>
+  <B>FAR</B> - Improved a little bit.<BR>
+  <B>IT</B> - Support for packed samples + optimized a little bit.<BR>
+  <B>S3M - </B>with more than 16 channels (i.e not created with
+  Scream Tracker) caused<BR>
+  previous version to crash + it can recognice Imago Orpheus types.<BR>
+  <B>ULT</B> - Now shows the version of the tracker used.<BR>
+  <B>XM</B> - Modules with more than 256 samples caused systematic
+  crashs when trying to load them.<BR>
+  <B>Added</B> the AMF and DSM loader.<BR>
+<BR>
+  Player:<BR>
+<BR>
+  Imbricated loops won't block the player.<BR>
+  End of song marker is now recognized in S3M and IT when it appears
+  inside the pattern list.<BR>
+  Speed and Tempo can't escape their bounds (1-32 for speed, 32-255
+  for tempo) now.<BR>
+  Delay note effect did not work correctly in previous version.<BR>
+  All divide by zero conditions are prevented.<BR>
+  <B>Fixed</B> S3M volume slide.<BR>
+  Panning overflows <B>fixed</B>.<BR>
+  IT pitch envelope now works correctly.<BR>
+  IT effect G (porta to note) misbehaviour when changing instrument
+  on the same row, or after a note cut, <B>fixed</B>.<BR>
+  XM effect G (set global volume) was misinterpreted, resulting
+  in halved volumes doing playback.<BR>
+  A few glitches in the pattern break and pattern jump effect have
+  been fixed.
+</UL>
+
+<A NAME="335"></A>
+<H3>Version 3.3.5 Released 20. March 1999</H3>
+<UL>
+  <LI><B>Using</B> my new PolyKit library. That means some of my
+  classes are removed from the APlayerClasses library to the PolyKit
+  library.
+  <LI>Bug <B>fixed</B>. Can now play modules directly from read-only
+  drives again, such as CD-ROM drives.
+  <LI><B>Added</B> the Future Composer 1.4 player.
+  <LI><B>Added</B> the ModuleConverter agent, which is able to
+  convert Future Composer 1.0-1.3 to Future Composer 1.4.
+  <LI><B>Removed</B> memory leaks in all the players when something
+  goes wrong while loading the module.
+  <LI><B>Thread safed</B> the SetPosition() in all the players.
+  <LI><B>Updated</B> the ColumnListView to version 2.6.
+  <LI><B>Added</B> a new position slider in the main window.
+  <LI><B>Improved</B> the mixer routine. Samples longer than 1
+  Mb were not played correctly. The mixer routine now uses 64 bit
+  integers to hold some intern calculations when needed. It still
+  uses 32 bit integers when mixing small samples.
+  <LI><B>Bug</B> fixed. Samples with ping-pong loops could make
+  APlayer to crash on some rare conditions.
+  <LI><B>Updated</B> the MikMod player to 3.1.5 and that includes:<BR>
+<BR>
+  Loaders:<BR>
+<BR>
+  <B>AMF</B> modules in formats 1.0, 1.2 and 1.3 couldn't be loaded.<BR>
+  <B>S3M</B> loader correctly identifies S3M modules created by
+  ImpulseTracker and Imago Orpheus.<BR>
+  <B>STM</B> loader rejected STM created by MOD2STM; the last pattern
+  was never played; also in some STM modules the samples were not
+  loaded correctly.<BR>
+  <B>XM </B>modules in format 1.02 couldn't be loaded.<BR>
+  <B>Added</B> the STX (STMIK 0.2), IMF (Imago Orpheus) and GDM
+  (General DigiMusic) loaders.<BR>
+  <B>Added</B> the UNI loader, for those who need to play the 'Acid
+  Tetris' or 'Axia' songs.<BR>
+<BR>
+  Player:<BR>
+<BR>
+  Envelope sustain loops in XM modules were not processed correctly.<BR>
+  Porta to note using the command memory used sometimes an incorrect
+  value when playing AMF, IT, S3M and ULT modules.<BR>
+  Volume slides for IT (Dxx) and XM (Axx) modules didn't continue
+  in the background.<BR>
+  Porta down effect in the volume column of IT modules was not
+  played correctly.<BR>
+  IT effect T (slide tempo) is now implemented.
+</UL>
+
+<A NAME="340"></A>
+<H3>Version 3.4.0 Released 12. July 1999</H3>
+<UL>
+  <LI>A Volume <B>bug</B> has been <B>removed </B>from the MikMod
+  player.
+  <LI><B>Fixed </B>an IT loader bug in the MikMod converter. It
+  can now play the &quot;Revenge of the Cats&quot; module. Thanks
+  to David Terrell for reporting this.
+  <LI><B>Cleaned up </B>the Global data area and created the APModuleList
+  class.
+  <LI>Now supports CL-Amp and SoundPlay playlists.
+  <LI>When you save an APML (APlayer Module List), it will set
+  the mime-type to text/x-aplayer-list.
+  <LI><B>Fixed </B>some bugs in the ModTracker player. It can now
+  play modules which have backwards pattern correct. Thanks to
+  Cedric Degea for reporting this bug.
+  <LI><B>Fixed </B>another bug in the ModTracker player. Some Jogeir
+  Liljedahl modules sounded terrible out-of-tune. The reason to
+  this is that the player thought it was NoiseTracker modules and
+  then disabled finetune. The volume-bug Cedric Degea reported
+  to me is also fixed by this.
+  <LI><B>Fixed</B> a bug in the Future Composer 1.0-1.3 converter.
+  Some modules played out of tune.
+  <LI>If a player changes one of the values displayed in the module
+  information window, the Module Info Agent will now check to see
+  if the update differs from the current data, otherwise it won't
+  update it. This will save some CPU cycles and flickering :)
+  <LI><B>Improved </B>the drawing code for the columns in the Module
+  Info agent.
+  <LI>If the Players and/or Agents directory doesn't exists, APlayer
+  crashed when started.
+  <LI>Improved the Module List Editor startup time and reduced
+  the amount of memory used when using the file panels. Now they
+  won't be allocated until they are needed and freed again when
+  the module list editor window is closed.
+  <LI><B>Rewritten </B>the loader routine. It should now be more
+  safe and shouldn't crash like the old one did in some rare cases.
+  <LI>Made some <B>changes </B>in the player interface. If you
+  are programming a player, you need to change it a little bit.
+  See the APlayer Developer Kit for more information.
+  <LI>The module information window will now show the filename
+  if the returned module name from the player is empty or only
+  have spaces.
+  <LI>The surround panning flag didn't work in sample players.
+  <LI>Added a <B>new </B>version of SidPlay so it now uses version
+  1.36.35.
+  <LI>Added the settings window. Phew, that was a lot of work :)
+  <LI>Optimized the module list editor listcode a lot on large
+  lists. Now it only takes a few seconds to load a list with 1600
+  modules. The clear list function isn't optimized yet, because
+  of a bug in BeOS that make APlayer crash (the MakeEmpty() on
+  BListView doesn't work right).
+  <LI>Very long samples <B>were </B>truncated in the mixer.
+  <LI><B>Added </B>a beta version of the OctaMed player. A big
+  thanks to Cedric Degea for making this player.
+  <LI><B>Added </B>the MPG123 player, created by Claes L&ouml;fqvist.
+  A big thanks to him too.<BR>
+  <LI><B>Updated</B> the MikMod player to 3.1.7 and that includes:<BR>
+<BR>
+  Loaders:<BR>
+<BR>
+  Delay note effect was incorrectly converted to pattern jump,
+  and porta to note was incorrectly converted to tremor, for GDM
+  modules.<BR>
+  Dual effect Lxx in S3M and IT was misconverted to L00.<BR>
+  XM modules in format 1.03 couldn't be loaded.<BR>
+<BR>
+  Player:<BR>
+<BR>
+  Invalid notes using non-existent instruments caused the current
+  note to be retriggered instread of being ignored.<BR>
+  Porta to note effects did not restart the sample envelopes.<BR>
+  Note cut with non empty volume column on the same row resulted
+  in the note cut being ignored.<BR>
+  Disabling/enabling envelopes had no effect.<BR>
+  Pitch envelope was not played accurately (IT)<BR>
+  Set finetune effect (E5x) wasn't handled correctly for XM modules.<BR>
+  Fine slides (X1x, X2x) didn't play correctly for XM modules.
+</UL>
+
+<A NAME="342"></A>
+<H3>Version 3.4.2 Released 10. August 1999</H3>
+<UL>
+  <LI><B>Fixed</B> a lot of bugs in the MPEG player (previously
+  released in 3.4.1 patch)
+  <LI><B>Fixed </B>a bug in the OpenExtraFile() function. It didn't
+  use the directory when checking for prefixes.
+  <LI>When playing a module, the music stopped when you change
+  the position. Bug introduced in 3.4.1 and is now <B>fixed</B>.
+  <LI>When a genre code in a mpeg file is -1 (none), the MPEG player
+  crashed. <B>Fixed</B>.
+  <LI><B>Added</B> the AHX player. A big thanks to Bernhard Wodok
+  (Bartman of Abyss) for sending us the source to his player.
+  <LI><B>Added</B> the GetMixingFrequency() function in the APAddOnPlayer
+  class.
+  <LI><B>Fixed</B> a little bug in the MikMod S3M loader.
+</UL>
+
+<A NAME="350"></A>
+<H3>Version 3.5.0 Released 8. November 1999</H3>
+<UL>
+  <LI><B>Fixed</B> a small bug in the AHX player. SidVibes.ahx
+  now plays without any problems.
+  <LI><B>Changed</B> the player interface a little bit. Hertz is
+  now used instead of BPM, when a player reports the speed of a
+  module to APlayer. With this method, the speed can be defined
+  with a significantly better precision.
+  <LI>If you loop an MP3 file, the music chopped everytime it looped.
+  Thanks to Arild Fischer for reporting this.
+  <LI><B>Added</B> the sample info window agent. You can now see
+  all the samples, play them on the keyboard and save your favorite
+  sounds.
+  <LI><B>Added</B> author finding system. Searches through the
+  sample/instrument names to find an author.
+  <LI><B>Updated</B> the column list view to version 2.85.
+  <LI><B>Rewrote</B> the internal interface to the mixers &amp;
+  added support for virtual mixers in agents.
+  <LI>When playing a MP3 file with a different frequency than the
+  mixing frequency, the file sounded choppy.
+  <LI><B>Changed</B> the void* pointers to const void* pointers
+  in the APChannel class.
+  <LI><B>Fixed</B> a bug in the window position save routines.
+  If you placed a window so it got a negative value in either x
+  or y, the next time APlayer started, it would try to open the
+  window using a very big value. Thanks to Cedric Degea for telling
+  me.
+  <LI>If you paused an MP3 at position 99, APlayer took all the
+  CPU power it could get.
+  <LI>Now APlayer only allocates the reverb buffers when needed.
+  This means, APlayer will allocate or free the memory on the fly.
+  <LI><B>Upgraded</B> the MikMod player and converter to 3.1.8.<BR>
+<BR>
+  IT global volume slide effect was played too fast.<BR>
+  IT effect S6x (pattern delay for x ticks) was misunderstood as
+  SEx (pattern delay for x rows).<BR>
+  Finetune effect was not handled correctly for some XM modules.<BR>
+  AMF effect 4 and variants leaked memory.<BR>
+  IT modules featuring patterns with less than 32 rows could not
+  be loaded.<BR>
+  Some samples and effects in modules converted by APlayer (.apun)
+  were not played correctly.<BR>
+  Linefeeds in the song message in IT modules weren't loaded correctly.<BR>
+  IMF effect XE (ignore envelope) implemented.<BR>
+  More 'slightly corrupted' XM modules can be loaded.
+</UL>
+
+<A NAME="351"></A>
+<H3>Version 3.5.1 Released 20. December 1999</H3>
+<UL>
+  <LI>If you disabled the Sample Info agent while playing a module,
+  APlayer crashed. This is <B>fixed</B> now.
+  <LI>If you played a MP3 with variable bit-rate and you manually
+  begin to play a SID, the &quot;Init Addr&quot; in the module
+  info window will show the last bit-rate from the MP3. <B>Fixed</B>
+  now.
+  <LI><B>Changed</B>, so it's only every 10th bit-rate change that
+  is updated in the module info window, when playing variable bit-rate
+  MP3s. This is done to save some CPU time.
+  <LI><B>Changed</B> the path requesters in the paths settings,
+  so the start in the parent directory instead of the current.
+  <LI><B>Changed</B> the &quot;add file&quot; path requester open
+  button in the module list editor to &quot;add&quot;.
+  <LI>APlayer can now load WinAmp list files + it can load all
+  list types with no path given in the lists.
+  <LI><B>Updated</B> the column list view to version 2.93 (from
+  Santa's Gift Bag).
+  <LI><B>Improved</B> the module list add functions in both the
+  main window and the module list editor (it's twice as fast now).
+  <LI>If a player couldn't be initialized on the specific module,
+  the module will now be removed from the list and the next module
+  will be loaded.
+  <LI><B>Added</B> the <I>LockListWithTimeout()</I> to the APModuleList
+  class.
+  <LI><B>Added</B> the &quot;Remember module list when exit&quot;
+  option in the settings window.
+  <LI><B>Removed</B> a deadlock when the user selects a module
+  in the modulelist and keep the mouse button down. If the current
+  playing module then ends, a deadlock occure. Thanks to Cedric
+  Degea for reporting this.
+  <LI><B>Added</B> the TFMX player.
+  <LI><B>Boosted</B> the finally volume in the mixer.
+  <LI><B>Improved</B> the speed when stopping and changing position
+  in a sample player like the Mpeg player.
+  <LI><B>Added</B> the Sample player + added a loader to the AudioIFF
+  converter.
+</UL>
+
+<A NAME="352"></A>
+<H3>Version 3.5.2 Released 16. February 2000</H3>
+<UL>
+  <LI>If you opened the settings window, pressed the cancel button
+  and then opened the SID settings window via the menu, APlayer
+  said that the window couldn't be initialized. The reason is that
+  the main settings window removed some backup keys from APlayers
+  registry that shouldn't be removed. <B>Fixed</B> now.
+  <LI>From 3.5.1, you couldn't play the samples on the keyboard
+  when the module was paused. <B>Fixed</B> now.
+  <LI><B>Added</B> SoundFX 2.0 player and added the SoundFX 1.3
+  converter in the ModuleConverter agent.
+  <LI>If you selected one of the players or agents in the settings
+  window with the mouse, you couldn't move the selection bar with
+  the cursor keys. <B>Fixed</B> now.
+  <LI>The sample info window ignored the save format changes you
+  made. It just saved in the same format all the time.
+  <LI><B>Improved</B> the converter interface.
+  <LI><B>Added</B> the RIFF-WAVE converter, so you can now save
+  samples in .wav format + play .wav files.
+  <LI>Agents can now plug-in with priorities, by using the GetPluginPriority()
+  function in APAddOnAgent.
+  <LI><B>Renamed</B> all the AfterLoadingBeforeCheck constants
+  and functions to just BeforeCheck, because the players load the
+  module by themself (old change), so the AfterLoading part is
+  misleading.
+  <LI><B>Fixed</B> a deadlock that sometimes could occur when using
+  the &quot;Remember module list&quot; option. APlayer deadlocked
+  when you started it. It begins to play the module, but no windows
+  appears.
+  <LI>APlayer will now first delete the remembered module list
+  file when APlayer exits instead of when starting.
+  <LI><B>Added</B> the Unreal converter in the Module Converter
+  agent, so APlayer can play the modules from the PC game Unreal
+  (umx files).
+  <LI><B>Fix</B> in the MikMod player, so modules that jump back
+  and forward all the time, don't ends the module suddenly. Hopefully
+  this method works :) Unreal uses it alot!
+  <LI><B>Fixed</B> a bug in the mixer. Now APlayer can play the
+  &quot;Silent Service 2&quot; module. Thanks to Cedric Degea for
+  sending me the module and telling about the bug.
+  <LI><B>Removed</B> a memory leak in the mixer.
+  <LI><B>Removed</B> the AM &amp; FM sample type and added the
+  Synth type instead.
+  <LI><B>Fixed</B> a bug in the module list that could make APlayer
+  crash. Thanks to Jacob Veedfald for reporting this.
+  <LI>If you added a symlink to a directory, the symlink itself
+  was added instead of the files in it. Thanks to Cedric Degea
+  for reporting this.
+  <LI><B>Improved</B> the player descriptions.
+  <LI><B>Upgraded</B> the MikMod player and converter to 3.1.9.<BR>
+<BR>
+  Envelopes weren't loaded correctly for IMF and XM modules. In
+  the average case, the first envelope point was correct, the remaining
+  half points were bogus, and the other half completely random.<BR>
+  Enabling the envelope (with an effect) for a sample with no associated
+  envelope would cause a crash.<BR>
+  Panning was ignored in GDM modules.<BR>
+  Sample rate was incorrect for STM and STX modules.<BR>
+  Arpeggio memory (for IT modules) was ignored.<BR>
+  Tempo slide for IT modules was not processed correctly.
+</UL>
+
+<A NAME="360"></A>
+<H3>Version 3.6.0 Released 26. June 2000</H3>
+<UL>
+  <LI><B>Added </B>the Decruncher agent, which can decrunch PowerPacker
+  data files and XPK-SQSH files.
+  <LI><B>Fixed </B>some bugs in the APChannel class + the mixer
+  when using the second syntax of the SetLoop() function. Thanks
+  to Cedric for pointing this out.
+  <LI>The volume slider and the main window position wasn't remembered
+  if you didn't have a &quot;remembered&quot; module list file.
+  <LI><B>Added </B>Amiga low-pass filter support in the player
+  interface. At the moment, it's just possible to turn the filter
+  on and off from a player, but the mixer doesn't use it yet.
+  <LI><B>Fixed </B>a bug in the ModTracker player which occured
+  when a module was using the EFx effect while no samples were
+  playing.
+  <LI><B>Improved </B>the test routines in the ModTracker player,
+  so it won't recognize a UNIC Tracker module as a Pro/NoiseTracker
+  module.
+  <LI>Reduced the volume in the mixer back to the original value,
+  because it overpeaked some S3M modules. Too prevent sample (e.g.
+  wave/mp3) playing from being too low the volume is now boosted
+  a bit when they are played.
+  <LI><B>Added </B>the ProWizard agent. APlayer can now play over
+  80 different module formats! A big thanks to Sylvain Chipaux
+  for sending me the sources.
+  <LI>The save format in the sample info window wasn't saved. It
+  is now!
+  <LI><B>Fixed </B>some bugs in the mixer, that made some modules
+  sound terrible.
+  <LI>A graphics <B>bug fixed </B>in the main window.
+  <LI><B>Added </B>the module format information in the module
+  info window.
+  <LI><B>Changed </B>the appearance when the position slider in
+  the main window is in focus.
+  <LI><B>Added </B>support for Unreal Tournament. Thanks to Andrew
+  Kimpton for some help.
+  <LI><B>Fixed </B>the sound initialization so it doesn't hang
+  when you don't have any sound card.
+  <LI><B>Added </B>the Sound Output and DSP agent interface. The
+  API is not frozen yet, which is why the documentation is still
+  lacking.
+  <LI><B>Moved </B>the GetMixingFrequency() function from the APAddOnPlayer
+  to the APAddOn class, so it also can be called from agents.
+  <LI>If you disabled an add-on when it had a setting window open,
+  APlayer crashed.
+  <LI>On BeOS 5, APlayer sometimes crashed when you open the about
+  window. Thanks to all the people who has reported this.
+  <LI><B>Rewrote </B>the MPG123 player in C++. Also <B>fixed </B>a
+  bug when playing Layer 1 in mono. It couldn't play them because
+  they was interpreted as stereo :(
+  <LI>The Mpeg VBR file handling is improved, so it now calculates
+  the song length right.
+  <LI>The &quot;Remember module list&quot; option didn't work.
+  Thanks to Dennis Jakobsen for reporting this.
+  <LI>If no converters are installed and you try to save a sample
+  in the sample info window, it will now complain about it in nicer
+  way.
+  <LI>If you dragged a module to the last place in the Module List
+  Editor, APlayer crashed.
+  <LI><B>Changed </B>the rule for the &quot;previous module&quot;
+  button a little bit. If you press the button in the first 2 seconds
+  of a module, the previous module will now be loaded. If you press
+  the button after that, the current playing module will start
+  over again. This method should be better on modules that jump
+  very quickly to another position in the beginning.
+  <LI><B>Removed </B>the fade settings in the settings window,
+  because they are not used at the moment.
+  <LI><B>Added </B>the Sawteeth player. A big thanks to Arvid Norberg
+  for creating the player. &nbsp;
+</UL>
+
+<A NAME="361"></A>
+<H3>Version 3.6.1 Released 4. November 2000</H3>
+<UL>
+  <LI><B>Added</B> the Oktalyzer player. Boy, it took some time
+  to get to play the modules 100% correct. I will say that this
+  player is the only one except for the original that can play
+  Oktalyzer modules correct! It plays the module as the editor
+  will. (The source to the player is included in the Developer
+  kit :)
+  <LI><B>Added</B> the PlayReleasePart() function in the APChannel
+  class (needed by the Oktalyzer player).
+  <LI><B>Fixed</B> a little bug in the mpg123 player. It showed
+  wrong information if there was some random data in the beginning
+  of the file.
+  <LI>If you had double buffering on and ejected a module after
+  the next module in the list were loaded, but not started, APlayer
+  crashed.
+  <LI>APlayer can now play the Alien Breed Menu (long) correctly,
+  without going to the next module too soon.
+  <LI><B>Changed</B> the default sample info window size.
+  <LI>If you was in a directory in one of the file panels and you
+  want to open it again and the directory didn't exists anymore
+  (e.g. a CD), nothing happened.
+  <LI>The MikMod player does not send a message 50 times a second
+  to tell the Module Info Window that the tempo has changed. It
+  will only send a message when the tempo has actually changed.
+  <LI><B>Added</B> the Fred player. The player can play both &quot;Final&quot;
+  and &quot;Editor&quot; files.
+  <LI><B>Moved</B> the MikMod icon from the converter to the player.
+  <LI><B>Improved</B> the MPG123 player check routine. Some mp3's
+  has a huge block of zeros. The player is now able to skip these
+  blocks.
+  <LI><B>Rewrote</B> the ringbuffer filler thread, so the rare
+  CPU eating situations are gone. Thanks to Jaakko Leikas for reporting
+  this.
+  <LI>If you have turned &quot;Remember list when exit&quot; on
+  and the last played module doesn't exists anymore when starting,
+  APlayer crashed. Thanks to Jaakko Leikas and Ove Peter for reporting
+  this.
+  <LI>If you have a bunch of modules in the module list, you couldn't
+  select some of the last ones in the main window. Thanks to Ove
+  Peter for reporting this.
+  <LI><B>Removed</B> 256 bytes memory leak when playing a MultiTracker
+  module.
+  <LI><B>Removed</B> a memory leak in the Sawteeth player.
+  <LI>The ModTracker player will now only check the first line
+  in the first pattern played after BPM speed commands, instead
+  of the whole patterns. This fixes a detection bug in &quot;Game
+  Music Creator&quot; modules.
+  <LI><B>Rewrote</B> the ProWizard agent. It's now based on the
+  original Amiga program by Nicolas Franck. Some extra formats
+  are still supported by merging these converter routines together
+  with the new one. New formats that are now supported are: Channel
+  Player v1, Channel Player v2, Channel Player v3, KRIS Tracker,
+  NoiseTracker Pak, PhaPacker, ProMizer v1.0c, ProMizer v1.8a,
+  ProMizer v2.0, ProMizer v4.0, Pygmy Packer, The Dark Demon, and
+  Unic Tracker.
+  <LI>The playing module name is now shown in the main window titlebar.
+  This can be turned on and off in the settings.
+  <LI><B>Removed</B> a memory leak in the Players and Agents tab
+  in the settings window.
+  <LI><B>Added</B> a new tab, Filetypes, in the settings window.
+  <LI><B>Improved</B> the Future Composer 1.3 converter a little
+  bit.
+  <LI><B>Fixed</B> a loop bug in the MikMod player.
+  <LI><B>Fixed</B> a bug in the XM effect 6 (vibrato + volume slide)
+  in both the MikMod player and XM converter.
+  <LI><B>Added</B> support for WinAmp extended file lists.
+  <LI>When playing small mpegs, APlayer crashed on x86 machines.
+</UL>
+<P><CENTER><A HREF="oldhistory.html#top"><IMG SRC="pictures/arrow.png" BORDER="0"></A></CENTER>
+
+<!-- Stuff inside right content ends  -->
+</TD></TR>
+</TABLE>
+</CENTER>
+</TD></TR>
+</TABLE>
+<!-- Right content ends here  -->
+</TD></TR>
+</TABLE>
+<!-- Black border ends here  -->
+
+</TD></TR>
+</TABLE>
+</CENTER>
+<!-- Background table ends here  -->
+</BODY>
+</HTML>

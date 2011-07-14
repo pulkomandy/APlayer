@@ -1,0 +1,131 @@
+Changes from 2.00 to 2.01:
+
+- Add the GetHexNumber(), GetHexNumber64(), SetHexNumber(), SetHexNumber64(), and CreateHexNumber64() functions in the PString class.
+- There might be a problem when compiling under BONE. This should be fixed now.
+- Added an extra SetString() version in PString, which will take a length argument.
+
+
+
+Changes from 1.15 to 2.00:
+
+- The PString class has been totally rewritten. It now supports different character sets!
+- Added the PResource class, which can handle real file resources.
+- Removed the PResourceException class, because it isn't used anymore.
+- Added the character set argument to the ReadString() and WriteString() in the PFile classes.
+- Rewrote the ReadLine() and WriteLine() to handle character sets.
+- Added the LockWithCount() and UnlockWithCount() functions in the PSemaphore class.
+- Rewrote the PSWMRLocker class. It will now work in all situations, but there is a little bit of overhead. Renamed the class to PMRSWLock in the same go.
+- Swapped the template defination of the PSkipList to a more logic order.
+- Added the GetKeyAndItem() function in the PSkipList class.
+- Added the PLock class.
+- Added the EnsureDirectoryName() function in the PDirectory class.
+- Moved all the global functions into the static PSystem class.
+- You can now change the "filename" on a PMemFile object.
+- Changed the license.
+- In PList, the HasItem() thrown an exception on an empty list instead of returning false.
+- Fixed a bug in the InsertNewItem() function in PList, that caused a segment violation in special cases.
+- If you removed more than one item in one go with PList::RemoveItems(), it didn't work.
+- Added the Sleep() function in the PSystem class.
+- Moved the GetLocaleString() from the PTime class to the PSystem class and made it public.
+- Removed the PRegistry class and added the PSettings class instead.
+- Added the possiblity to retrieve the system library folder in the FindDirectory() function in PDirectory.
+- Fixed some bugs in the PThread class.
+- Added the PNetworkException, PEventException, PFTPException, and PHTTPException classes.
+- Added support for 0 count in the MultipleObjectsWait() function.
+- Added socket support with 3 new classes, namely PSocket, PLineSocket and PProxySocket.
+- Added the pUser directory support in the PDirectory::FindDirectory() function.
+- Added support for file type in the PMemFile class.
+- Changed all the position funtions in the PFile classes to handle 64 bit instead of 32 bit positions.
+- Added the PMD5 class.
+- Added the SetToMidnight() and GetNow() functions to the PTime class + renamed the SetToCurrentTime() function to SetToNow().
+- Changed so the PSkipList functions don't throw exception, but returns a bool instead.
+
+
+
+Changes from 1.14 to 1.15:
+
+- The Windows version of P_HOST_TO_BENDIAN_INT16(), P_HOST_TO_BENDIAN_INT32(), P_BENDIAN_TO_HOST_INT16() and P_BENDIAN_TO_HOST_INT32() didn't function properly with arguments that used expressions.
+- Fixed a minor bug in the Windows version of the GetFileType() in the PFile class.
+- Added share flags in the PFile class.
+- Changed the Windows version of PDirectory::FindDirectory(PDirectory::pSettings). Now the settings directory is the "Application Data" directory within the root of settings directory.
+- Fixed a major bug in the Windows version of the FileExists() in the PFile class which caused a PFileException, if the file did not exist.
+- Added the operator = with SYSTEMTIME in PTime for the Windows version.
+- Added the format argument to the GetUserTime() function in PTime.
+- Fixed other small bugs in the PTime and PTimeSpan classes.
+- Fixed a major bug in the Windows version of MakeLower() and MakeUpper() in the PString class, which in some situations currupted the content of the entire string.
+- Fixed a bug in the Windows version of the DirectoryExists() in the PDirectory class, which returned false if the specified path was a root path.
+- Improved the MultipleObjectsWait() function on BeOS, so the "one-object" wait won't take any CPU cycles when waiting as before.
+- Removed a memory leak in the PThread class on BeOS.
+
+
+
+Changes from 1.13 to 1.14:
+
+-Added the PBinary class.
+-Added name constructors in the synchronize classes.
+-Improved the return values returned by the GetOSVersion() function and added the mask numbers.
+-Added the DuplicateFile() functions in the file classes.
+-Added the operator = with a character in the PString class.
+-Added the PTimeSpan and PTime classes.
+-The Windows version of the DirectoryExists() in the PDirectory class didn't actually check the path to see if it's a directory or file.
+-HasItem() and GetItemIndex() throws a PBoundsException() when the list is empty in the PList class. This is fixed now.
+-Fixed a major memory leak in the MakeEmpty() function in the PSkipList class.
+-Added the GetItem() function which take an index as the argument in the PSkipList class.
+-Rewrote the PTimer class on the BeOS platform, so it use the BMessageRunner class.
+
+
+Changes from 1.12 to 1.13:
+
+-The ASSERT macro on BeOS now both prints and show the assert string if failed.
+-Fixed the GetParentDirectory(), GetRootDirectory() and DirectoryExists() on Windows. They didn't work probably with UNC paths.
+-Added the GetKey() function to the PSkipList class.
+-Added a copy constructor to the PTupleSpace class.
+-Added the GetName(), AddString(), RemoveString(), GetString(), SetString(), GetAndSetString(), GetAndRemoveString() and Clone() functions to the PTupleSpace class.
+-Added the operator = function to the PTupleSpace class.
+-Fixed PolyKit for Windows in order to integrate it with MFC (Microsoft Foundation Classes).
+-Added the PPriorityList class.
+-The Seek() function in PCacheFile now checks for out-of-range values.
+-Improved the GetFileType() and SetFileType() functions in the Windows implementation of PFile, so they now works on MIME strings.
+-Added the GetFileExtension() and RequestFileExtension() in the PFile class.
+-Fixed a minor memory leak in the Windows implementation of the MultipleObjectsWait() function.
+-Changed the way Open() in PFile() react when open a file in write mode. Windows only.
+-Changed the Beep() on Windows, so it now calls the Windows Beep() instead of MessageBeep().
+
+
+Changes from 1.11 to 1.12:
+
+-Added the GetParentDirectory(), GetRootDirectory() and DirectoryExists() in the PDirectory class.
+
+
+Changes from 1.1 to 1.11:
+
+-Added the GetOSVersion() function in the global functions area.
+-Added the IsAlive() function in the PThread class.
+-Added version resource to the library.
+-Made the PThread throw exceptions when the API calls fails.
+-Changed PThread so it now have a suspend counter.
+-Added Find() with substring search and StringReplace() to PString.
+-Added the operator = function to PList.
+-Added the PSkipList template class.
+-Changed the CreateNumber() and GetNumber() functions in the PRegistry class from uint32 to int32.
+-Added the PTupleSpace class.
+-Changed the PList function names, so they have our new list standard + added some extra functions.
+-Can now be compiled under Windows :)
+
+
+Changes from 1.0 to 1.1:
+
+-Added the Contains() and enumeration functions to the PDirectory class.
+-Added the GetDirectoryPart() and GetFilePart() functions in the PDirectory class.
+-Added the pQuestion type in the PAlert class.
+-Added the ReadLine() and WriteLine() functions in the PFile class.
+-Changed the error codes. Use now my own error codes in all thrown exceptions. Added two helper functions to take care of it (ConvertOSError() and GetErrorString()).
+-Added the PThread and PTimer classes.
+-Added the AddList() function in the PList class.
+-Small documentation fixes.
+-Change the PList, so it only takes one template argument.
+-The following classes now works on Windows: Global functions, PAlert, exceptions classes and synchronize classes.
+-Changed the exception classes, so it's not necessary to call the Delete() function anymore.
+-Added the FileExists() in the PFile class.
+-Operator = in PString crashed when giving a NULL pointer.
+-If the cache is empty and you make a seek anywhere into the file in PCacheFile, the cache variables wasn't updated correctly.

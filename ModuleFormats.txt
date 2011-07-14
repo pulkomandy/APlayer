@@ -1,0 +1,128 @@
+Module format supported:
+
+Format							Add-on
+
+669								MikModConverter
+AC1D Packer						ProWizard
+AHX 1.x							AHX
+AHX 2.x							AHX
+AudioIFF							Sample / AudioIFF
+Channel Player v1						ProWizard
+Channel Player v2					ProWizard
+Channel Player v3					ProWizard
+Digital Illusions						ProWizard
+DSIK (dsm)							MikModConverter
+
+DSMI (amf)							MikModConverter
+Eureka Packer						ProWizard
+Farandole							MikModConverter
+FastTracker						ModTracker
+FastTracker II						MikModConverter
+FC-M Packer						ProWizard
+Fred Editor							Fred
+Fred Editor (Final)						Fred
+Fuchs Tracker						ProWizard
+Future Composer 1.3					ModuleConverter
+
+Future Composer 1.4					FutureComposer
+Fuzzac Packer						ProWizard
+Game Music Creator					ProWizard
+General DigiMusic						MikModConverter
+Heatseeker mc1.0					ProWizard
+Hornet Packer						ProWizard
+IceTracker v1.0						ProWizard
+IFF-16SV							Sample / IFF-16SV
+IFF-8SVX							Sample / IFF-8SVX
+Imago Orpheus						MikModConverter
+
+Impulse Tracker						MikModConverter
+JamCracker						JamCracker
+Kefrens Sound Machine					ProWizard
+KRIS Tracker (Chip Tracker)				ProWizard
+Laxity Packer						ProWizard
+MED								OctaMED
+Module Protector						ProWizard
+Mpeg 1.0/Layer 1						Mpg123
+Mpeg 1.0/Layer 2						Mpg123
+Mpeg 1.0/Layer 3						Mpg123
+
+Mpeg 2.0/Layer 1						Mpg123
+Mpeg 2.0/Layer 2					Mpg123
+Mpeg 2.0/Layer 3					Mpg123
+Mpeg 2.5/Layer 1						Mpg123
+Mpeg 2.5/Layer 2					Mpg123
+Mpeg 2.5/Layer 3					Mpg123
+MultiTracker						ModTracker
+Noise Packer v1						ProWizard
+Noise Packer v2						ProWizard
+Noise Packer v3						ProWizard
+
+NoiseRunner						ProWizard
+NoiseTracker						ModTracker
+NoiseTracker Pak						ProWizard
+OctaMED							OctaMED
+OctaMED Professional 4.00				OctaMED
+OctaMED Professional 6.00				OctaMED
+OctaMED Sound Studio					OctaMED
+Ogg Vorbis							OggVorbis
+Oktalyzer							Oktalyzer
+PhaPacker							ProWizard
+
+Power Music						ProWizard
+ProMizer v0.1 (Avalon Packer)			ProWizard
+ProMizer v1.0c						ProWizard
+ProMizer v1.8a						ProWizard
+ProMizer v2.0						ProWizard
+ProMizer v4.0						ProWizard
+ProPacker v1.0						ProWizard
+ProPacker v2.1						ProWizard
+ProPacker v3.0						ProWizard
+ProRunner v1						ProWizard
+
+ProRunner v2						ProWizard
+ProTracker							ModTracker
+Pygmy Packer						ProWizard
+RIFF-WAVE							Sample / RIFF-WAVE
+Sawteeth							Sawteeth
+ScreamTracker 2						MikModConverter
+ScreamTracker 3						MikModConverter
+SID								SidPlay
+SKYT Packer						ProWizard
+SoundFX 1.3						ModuleConverter
+
+SoundFX 2.0						SoundFX
+SoundMonitor 1.1						SoundMonitor
+SoundMonitor 2.2						SoundMonitor
+SoundTracker15						ModTracker
+SoundTracker31						ModTracker
+SoundTracker v2.6					ProWizard
+StarTrekker						ModTracker
+StarTrekker 8-Voices					ModTracker
+StarTrekker Packer					ProWizard
+STIM (SlamTilt)						ProWizard
+
+STX								MikModConverter
+TakeTracker						ModTracker
+TFMX 1.5							TFMX
+TFMX Professional					TFMX
+TFMX 7-Voices						TFMX
+The Dark Demon						ProWizard
+The Player v4.0A						ProWizard
+The Player v4.0B						ProWizard
+The Player v4.1A						ProWizard
+The Player v5.0A						ProWizard
+
+The Player v6.0A						ProWizard
+The Player v6.1A						ProWizard
+Tracker Packer v1					ProWizard
+Tracker Packer v2					ProWizard
+Tracker Packer v3					ProWizard
+UltraTracker						MikModConverter
+Unic Tracker						ProWizard
+Unimod							MikModConverter
+Unreal							ModuleConverter
+Unreal Tournament					ModuleConverter
+
+Wanton Packer						ProWizard
+XANN Packer						ProWizard
+Zen Packer							ProWizard
