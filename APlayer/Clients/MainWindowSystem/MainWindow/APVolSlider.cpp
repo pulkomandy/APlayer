@@ -8,6 +8,7 @@
 /* All rights reserved.                                                       */
 /******************************************************************************/
 
+#include <iostream>
 
 // PolyKit headers
 #include "POS.h"
@@ -20,10 +21,9 @@
 /* Constructor                                                                */
 /******************************************************************************/
 APVolSlider::APVolSlider(float min, float max, orientation posture, uint32 resizingMode) :
-			BScrollBar(BRect(0.0f, min, 0.0f, max), NULL, new BView(BRect(0.0f, min, 0.0f, max), NULL, resizingMode, 0), min, max, posture)
+	BSlider("volslide", NULL, new BMessage('SLID'), min, max, posture)
 {
-	SetResizingMode(resizingMode);
-
+	SetModificationMessage(new BMessage('SLID'));
 	hookFunc = NULL;
 }
 
@@ -52,16 +52,27 @@ void APVolSlider::SetHookFunction(valueChangedFunc func, uint32 userData)
 }
 
 
-
-/******************************************************************************/
-/* ValueChanged() is called when the slider value change.                     */
-/*                                                                            */
-/* Input:  "newValue" is the new value.                                       */
-/******************************************************************************/
-void APVolSlider::ValueChanged(float newValue)
+void APVolSlider::AttachedToWindow()
 {
-	if (hookFunc != NULL)
-		(*hookFunc)(userDat, newValue);
+	BSlider::AttachedToWindow();
+	
+	// BSlider will send messages to the window, which is not what we need here.
+	SetTarget(this);
+}
 
-	BScrollBar::ValueChanged(newValue);
+
+void APVolSlider::MessageReceived(BMessage* message)
+{
+	switch(message->what)
+	{
+		case 'SLID':
+			if (hookFunc != NULL) {
+				int32 newValue = 0;
+				message->FindInt32("be:value", 0, &newValue);
+				(*hookFunc)(userDat, newValue);
+			}
+			break;
+		default:
+			BSlider::MessageReceived(message);	
+	}
 }

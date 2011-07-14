@@ -8,6 +8,7 @@
 /* All rights reserved.                                                       */
 /******************************************************************************/
 
+#include <GroupLayout.h>
 
 // PolyKit headers
 #include "POS.h"
@@ -213,12 +214,17 @@ APWindowMain::APWindowMain(MainWindowSystem *system, APGlobalData *global, BRect
 	topView->AddToolTip(muteBut, res, IDS_TIP_MAIN_MUTEBUTTON);
 	topView->AddChild(muteBut);
 
-	volSlider = new APVolSlider(-256.0f, 0.0f, B_VERTICAL, B_FOLLOW_TOP_BOTTOM | B_FOLLOW_LEFT);
+	volSlider = new APVolSlider(0, 256, B_VERTICAL, B_FOLLOW_TOP_BOTTOM | B_FOLLOW_LEFT);
 	volSlider->SetHookFunction(SetMasterVolume, (uint32)this);
 	volSlider->SetFlags(volSlider->Flags() | B_FULL_UPDATE_ON_RESIZE);
-	volSlider->SetValue(-windowSystem->playerInfo->GetVolume());
+	volSlider->SetValue(windowSystem->playerInfo->GetVolume());
 	topView->AddToolTip(volSlider, res, IDS_TIP_MAIN_VOLUME);
-	topView->AddChild(volSlider);
+	
+	volSliderLayout = new BView(BRect(0, 256, 0, 0), "holder", B_FOLLOW_TOP_BOTTOM | B_FOLLOW_LEFT, 0);
+	volSliderLayout->SetLayout(new BGroupLayout(B_VERTICAL, 0));
+	volSliderLayout->AddChild(volSlider);
+	volSliderLayout->SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));	
+	topView->AddChild(volSliderLayout);
 
 	// Create the module list
 	modList = new APWindowMainList(windowSystem, BRect(0.0f, 0.0f, 0.0f, B_V_SCROLL_BAR_WIDTH), B_FOLLOW_ALL, B_WILL_DRAW | B_FRAME_EVENTS, &modScrollView);
@@ -2378,11 +2384,11 @@ void APWindowMain::SetPosAndSize(void)
 
 	// Place the volume slider and button
 	muteBut->MoveTo(winRect.left, y);
-	muteBut->ResizeTo(B_V_SCROLL_BAR_WIDTH - 1.0f, h);
+	muteBut->ResizeTo(B_V_SCROLL_BAR_WIDTH, h);
 
 	y += (h + VSPACE);
-	volSlider->MoveTo(winRect.left, y);
-	volSlider->ResizeTo(B_V_SCROLL_BAR_WIDTH - 1.0f, listButStart - VSPACE - y - 1.0f);
+	volSliderLayout->MoveTo(winRect.left - 2, y);
+	volSliderLayout->ResizeTo(B_V_SCROLL_BAR_WIDTH, listButStart - VSPACE - y - 1.0f);
 
 	// Place the list buttons
 	w = (PICHSIZE + HSPACE - 1.0f) * 8.0f + HSPACE * 9.0f;
@@ -4043,11 +4049,10 @@ bool APWindowMain::MultiFileSave(APMultiFiles::APMultiFileType *type, void *user
 void APWindowMain::SetMasterVolume(uint32 object, float vol)
 {
 	APWindowMain *win = (APWindowMain *)object;
-	uint16 newVol = -(uint16)vol;
 
 	// Remember the volume
-	win->windowSystem->playerInfo->SetVolume(newVol);
+	win->windowSystem->playerInfo->SetVolume(vol);
 
 	if ((win->playItem != NULL) && (win->muteBut->Value() == B_CONTROL_OFF))
-		win->windowSystem->SetVolume(newVol);
+		win->windowSystem->SetVolume(vol);
 }

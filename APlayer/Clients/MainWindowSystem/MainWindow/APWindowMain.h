@@ -291,6 +291,7 @@ protected:
 
 	APPictureButton *muteBut;
 	APVolSlider *volSlider;
+	BView* volSliderLayout;
 
 	APWindowMainList *modList;
 	BScrollView *modScrollView;

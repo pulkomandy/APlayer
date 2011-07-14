@@ -26,7 +26,7 @@ typedef void (*valueChangedFunc)(uint32 data, float newValue);
 /******************************************************************************/
 /* APVolSlider class                                                          */
 /******************************************************************************/
-class APVolSlider : public BScrollBar
+class APVolSlider : public BSlider
 {
 public:
 	APVolSlider(float min, float max, orientation posture, uint32 resizingMode);
@@ -35,7 +35,8 @@ public:
 	void SetHookFunction(valueChangedFunc func, uint32 userData);
 
 protected:
-	void ValueChanged(float newValue);
+	void MessageReceived(BMessage* message);
+	void AttachedToWindow();
 
 	valueChangedFunc hookFunc;
 	uint32 userDat;
