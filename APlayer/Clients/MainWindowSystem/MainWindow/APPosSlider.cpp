@@ -89,21 +89,26 @@ void APPosSlider::DrawThumb(void)
 	view = OffscreenView();
 
 	// Draw the black shadow
-	view->SetHighColor(Black);
+	view->SetDrawingMode(B_OP_ALPHA);
+	rgb_color c = BeDarkShadow;
+	c.alpha = 128;
+	view->SetHighColor(c);
 	rect.top++;
 	rect.left++;
-	view->StrokeEllipse(rect);
+	view->FillEllipse(rect);
+	
+	// Fill the inside of the thumb
+	view->SetDrawingMode(B_OP_COPY);
+	view->SetHighColor(BeButtonGrey);
+	rect.OffsetBy(-1, -1);
+	view->FillEllipse(rect);
 
 	// Draw the dark grey edge
-	view->SetHighColor(BeDarkShadow);
-	rect.bottom--;
-	rect.right--;
+	view->SetHighColor(86, 86, 86, 255); // TODO : use an Haiku define to get that ?
+	view->SetPenSize(1.2);
 	view->StrokeEllipse(rect);
 
-	// Fill the inside of the thumb
-	view->SetHighColor(BeButtonGrey);
-	rect.InsetBy(1.0f, 1.0f);
-	view->FillEllipse(rect);
+
 }
 
 
