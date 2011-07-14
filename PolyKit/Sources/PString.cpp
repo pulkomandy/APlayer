@@ -3890,6 +3890,7 @@ void PString::Format(PString formatString, ...)
 	va_list argList;
 
 	// Set argList to the first argument
+	// TODO : I think this doesn't work.
 	va_start(argList, formatString);
 
 	// Format the string

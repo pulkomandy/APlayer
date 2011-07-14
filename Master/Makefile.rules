@@ -83,7 +83,7 @@ $(NAME)_WRITECC = \
 $(NAME)_WRITEASM = \
 	printf '\t%s\n' '@echo compiling: $$(notdir $$@)' >> $@ && \
 	printf '\t%s\n' '@mkdir -p $$(dir $$@)' >> $@ && \
-	printf '\t%s\n\n' '@nasm -o "$$@" -f elf "$$<"' >> $@
+	printf '\t%s\n\n' '@yasm -o "$$@" -f elf "$$<"' >> $@
 
 $(NAME)_WRITEDEP = \
 	printf '\t%s\n' '@echo generating dependencies: $$(notdir $$@)' >> $@ && \

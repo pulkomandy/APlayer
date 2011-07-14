@@ -209,7 +209,7 @@ void Wave::SInit(void)
 
 	// Sine table
 	for (c = 0; c < 513; c++)
-		sint[c] = sinf((float)c * (2.0f * PI) / 512.0f);
+		sint[c] = sinf((float)c * (2.0f * M_PI) / 512.0f);
 
 	// Tri table
 	float smp = -1.0f;

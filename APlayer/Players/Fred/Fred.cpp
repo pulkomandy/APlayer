@@ -745,7 +745,7 @@ ap_result Fred::LoadFinal(PFile *file, PString &errorStr)
 		}
 
 		// Allocate space to hold the inst/note commands
-		instNoteSize  = abs(instOffset - instNoteOffset);
+		instNoteSize  = abs((int)(instOffset - instNoteOffset));
 		instNoteTable = new uint8[instNoteSize];
 		if (instNoteTable == NULL)
 		{

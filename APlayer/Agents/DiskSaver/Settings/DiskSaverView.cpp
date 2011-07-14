@@ -8,6 +8,7 @@
 /* All rights reserved.                                                       */
 /******************************************************************************/
 
+#include <compat/sys/stat.h>
 
 // PolyKit headers
 #include "POS.h"
@@ -47,7 +48,7 @@ extern PSettings *diskSaverSettings;
 /*                                                                            */
 /* Output: True if the entry is valid, else false.                            */
 /******************************************************************************/
-bool DiskSaverFilter::Filter(const entry_ref *ref, BNode *node, struct stat *st, const char *filetype)
+bool DiskSaverFilter::Filter(const entry_ref *ref, BNode *node, stat_beos *st, const char *filetype)
 {
 	if (S_ISDIR(st->st_mode))
 		return (true);

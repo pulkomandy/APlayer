@@ -12,6 +12,8 @@
 #ifndef __DiskSaverView_h
 #define __DiskSaverView_h
 
+#include <sys/stat.h>
+
 // PolyKit headers
 #include "POS.h"
 #include "PString.h"
@@ -56,7 +58,7 @@
 class DiskSaverFilter : public BRefFilter
 {
 protected:
-	bool Filter(const entry_ref *ref, BNode *node, struct stat *st, const char *filetype);
+	bool Filter(const entry_ref *ref, BNode *node, stat_beos *st, const char *filetype);
 };
 
 

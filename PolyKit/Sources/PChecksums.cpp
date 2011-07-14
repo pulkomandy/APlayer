@@ -11,6 +11,8 @@
 
 #define _BUILDING_POLYKIT_LIBRARY_
 
+#include <cstring>
+
 // PolyKit headers
 #include "POS.h"
 #include "PChecksums.h"

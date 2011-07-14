@@ -11,6 +11,9 @@
 
 #define _BUILDING_POLYKIT_LIBRARY_
 
+#include <arpa/inet.h>
+#include <sys/time.h>
+
 // PolyKit headers
 #include "POS.h"
 #include "PException.h"
@@ -211,12 +214,12 @@ void PSocket::CloseConnection(void)
 	if ((useType == pStream) && (connectedSocket != -1) && (!connected))
 	{
 		// Close the "accept" socket
-		closesocket(connectedSocket);
+		close(connectedSocket);
 	}
 
 	// Close the main socket
 	if ((useSocket != -1) && !clone)
-		closesocket(useSocket);
+		close(useSocket);
 
 	// Reset the member variables
 	connectedSocket   = -1;
@@ -280,7 +283,8 @@ void PSocket::ReceiveData(void *data, uint32 *length)
 
 			// Receive the data
 			clientSockLen = sizeof(clientSockAddr);
-			error = recvfrom(connectedSocket, data, *length, 0, (struct sockaddr *)&clientSockAddr, &clientSockLen);
+			// error = recvfrom(connectedSocket, data, *length, 0, (struct sockaddr *)&clientSockAddr, &clientSockLen);
+			error = recv(connectedSocket, data, *length, 0);
 			if (error == 0)
 				socketClosed = true;
 			else
@@ -608,7 +612,7 @@ PString PSocket::GetNameFromAddress(PString address)
 PString PSocket::GetConnectedAddress(bool withPort)
 {
 	SocketAddr peerAddr;
-	int peerLen = sizeof(peerAddr);
+	unsigned int peerLen = sizeof(peerAddr);
 	PString addr;
 	int error;
 
@@ -754,7 +758,7 @@ void PSocket::InitializeTCPIP(PString address)
 	index = address.Find(':');
 	if (index < 0)
 	{
-		closesocket(useSocket);
+		close(useSocket);
 		useSocket = -1;
 
 		throw PNetworkException(P_GEN_ERR_BAD_ARGUMENT);
@@ -817,7 +821,7 @@ void PSocket::EventWait(int waitSocket, uint32 waitFlag, uint32 timeout)
 			//
 			case PSW_ACCEPT:
 			{
-				int clientSockLen;
+				unsigned int clientSockLen;
 				int flag;
 
 				// Set the socket in non-block mode

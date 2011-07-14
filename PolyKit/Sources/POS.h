@@ -12,6 +12,9 @@
 #ifndef __POS_h
 #define __POS_h
 
+#include <limits.h>
+#include <inttypes.h>
+
 
 ////////////////////////////////////////////////////////////////////////////////
 // Set the operation system to compile under to one of these values:
@@ -23,7 +26,11 @@
 // Define __p_os according to the native operative system
 //
 // BeOS
-#ifdef __BEOS__
+#ifdef __BEOS__ 
+#define __p_os				__p_beos
+#endif
+
+#ifdef __HAIKU__
 #define __p_os				__p_beos
 #endif
 
@@ -81,10 +88,10 @@ typedef unsigned long					uint32;
 typedef volatile long					vint32;
 typedef volatile unsigned long			vuint32;
 
-typedef __int64							int64;
-typedef unsigned __int64				uint64;
-typedef volatile __int64				vint64;
-typedef volatile unsigned __int64		vuint64;
+typedef int64_t							int64;
+typedef uint64_t						uint64;
+typedef volatile int64_t				vint64;
+typedef volatile uint64_t				vuint64;
 
 typedef volatile long					vlong;
 typedef volatile int					vint;

@@ -91,7 +91,7 @@ void SpinSquareView::Pulse(void)
 		int16 i;
 
 		// Calculate the new coordinates
-		radAngle = angle * 2.0 * PI / 360.0;
+		radAngle = angle * 2.0 * M_PI / 360.0;
 		sinAngle = sin(radAngle);
 		cosAngle = cos(radAngle);
 

@@ -19,35 +19,35 @@ LD := gcc
 #small problems if local headers are used with <> insetad of "".
 DEP := gcc -MM -DBEOS_BUILD
 
-#BUILD_DEBUG=TRUE
-BUILD_DEBUG=FALSE
+BUILD_DEBUG=TRUE
+#BUILD_DEBUG=FALSE
 ifeq ($(BUILD_DEBUG),TRUE)
 	CFLAGS += -g -O0
 	CFLAGS += -D_DEBUG
 	LDFLAGS +=
 else
 	CFLAGS += -O3
-	LDFLAGS += -Xlinker -s -Xlinker -x
+	LDFLAGS +=
 endif
 
 ifeq ($(wildcard /boot/develop/headers/be/bone/arpa/inet.h),)
-	NETLIBS = net
+	NETLIBS = network
 else
 	NETLIBS = socket bind
 	CFLAGS += -DBONE_VERSION
 endif
 
-#CFLAGS += -DBEOS_BUILD
+CFLAGS += -DBEOS_BUILD
 #CFLAGS += -DBUILD_DATE=\"$(BUILDDATE)\"
-#CFLAGS += -fno-pic
-#CFLAGS += -ffast-math
-#CFLAGS += -march=pentium -mcpu=pentium
-#CFLAGS += -Wall -W -Wno-multichar -Wpointer-arith
-#CFLAGS += -Wwrite-strings #Causes problems with ASSERT. :/
+CFLAGS += -fno-pic
+CFLAGS += -ffast-math
+CFLAGS += -march=pentium -mcpu=pentium
+CFLAGS += -Wall -W -Wno-multichar -Wpointer-arith
+CFLAGS += -Wwrite-strings #Causes problems with ASSERT. :/
 CFLAGS += -Wall -Wno-multichar -Wno-ctor-dtor-privacy
 CFLAGS += -Woverloaded-virtual
-#CFLAGS += -Wconversion -Wpointer-arith
-#CFLAGS += -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations
+CFLAGS += -Wconversion -Wpointer-arith
+CFLAGS += -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations
 #CFLAGS += -Wcast-qual -Wshadow
 
 APLAYER_LIBS := ../APlayer/bin/BeOS_x86/lib/APlayerKit.so ../APlayer/bin/BeOS_x86/lib/PolyKit.so

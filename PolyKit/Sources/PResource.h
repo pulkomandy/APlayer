@@ -12,6 +12,9 @@
 #ifndef __PResource_h
 #define __PResource_h
 
+#include <Resources.h>
+#include <SupportDefs.h>
+
 // PolyKit headers
 #include "POS.h"
 #include "PString.h"

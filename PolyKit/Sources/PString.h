@@ -12,6 +12,9 @@
 #ifndef __PString_h
 #define __PString_h
 
+#include <cstdarg>
+#include <cstdlib>
+
 // PolyKit headers
 #include "POS.h"
 #include "ImportExport.h"

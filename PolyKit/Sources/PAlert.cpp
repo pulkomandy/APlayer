@@ -11,6 +11,11 @@
 
 #define _BUILDING_POLYKIT_LIBRARY_
 
+#include <assert.h>
+
+#include <Alert.h>
+#include <Button.h>
+
 // PolyKit headers
 #include "POS.h"
 #include "PException.h"
@@ -38,7 +43,7 @@ PAlert::PAlert(PString title, PString message, PAlertType type, PAlertButtons bu
 {
 	PString but1, but2, but3;
 
-	ASSERT(defButton <= 2);
+	assert(defButton <= 2);
 
 	// Remember all the arguments
 	alertTitle   = title;
@@ -96,7 +101,7 @@ PAlert::PAlert(PString title, PString message, PAlertType type, PAlertButtons bu
 		default:
 		{
 			// The alert buttons aren't implemented
-			ASSERT(false);
+			assert(false);
 			break;
 		}
 	}
@@ -131,7 +136,7 @@ PAlert::PAlert(PString title, PString message, PAlertType type, PAlertButtons bu
  *//***************************************************************************/
 PAlert::PAlert(PString title, PString message, PAlertType type, PString buttons, uint8 defButton)
 {
-	ASSERT(defButton <= 2);
+	assert(defButton <= 2);
 
 	// Remember all the arguments
 	alertTitle        = title;
@@ -202,7 +207,7 @@ PAlert::PAlertButton PAlert::Show(void)
 		default:
 		{
 			// The alert type isn't implemented
-			ASSERT(false);
+			assert(false);
 			type = B_STOP_ALERT;
 			break;
 		}
@@ -327,7 +332,7 @@ PAlert::PAlertButton PAlert::Show(void)
 			default:
 			{
 				// The alert buttons aren't implemented
-				ASSERT(false);
+				assert(false);
 				button = pIDCancel;
 				break;
 			}

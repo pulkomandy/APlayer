@@ -11,6 +11,11 @@
 
 #define _BUILDING_POLYKIT_LIBRARY_
 
+#include <algorithm>
+#include <cstring>
+
+#include <cassert>
+
 // PolyKit headers
 #include "POS.h"
 #include "PException.h"
@@ -246,8 +251,8 @@ uint8 PBinary::operator [] (int32 index) const
 	buffer->lock.WaitToRead();
 
 	// Check for valid index
-	ASSERT(index >= 0);
-	ASSERT(index < buffer->bufferLen);
+	assert(index >= 0);
+	assert(index < buffer->bufferLen);
 
 	// Get the byte
 	byte = buffer->buffer[index];

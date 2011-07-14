@@ -12,6 +12,8 @@
 #ifndef __PSynchronize_h
 #define __PSynchronize_h
 
+#include <OS.h>
+
 // PolyKit headers
 #include "POS.h"
 #include "PString.h"
