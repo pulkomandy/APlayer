@@ -1,0 +1,50 @@
+# The name of the binary.
+# Example:
+# NAME := MyApp
+NAME := PolyKit.so
+
+# The directory where the binary will be created.
+$(NAME)_TARGET_DIR := ../PolyKit/bin/BeOS/x86
+
+# A list of relative paths to where the sources for the binary are.
+# The make system will gather the sources in these paths by itself,
+# so there is no need to specify the individual source files.
+# Example:
+# SOURCE_PATHS := src_dir1 src_dir2
+$(NAME)_SOURCE_PATHS := ../PolyKit/Sources
+
+# Extra source files not covered by the sources gathered by SOURCE_PATHS.
+# Example:
+# EXTRA_SOURCES := dirx/file1.cpp dirx/file2.c
+$(NAME)_EXTRA_SOURCES :=
+
+# APP STATIC SHARED
+$(NAME)_TYPE := SHARED
+
+# List of needed libraries.
+# Example:
+# LIBS := be root
+$(NAME)_LIBS := root be $(NETLIBS)
+
+# List of resources.
+# Example:
+# LIBS := resource1 resource2
+$(NAME)_RSRCS := ../PolyKit/Sources/BeOS/PolyKit_x86.rsrc
+
+# List of extra local include paths.
+$(NAME)_LOCAL_INCLUDE_PATHS := ../PolyKit/Sources/BeOS
+
+# List of extra system include paths.
+$(NAME)_SYSTEM_INCLUDE_PATHS := 
+
+# List of extra library paths.
+$(NAME)_LIBRARY_PATHS := 
+
+# List of extra compiler flags.
+$(NAME)_EXTRA_CFLAGS :=
+
+# List of extra linker flags.
+$(NAME)_EXTRA_LDFLAGS :=
+
+#The actual make engine.
+include Makefile.rules
