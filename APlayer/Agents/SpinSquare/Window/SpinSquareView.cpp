@@ -24,10 +24,8 @@
 /******************************************************************************/
 /* Constructor                                                                */
 /******************************************************************************/
-SpinSquareView::SpinSquareView(BRect frame) : BView(frame, NULL, B_FOLLOW_TOP_BOTTOM, B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE | B_PULSE_NEEDED)
+SpinSquareView::SpinSquareView() : BView("spinsquare", B_WILL_DRAW | B_FULL_UPDATE_ON_RESIZE | B_PULSE_NEEDED)
 {
-	BRect bitmapFrame;
-
 	// Initialize member variables
 	animate        = false;
 
@@ -44,22 +42,10 @@ SpinSquareView::SpinSquareView(BRect frame) : BView(frame, NULL, B_FOLLOW_TOP_BO
 	oldVolume      = 0;
 	oldFrequency   = 0;
 
-	drawXCoords[0] = 0;
-	drawXCoords[1] = 0;
-	drawXCoords[2] = 0;
-	drawXCoords[3] = 0;
-	drawYCoords[0] = 0;
-	drawYCoords[1] = 0;
-	drawYCoords[2] = 0;
-	drawYCoords[3] = 0;
-
-	// Create a bitmap used to hold all the bits to show
-	bitmapFrame.Set(0.0f, 0.0f, frame.Width(), frame.Height());
-	bitmap = new BBitmap(bitmapFrame, B_COLOR_8_BIT, true);
-
-	// Create the render view, where we do all the drawing
-	renderView = new BView(bitmapFrame, NULL, B_FOLLOW_ALL_SIDES, 0);
-	bitmap->AddChild(renderView);
+	drawCoords[0] = BPoint(0, 0);
+	drawCoords[1] = BPoint(0, 0);
+	drawCoords[2] = BPoint(0, 0);
+	drawCoords[3] = BPoint(0, 0);
 
 	// Set the background to transparent
 	SetViewColor(B_TRANSPARENT_32_BIT);
@@ -72,8 +58,6 @@ SpinSquareView::SpinSquareView(BRect frame) : BView(frame, NULL, B_FOLLOW_TOP_BO
 /******************************************************************************/
 SpinSquareView::~SpinSquareView(void)
 {
-	// Done with the bitmap
-	delete bitmap;
 }
 
 
@@ -97,8 +81,8 @@ void SpinSquareView::Pulse(void)
 
 		for (i = 0; i < 4; i++)
 		{
-			drawXCoords[i] = (boxXCoords[i] * cosAngle) - (boxYCoords[i] * sinAngle) + VIEW_WIDTH / 2.0f;
-			drawYCoords[i] = (boxXCoords[i] * sinAngle) + (boxYCoords[i] * cosAngle) + VIEW_HEIGHT / 2.0f;
+			drawCoords[i].x = (boxXCoords[i] * cosAngle) - (boxYCoords[i] * sinAngle) + VIEW_WIDTH / 2.0f;
+			drawCoords[i].y = (boxXCoords[i] * sinAngle) + (boxYCoords[i] * cosAngle) + VIEW_HEIGHT / 2.0f;
 		}
 
 		// Calculate the new angle
@@ -110,7 +94,7 @@ void SpinSquareView::Pulse(void)
 		while (angle < 0.0)
 			angle += 360.0;
 
-		Draw(Bounds());
+		Invalidate(Bounds());
 	}
 }
 
@@ -124,59 +108,35 @@ void SpinSquareView::Pulse(void)
 void SpinSquareView::Draw(BRect updateRect)
 {
 	BRect frame;
-	BPoint point1, point2;
-
-	// Lock the bitmap
-	bitmap->Lock();
 
 	// Draw the frame
 	frame = Bounds();
-	renderView->SetHighColor(BeDarkShadow);
-	renderView->StrokeLine(BPoint(frame.right - 1.0f, frame.top), BPoint(frame.left, frame.top));
-	renderView->StrokeLine(BPoint(frame.left, frame.bottom - 1.0f));
+	SetHighColor(BeDarkShadow);
+	StrokeLine(BPoint(frame.right - 1.0f, frame.top), BPoint(frame.left, frame.top));
+	StrokeLine(BPoint(frame.left, frame.bottom - 1.0f));
 
-	renderView->SetHighColor(White);
-	renderView->StrokeLine(BPoint(frame.left, frame.bottom), BPoint(frame.right, frame.bottom));
-	renderView->StrokeLine(BPoint(frame.right, frame.top));
+	SetHighColor(White);
+	StrokeLine(BPoint(frame.left, frame.bottom), BPoint(frame.right, frame.bottom));
+	StrokeLine(BPoint(frame.right, frame.top));
 
 	// Then fill the box
-	renderView->SetHighColor(BeButtonGrey);
+	SetHighColor(BeButtonGrey);
 	frame.InsetBy(1.0f, 1.0f);
-	renderView->FillRect(frame);
+	FillRect(frame);
 
 	// Draw the box or disable mark
 	if (animate)
 	{
-		renderView->SetHighColor(Blue);
+		SetHighColor(Blue);
 
-		point1.Set(drawXCoords[0], drawYCoords[0]);
-		point2.Set(drawXCoords[1], drawYCoords[1]);
-		renderView->StrokeLine(point1, point2);
-
-		point2.Set(drawXCoords[2], drawYCoords[2]);
-		renderView->StrokeLine(point2);
-
-		point2.Set(drawXCoords[3], drawYCoords[3]);
-		renderView->StrokeLine(point2);
-		renderView->StrokeLine(point1);
+		FillPolygon(drawCoords, 4);
 	}
 	else
 	{
-		renderView->SetHighColor(BeDarkShadow);
-		renderView->SetDrawingMode(B_OP_OVER);
-		renderView->FillRect(frame, B_MIXED_COLORS);
+		SetHighColor(BeDarkShadow);
+		SetDrawingMode(B_OP_OVER);
+		FillRect(frame, B_MIXED_COLORS);
 	}
-
-	// Done with all the drawing
-	renderView->Sync();
-
-	// Blit the rendered image into the view that is shown to the user
-	DrawBitmapAsync(bitmap, BPoint(0.0f, 0.0f));
-	Flush();
-	Sync();
-
-	// Also done with the bitmap
-	bitmap->Unlock();
 }
 
 

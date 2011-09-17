@@ -8,6 +8,7 @@
 /* All rights reserved.                                                       */
 /******************************************************************************/
 
+#include <GridLayout.h>
 
 // PolyKit headers
 #include "POS.h"
@@ -43,8 +44,8 @@ SpinSquareWindow::SpinSquareWindow(SpinSquareAgent *spinAgent, PResource *resour
 	BRect rect;
 	BPoint winSize;
 	char *titleStr;
-	float x, y, w, h;
-	int32 i, j;
+	float x, y;
+	int32 i;
 
 	// Remember the arguments
 	res   = resource;
@@ -56,8 +57,12 @@ SpinSquareWindow::SpinSquareWindow(SpinSquareAgent *spinAgent, PResource *resour
 
 	// Create background view
 	rect = Bounds();
-	box  = new BBox(rect, NULL, B_FOLLOW_ALL_SIDES, B_WILL_DRAW | B_FRAME_EVENTS, B_PLAIN_BORDER);
-	AddChild(box);
+	
+	BGridLayout* layout = new BGridLayout(4, 4);
+	layout->SetInsets(4, 4, 4, 4);
+	SetLayout(layout);
+	
+	layout->TargetView()->SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
 
 	// Get the window positions
 	x = spinSettings->GetIntEntryValue("Window", "WinX");
@@ -71,26 +76,10 @@ SpinSquareWindow::SpinSquareWindow(SpinSquareAgent *spinAgent, PResource *resour
 	ResizeTo(winSize.x, winSize.y);
 	MoveTo(x, y);
 
-	// Create all the square views
-	rect.top = VSPACE + 1.0f;
-
-	for (i = 0; i < 2; i++)
+	for (int j = 0; j < 2; j++)
+	for (i = 0; i < 8; i++)
 	{
-		rect.left = HSPACE + 1.0f;
-
-		for (j = 0; j < 8; j++)
-		{
-			rect.right  = rect.left + VIEW_WIDTH + 1.0f;
-			rect.bottom = rect.top + VIEW_HEIGHT + 1.0f;
-
-			squares[j][i] = new SpinSquareView(rect);
-			box->AddChild(squares[j][i]);
-
-			// Move to the next position
-			rect.left = rect.right + HSPACE + 1.0f;
-		}
-
-		rect.top = rect.bottom + VSPACE + 1.0f;
+		layout->AddView(new SpinSquareView(), i, j);
 	}
 
 	// Set the pulse rate for the views to 50 times per second
@@ -193,15 +182,11 @@ void SpinSquareWindow::DrawWindow(APAgent_ChannelChange *channelInfo)
 	{
 		uint16 i, todo;
 
-		todo = min(channelInfo->channels, 8);
-		for (i = 0; i < todo; i++)
-			squares[i][0]->ChannelChanged(channelInfo->channelFlags[i], channelInfo->channelInfo[i]);
-
-		if (channelInfo->channels > 8)
-		{
-			todo = min(channelInfo->channels - 8, 8);
-			for (i = 0; i < todo; i++)
-				squares[i][1]->ChannelChanged(channelInfo->channelFlags[i + 8], channelInfo->channelInfo[i + 8]);
+		todo = min(channelInfo->channels, 16);
+		SpinSquareView* square = static_cast<SpinSquareView*>(ChildAt(0));
+		for (i = 0; i < todo; i++) {
+			square->ChannelChanged(channelInfo->channelFlags[i], channelInfo->channelInfo[i]);
+			square = static_cast<SpinSquareView*>(square->NextSibling());
 		}
 
 		// Unlock the window again
@@ -219,13 +204,11 @@ void SpinSquareWindow::ClearWindow(void)
 	// Lock the window
 	if (Lock())
 	{
-		int32 i, j;
-
 		// Tell each view to clear itself
-		for (i = 0; i < 2; i++)
-		{
-			for (j = 0; j < 8; j++)
-				squares[j][i]->StopAnimation();
+		SpinSquareView* square = static_cast<SpinSquareView*>(ChildAt(0));
+		while (square != NULL) {
+			square->StopAnimation();
+			square = static_cast<SpinSquareView*>(square->NextSibling());
 		}
 
 		// Unlock the window again

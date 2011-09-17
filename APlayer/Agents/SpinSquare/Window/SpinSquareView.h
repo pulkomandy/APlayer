@@ -32,7 +32,7 @@
 class SpinSquareView : public BView
 {
 public:
-	SpinSquareView(BRect frame);
+	SpinSquareView();
 	virtual ~SpinSquareView(void);
 
 	virtual void Pulse(void);
@@ -44,9 +44,6 @@ public:
 protected:
 	bool animate;
 
-	BBitmap *bitmap;
-	BView *renderView;
-
 	int16 boxXCoords[4];
 	int16 boxYCoords[4];
 	double speed;
@@ -54,8 +51,7 @@ protected:
 	int16 oldVolume;
 	int32 oldFrequency;
 
-	float drawXCoords[4];
-	float drawYCoords[4];
+	BPoint drawCoords[4];
 };
 
 #endif

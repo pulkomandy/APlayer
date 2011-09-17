@@ -48,9 +48,6 @@ protected:
 	SpinSquareAgent *agent;
 
 	bool isOnScreen;
-
-	BBox *box;
-	SpinSquareView *squares[8][2];
 };
 
 #endif
