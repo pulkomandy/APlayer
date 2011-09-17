@@ -12,19 +12,12 @@
 #ifndef __SpinSquareView_h
 #define __SpinSquareView_h
 
+#include <Size.h>
+
 // PolyKit headers
 #include "POS.h"
 #include "PString.h"
 #include "PResource.h"
-
-
-/******************************************************************************/
-/* Some useful macros                                                         */
-/******************************************************************************/
-#define VIEW_WIDTH					92.0f
-#define VIEW_HEIGHT					92.0f
-
-
 
 /******************************************************************************/
 /* SpinSquareView class                                                       */
@@ -40,6 +33,8 @@ public:
 
 	void ChannelChanged(uint32 flags, const APChannel *channel);
 	void StopAnimation(void);
+	
+	BSize MinSize() {return BSize(64, 64);}
 
 protected:
 	bool animate;

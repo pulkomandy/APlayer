@@ -12,6 +12,8 @@
 #ifndef __SpinSquareWindow_h
 #define __SpinSquareWindow_h
 
+class BGridLayout;
+
 // PolyKit headers
 #include "POS.h"
 #include "PString.h"
@@ -42,12 +44,14 @@ public:
 	void ClearWindow(void);
 
 protected:
-	BPoint CalcMinSize(void);
-
 	PResource *res;
 	SpinSquareAgent *agent;
 
 	bool isOnScreen;
+	
+	int itemCount;
+	
+	BGridLayout* layout;
 };
 
 #endif

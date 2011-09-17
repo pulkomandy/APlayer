@@ -81,8 +81,8 @@ void SpinSquareView::Pulse(void)
 
 		for (i = 0; i < 4; i++)
 		{
-			drawCoords[i].x = (boxXCoords[i] * cosAngle) - (boxYCoords[i] * sinAngle) + VIEW_WIDTH / 2.0f;
-			drawCoords[i].y = (boxXCoords[i] * sinAngle) + (boxYCoords[i] * cosAngle) + VIEW_HEIGHT / 2.0f;
+			drawCoords[i].x = (boxXCoords[i] * cosAngle) - (boxYCoords[i] * sinAngle) + Bounds().Width() / 2.0f;
+			drawCoords[i].y = (boxXCoords[i] * sinAngle) + (boxYCoords[i] * cosAngle) + Bounds().Height() / 2.0f;
 		}
 
 		// Calculate the new angle
@@ -155,6 +155,8 @@ void SpinSquareView::ChannelChanged(uint32 flags, const APChannel *channel)
 
 	// Begin to rotate the box
 	animate = true;
+	
+	float ratio = 96.0 / min(Bounds().Width(), Bounds().Height());
 
 	// Has the volume changed?
 	if (flags & NP_VOLUME)
@@ -163,7 +165,7 @@ void SpinSquareView::ChannelChanged(uint32 flags, const APChannel *channel)
 		if (newVol != oldVolume)
 		{
 			oldVolume     = newVol;
-			newVol       /= 8;
+			newVol       /= 8 * ratio;
 			boxYCoords[0] = newVol;
 			boxYCoords[1] = newVol;
 			boxYCoords[2] = -newVol;
@@ -190,7 +192,7 @@ void SpinSquareView::ChannelChanged(uint32 flags, const APChannel *channel)
 			}
 
 			newFreq      -= (34104 + 3547);
-			newFreq       = -newFreq / 1066;
+			newFreq       = -newFreq / (1066 * ratio);
 			boxXCoords[1] = newFreq;
 			boxXCoords[2] = newFreq;
 			boxXCoords[0] = -newFreq;

@@ -39,13 +39,12 @@ extern PSettings *spinSettings;
 /******************************************************************************/
 /* Constructor                                                                */
 /******************************************************************************/
-SpinSquareWindow::SpinSquareWindow(SpinSquareAgent *spinAgent, PResource *resource, PString title) : BWindow(BRect(0.0f, 0.0f, 0.0f, 0.0f), NULL, B_TITLED_WINDOW, B_NOT_ZOOMABLE | B_NOT_RESIZABLE)
+SpinSquareWindow::SpinSquareWindow(SpinSquareAgent *spinAgent, PResource *resource, PString title) : BWindow(BRect(0.0f, 0.0f, 100*8, 100*2), NULL, B_TITLED_WINDOW, B_NOT_ZOOMABLE)
+	, itemCount(0)
 {
 	BRect rect;
-	BPoint winSize;
 	char *titleStr;
 	float x, y;
-	int32 i;
 
 	// Remember the arguments
 	res   = resource;
@@ -58,7 +57,7 @@ SpinSquareWindow::SpinSquareWindow(SpinSquareAgent *spinAgent, PResource *resour
 	// Create background view
 	rect = Bounds();
 	
-	BGridLayout* layout = new BGridLayout(4, 4);
+	layout = new BGridLayout(4, 4);
 	layout->SetInsets(4, 4, 4, 4);
 	SetLayout(layout);
 	
@@ -68,19 +67,8 @@ SpinSquareWindow::SpinSquareWindow(SpinSquareAgent *spinAgent, PResource *resour
 	x = spinSettings->GetIntEntryValue("Window", "WinX");
 	y = spinSettings->GetIntEntryValue("Window", "WinY");
 
-	// Check to see if the given size is lesser than the minimum size
-	winSize = CalcMinSize();
-	SetSizeLimits(winSize.x, winSize.x, winSize.y, winSize.y);
-
 	// Resize and set the window
-	ResizeTo(winSize.x, winSize.y);
 	MoveTo(x, y);
-
-	for (int j = 0; j < 2; j++)
-	for (i = 0; i < 8; i++)
-	{
-		layout->AddView(new SpinSquareView(), i, j);
-	}
 
 	// Set the pulse rate for the views to 50 times per second
 	SetPulseRate(1 * 1000 * 1000 / 50);
@@ -182,11 +170,36 @@ void SpinSquareWindow::DrawWindow(APAgent_ChannelChange *channelInfo)
 	{
 		uint16 i, todo;
 
-		todo = min(channelInfo->channels, 16);
-		SpinSquareView* square = static_cast<SpinSquareView*>(ChildAt(0));
-		for (i = 0; i < todo; i++) {
+		todo = channelInfo->channels;
+		if (todo != itemCount)
+		{
+			itemCount = todo;
+			// remove all the existing squares
+			BLayoutItem* item;
+			while(item = layout->RemoveItem(0L))
+			{
+				item->View()->Parent()->RemoveChild(item->View());
+				delete item->View();
+				delete item;
+			}
+			
+			// create new ones
+			int lines = sqrt(todo * Bounds().Height() / Bounds().Width());
+			if (lines == 0) lines++;
+			int ratio = todo / lines;
+
+			while(ratio * lines < todo) ratio++;
+			
+			for (int j = 0; j < lines; j++)
+			for (i = 0; i < ratio; i++)
+			{
+				layout->AddView(new SpinSquareView(), i, j);
+			}
+		}
+		
+		for (i = 0; i < itemCount; i++) {
+			SpinSquareView* square = static_cast<SpinSquareView*>(static_cast<BLayout*>(layout)->ItemAt(i)->View());
 			square->ChannelChanged(channelInfo->channelFlags[i], channelInfo->channelInfo[i]);
-			square = static_cast<SpinSquareView*>(square->NextSibling());
 		}
 
 		// Unlock the window again
@@ -205,31 +218,12 @@ void SpinSquareWindow::ClearWindow(void)
 	if (Lock())
 	{
 		// Tell each view to clear itself
-		SpinSquareView* square = static_cast<SpinSquareView*>(ChildAt(0));
-		while (square != NULL) {
+		for (int i = 0; i < itemCount; i++) {
+			SpinSquareView* square = static_cast<SpinSquareView*>(static_cast<BLayout*>(layout)->ItemAt(i)->View());
 			square->StopAnimation();
-			square = static_cast<SpinSquareView*>(square->NextSibling());
 		}
 
 		// Unlock the window again
 		Unlock();
 	}
-}
-
-
-
-/******************************************************************************/
-/* CalcMinSize() will calculate the minimum size the window can have.         */
-/*                                                                            */
-/* Output: Is a BPoint where the x is the minimum width and y is the minimum  */
-/*         height.                                                            */
-/******************************************************************************/
-BPoint SpinSquareWindow::CalcMinSize(void)
-{
-	BPoint size;
-
-	size.x = HSPACE * 9.0f + (2.0f + VIEW_WIDTH) * 8.0f + 1.0f;
-	size.y = VSPACE * 3.0f + (2.0f + VIEW_HEIGHT) * 2.0f + 1.0f;
-
-	return (size);
 }
