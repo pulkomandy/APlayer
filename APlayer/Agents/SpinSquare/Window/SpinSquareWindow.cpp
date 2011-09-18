@@ -44,7 +44,7 @@ SpinSquareWindow::SpinSquareWindow(SpinSquareAgent *spinAgent, PResource *resour
 {
 	BRect rect;
 	char *titleStr;
-	float x, y;
+	float x, y, w, h;
 
 	// Remember the arguments
 	res   = resource;
@@ -66,9 +66,12 @@ SpinSquareWindow::SpinSquareWindow(SpinSquareAgent *spinAgent, PResource *resour
 	// Get the window positions
 	x = spinSettings->GetIntEntryValue("Window", "WinX");
 	y = spinSettings->GetIntEntryValue("Window", "WinY");
+	w = spinSettings->GetIntEntryValue("Window", "WinW");
+	h = spinSettings->GetIntEntryValue("Window", "WinH");
 
 	// Resize and set the window
 	MoveTo(x, y);
+	ResizeTo(w, h);
 
 	// Set the pulse rate for the views to 50 times per second
 	SetPulseRate(1 * 1000 * 1000 / 50);
@@ -101,6 +104,15 @@ SpinSquareWindow::~SpinSquareWindow(void)
 		{
 			spinSettings->WriteIntEntryValue("Window", "WinX", x);
 			spinSettings->WriteIntEntryValue("Window", "WinY", y);
+		}
+		
+		x = (int)winPos.Width();
+		y = (int)winPos.Height();
+		if ((spinSettings->GetIntEntryValue("Window", "WinW") != x) ||
+			(spinSettings->GetIntEntryValue("Window", "WinH") != y))
+		{
+			spinSettings->WriteIntEntryValue("Window", "WinW", x);
+			spinSettings->WriteIntEntryValue("Window", "WinH", y);
 		}
 	}
 	catch(...)
@@ -176,7 +188,7 @@ void SpinSquareWindow::DrawWindow(APAgent_ChannelChange *channelInfo)
 			itemCount = todo;
 			// remove all the existing squares
 			BLayoutItem* item;
-			while(item = layout->RemoveItem(0L))
+			while((item = layout->RemoveItem(0L)))
 			{
 				item->View()->Parent()->RemoveChild(item->View());
 				delete item->View();
@@ -184,7 +196,7 @@ void SpinSquareWindow::DrawWindow(APAgent_ChannelChange *channelInfo)
 			}
 			
 			// create new ones
-			int lines = sqrt(todo * Bounds().Height() / Bounds().Width());
+			int lines = (int)sqrt(todo * Bounds().Height() / Bounds().Width());
 			if (lines == 0) lines++;
 			int ratio = todo / lines;
 
