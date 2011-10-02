@@ -1,5 +1,5 @@
 /******************************************************************************/
-/* Mpg123 Player Stub Interface.                                              */
+/* OggVorbis Player Stub Interface.                                           */
 /******************************************************************************/
 /* This source, or parts thereof, may be used in any software as long the     */
 /* license of APlayer is keep. See the LICENSE file for more information.     */
@@ -21,10 +21,8 @@
 #include "APGlobalData.h"
 #include "APAddOns.h"
 
-// Player headers
-#include "Mpg123Player.h"
 #include "ResourceIDs.h"
-
+#include "MediaFile.h"
 
 /******************************************************************************/
 /* Add-On function: Load() is called when the add-on is loaded into the       */
@@ -40,13 +38,13 @@ void Load(APGlobalData *global, PString fileName)
 	PString shortDescr, longDescr;
 
 	// Get the file type strings
-	type.LoadString(&res, IDS_MPG_MIME);
-	ext.LoadString(&res, IDS_MPG_EXTENSION);
-	shortDescr.LoadString(&res, IDS_MPG_SHORT_DESCRIPTION);
-	longDescr.LoadString(&res, IDS_MPG_LONG_DESCRIPTION);
+	type.LoadString(&res, IDS_MEDIAFILE_MIME);
+	ext.LoadString(&res, IDS_MEDIAFILE_EXTENSION);
+	shortDescr.LoadString(&res, IDS_MEDIAFILE_SHORT_DESCRIPTION);
+	longDescr.LoadString(&res, IDS_MEDIAFILE_LONG_DESCRIPTION);
 
 	// Install the mime type + icon
-	global->fileTypes->RegisterFileType(&res, IDI_MPG_FILEICON, type, ext, longDescr, shortDescr);
+	global->fileTypes->RegisterFileType(&res, IDI_MEDIAFILE_FILEICON, type, ext, longDescr, shortDescr);
 }
 
 
@@ -57,7 +55,7 @@ void Load(APGlobalData *global, PString fileName)
 /*                                                                            */
 /* Input:  "global" is a pointer to the global data class.                    */
 /******************************************************************************/
-void Unload(APGlobalData *global)
+void Unload(APGlobalData* /*global*/)
 {
 }
 
@@ -74,7 +72,7 @@ void Unload(APGlobalData *global)
 /******************************************************************************/
 APAddOnBase *AllocateInstance(APGlobalData *global, PString fileName)
 {
-	return (new MPG123Player(global, fileName));
+	return new MediaFile(global, fileName);
 }
 
 
@@ -85,7 +83,7 @@ APAddOnBase *AllocateInstance(APGlobalData *global, PString fileName)
 /* Input:  "global" is a pointer to the global data class.                    */
 /*         "addOn" is a pointer to the add-on to delete.                      */
 /******************************************************************************/
-void DeleteInstance(APGlobalData *global, APAddOnBase *addOn)
+void DeleteInstance(APGlobalData * /*global*/, APAddOnBase *addOn)
 {
 	delete addOn;
 }

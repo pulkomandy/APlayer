@@ -245,8 +245,10 @@ protected:
 
 private:
 	// Protect some of the PFile functions, so they can't be used
-	virtual void Open(uint16 openFlags) { ASSERT(false); };
-	virtual void Open(PString fileName, uint16 openFlags) { ASSERT(false); };
+	virtual void Open(uint16 /*openFlags*/) { ASSERT(false); };
+	virtual void Open(PString /*fileName*/, uint16 /*openFlags*/) {
+		ASSERT(false);
+	};
 };
 
 
@@ -290,10 +292,13 @@ protected:
 
 private:
 	// Protect some of the PFile functions, so they can't be used
-	virtual int32 Write(const void *buffer, int32 count) { ASSERT(false); return(0); };
-	virtual void SetLength(int64 newLength) { ASSERT(false); };
-	virtual void SetFilePath(PString newName) { ASSERT(false); };
-	virtual void SetFileType(PString newType) { ASSERT(false); };
+	virtual int32 Write(const void * /*buffer*/, int32 /*count*/) {
+		ASSERT(false);
+		return 0;
+	};
+	virtual void SetLength(int64 /*newLength*/) { ASSERT(false); };
+	virtual void SetFilePath(PString /*newName*/) { ASSERT(false); };
+	virtual void SetFileType(PString /*newType*/) { ASSERT(false); };
 };
 
 

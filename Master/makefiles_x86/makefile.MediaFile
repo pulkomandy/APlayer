@@ -1,10 +1,10 @@
-NAME := OggVorbis
+NAME := MediaFile
 
-ROOTDIR := ../APlayer/Players/OggVorbis
+ROOTDIR := ../APlayer/Players/MediaFile
 
 $(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_x86/add-ons/Players
 
-$(NAME)_SOURCE_PATHS := $(ROOTDIR) $(ROOTDIR)/Vorbis $(ROOTDIR)/Ogg
+$(NAME)_SOURCE_PATHS := $(ROOTDIR)
 
 $(NAME)_EXTRA_SOURCES := 
 
@@ -12,9 +12,9 @@ $(NAME)_EXTRA_DEENDENCIES := $(APlayerKit.so_TARGET)
 
 $(NAME)_TYPE := SHARED
 
-$(NAME)_LIBS := $(APLAYER_LIBS)
+$(NAME)_LIBS := $(APLAYER_LIBS) media
 
-$(NAME)_RSRCS := $(ROOTDIR)/BeOS/OggVorbis_x86.rsrc
+$(NAME)_RSRCS := $(ROOTDIR)/BeOS/MediaFile_x86.rsrc
 
 #
 $(NAME)_LOCAL_INCLUDE_PATHS := $(APLAYER_INCLUDES)

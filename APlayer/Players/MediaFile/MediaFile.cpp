@@ -1,5 +1,5 @@
 /******************************************************************************/
-/* OggVorbis Player Interface.                                                */
+/* MediaFile Player Interface.                                                */
 /*                                                                            */
 /* Original player by Xiphophorus.                                            */
 /* APlayer plug-in by Thomas Neumann.                                         */
@@ -11,6 +11,7 @@
 /* All rights reserved.                                                       */
 /******************************************************************************/
 
+#include <storage/Entry.h>
 
 // PolyKit headers
 #include "POS.h"
@@ -26,19 +27,13 @@
 #include "APAddOns.h"
 #include "APChannel.h"
 
-// OggVorbis headers
-#include "Ogg.h"
-#include "Codec.h"
-
-// Player headers
-#include "OggVorbis.h"
+#include "MediaFile.h"
 #include "ResourceIDs.h"
-
 
 /******************************************************************************/
 /* Version                                                                    */
 /******************************************************************************/
-#define PlayerVersion		2.02f
+#define PlayerVersion		1.0f
 
 
 
@@ -52,7 +47,7 @@
 /******************************************************************************/
 /* Constructor                                                                */
 /******************************************************************************/
-OggVorbis::OggVorbis(APGlobalData *global, PString fileName) : APAddOnPlayer(global)
+MediaFile::MediaFile(APGlobalData *global, PString fileName) : APAddOnPlayer(global)
 {
 	// Fill out the version we have compiled under
 	aplayerVersion = APLAYER_CURRENT_VERSION;
@@ -64,9 +59,6 @@ OggVorbis::OggVorbis(APGlobalData *global, PString fileName) : APAddOnPlayer(glo
 
 	// Initialize member variables
 	chanBuffers = NULL;
-
-	// Initialize OggVorbis structures
-	memset(&vorbisFile, 0, sizeof(vorbisFile));
 }
 
 
@@ -74,7 +66,7 @@ OggVorbis::OggVorbis(APGlobalData *global, PString fileName) : APAddOnPlayer(glo
 /******************************************************************************/
 /* Destructor                                                                 */
 /******************************************************************************/
-OggVorbis::~OggVorbis(void)
+MediaFile::~MediaFile(void)
 {
 	// Delete the resource object
 	delete res;
@@ -87,7 +79,7 @@ OggVorbis::~OggVorbis(void)
 /*                                                                            */
 /* Output: The add-on version.                                                */
 /******************************************************************************/
-float OggVorbis::GetVersion(void)
+float MediaFile::GetVersion(void)
 {
 	return (PlayerVersion);
 }
@@ -101,7 +93,7 @@ float OggVorbis::GetVersion(void)
 /*                                                                            */
 /* Output: Is the flags.                                                      */
 /******************************************************************************/
-uint32 OggVorbis::GetSupportFlags(int32 index)
+uint32 MediaFile::GetSupportFlags(int32 /*index*/)
 {
 	return (appSamplePlayer | appUseRingBuffer | appDontCloseFile | appSetPosition);
 }
@@ -115,11 +107,11 @@ uint32 OggVorbis::GetSupportFlags(int32 index)
 /*                                                                            */
 /* Output: The add-on name.                                                   */
 /******************************************************************************/
-PString OggVorbis::GetName(int32 index)
+PString MediaFile::GetName(int32 /*index*/)
 {
 	PString name;
 
-	name.LoadString(res, IDS_OGG_NAME);
+	name.LoadString(res, IDS_MEDIAFILE_NAME);
 	return (name);
 }
 
@@ -132,11 +124,11 @@ PString OggVorbis::GetName(int32 index)
 /*                                                                            */
 /* Output: The add-on description.                                            */
 /******************************************************************************/
-PString OggVorbis::GetDescription(int32 index)
+PString MediaFile::GetDescription(int32 /*index*/)
 {
 	PString description;
 
-	description.LoadString(res, IDS_OGG_DESCRIPTION);
+	description.LoadString(res, IDS_MEDIAFILE_DESCRIPTION);
 	return (description);
 }
 
@@ -149,44 +141,34 @@ PString OggVorbis::GetDescription(int32 index)
 /*                                                                            */
 /* Output: The module type string.                                            */
 /******************************************************************************/
-PString OggVorbis::GetModTypeString(int32 index)
+PString MediaFile::GetModTypeString(int32 /*index*/)
 {
 	PString type;
 
-	type.LoadString(res, IDS_OGG_MIME);
+	type.LoadString(res, IDS_MEDIAFILE_MIME);
 	return (type);
 }
 
 
 
 /******************************************************************************/
-/* ModuleCheck() tests the module to see if it's a OggVorbis module.          */
+/* ModuleCheck() tests the module to see if it's a MediaFile module.          */
 /*                                                                            */
 /* Input:  "index" is the player index number.                                */
 /*         "file" is a pointer to a PFile object with the file to check.      */
 /*                                                                            */
 /* Output: An APlayer result code.                                            */
 /******************************************************************************/
-ap_result OggVorbis::ModuleCheck(int32 index, PFile *file)
+ap_result MediaFile::ModuleCheck(int32 /*index*/, PFile * file)
 {
-	// Check the module size
-	if (file->GetLength() < 27)
-		return (AP_UNKNOWN);
-
-	// Check the mark
-	file->SeekToBegin();
-	if (file->Read_B_UINT32() != 'OggS')
-		return (AP_UNKNOWN);
-
-	// Check the stream structure version
-	if (file->Read_UINT8() != 0x00)
-		return (AP_UNKNOWN);
-
-	// Check the header type flag
-	if ((file->Read_UINT8() & 0xf8) != 0x00)
-		return (AP_UNKNOWN);
-
-	return (AP_OK);
+	BEntry entry(file->GetFullPath().GetString());
+	entry_ref ref;
+	entry.GetRef(&ref);
+	BMediaFile mediaFile(&ref);
+	if (mediaFile.InitCheck() == B_OK)
+		return AP_OK;
+	else
+		return AP_UNKNOWN;
 }
 
 
@@ -201,14 +183,16 @@ ap_result OggVorbis::ModuleCheck(int32 index, PFile *file)
 /*                                                                            */
 /* Output: An APlayer result code.                                            */
 /******************************************************************************/
-ap_result OggVorbis::LoadModule(int32 index, PFile *file, PString &errorStr)
+ap_result MediaFile::LoadModule(int32 /*index*/, PFile *file, PString &/*errorStr*/)
 {
-	// Well, there is nothing to load, because the file will be loaded
-	// a little bit of the time when playing. Just make a copy of the
-	// file pointer
-	oggFile = file;
-
-	return (AP_OK);
+	BEntry entry(file->GetFullPath().GetString());
+	entry_ref ref;
+	entry.GetRef(&ref);
+	fFile = new BMediaFile(&ref);
+	if (fFile->InitCheck() == B_OK)
+		return AP_OK;
+	else
+		return AP_ERROR;
 }
 
 
@@ -220,20 +204,22 @@ ap_result OggVorbis::LoadModule(int32 index, PFile *file, PString &errorStr)
 /*                                                                            */
 /* Output: True for success, false for an error.                              */
 /******************************************************************************/
-bool OggVorbis::InitPlayer(int32 index)
+bool MediaFile::InitPlayer(int32 /*index*/)
 {
-	VorbisInfo *info;
 	int32 i;
 
 	// Initialize and open the file
-	oggFile->SeekToBegin();
-	if (OV_Open(oggFile, &vorbisFile, NULL, 0) < 0)
-		return (false);
+	fTrack = fFile->TrackAt(0); // TODO index ?
+
+	media_format format;
+	fTrack->DecodedFormat(&format);
 
 	// Get the number of channels used and the output frequency
-	info     = OV_Info(&vorbisFile, 0);
-	channels = info->channels;
-	rate     = info->rate;
+	channels = format.u.encoded_audio.output.channel_count;
+	rate     = (int32)format.u.encoded_audio.output.frame_rate;
+	totalTime = (int32)(fTrack->Duration() / 1000000);
+	bitrate   = (int32)format.u.encoded_audio.bit_rate;
+
 
 	// Allocate converter buffers
 	chanBuffers = new int16 *[channels];
@@ -250,6 +236,8 @@ bool OggVorbis::InitPlayer(int32 index)
 	}
 
 	{
+		// TODO is it possible to get these from the Media Kit ?
+#if 0
 		VorbisComment *comment;
 		PString commentStr, tempStr;
 		PCharSet_UTF8 charSet;
@@ -297,11 +285,8 @@ bool OggVorbis::InitPlayer(int32 index)
 		organization.Delete(0, 2);
 		genre.Delete(0, 2);
 		copyright.Delete(0, 2);
+#endif
 	}
-
-	// Now get the stream information
-	totalTime = (int32)(OV_Time_Total(&vorbisFile, -1) * 1000.0);
-	bitrate   = OV_Bitrate(&vorbisFile, -1) / 1000;
 
 	return (true);
 }
@@ -313,7 +298,7 @@ bool OggVorbis::InitPlayer(int32 index)
 /*                                                                            */
 /* Input:  "index" is the player index number.                                */
 /******************************************************************************/
-void OggVorbis::EndPlayer(int32 index)
+void MediaFile::EndPlayer(int32 /*index*/)
 {
 	int32 i;
 
@@ -328,7 +313,7 @@ void OggVorbis::EndPlayer(int32 index)
 	}
 
 	// Cleanup the structures
-	OV_Clear(&vorbisFile);
+	delete fFile;
 }
 
 
@@ -339,7 +324,7 @@ void OggVorbis::EndPlayer(int32 index)
 /* Input:  "index" is the player index number.                                */
 /*         "songNum" is the subsong to play.                                  */
 /******************************************************************************/
-void OggVorbis::InitSound(int32 index, uint16 songNum)
+void MediaFile::InitSound(int32 /*index*/, uint16 /*songNum*/)
 {
 	eof    = false;
 	oldPos = 0;
@@ -353,15 +338,14 @@ void OggVorbis::InitSound(int32 index, uint16 songNum)
 /******************************************************************************/
 /* Play() is the main player function.                                        */
 /******************************************************************************/
-void OggVorbis::Play(void)
+void MediaFile::Play(void)
 {
 	APChannel *channel;
 	int16 pos;
-	int32 newRate;
-	int32 chan, i, j;
-	float **pcm;
+	int32 i, j;
+	int32 pcm[AUDIOBUFSIZE];
 	int32 returned;
-	int32 samplesReturned = 0;
+	int64 samplesReturned = AUDIOBUFSIZE;
 
 	// Check for end-of-file
 	if (eof)
@@ -373,12 +357,14 @@ void OggVorbis::Play(void)
 	}
 
 	// Get number of channels
+#if 0
 	chan = OV_Info(&vorbisFile, -1)->channels;
 	if (chan != channels)
 	{
 		endReached = true;
 		return;
 	}
+#endif
 
 	// Have we changed position?
 	pos = GetSongPosition();
@@ -388,47 +374,41 @@ void OggVorbis::Play(void)
 		ChangePosition();
 	}
 
+	// TODO
+#if 0
 	newRate = OV_BitrateInstant(&vorbisFile) / 1000;
 	if ((newRate > 0) && (newRate != bitrate))
 	{
 		bitrate = newRate;
 		ChangeModuleInfo(7, PString::CreateNumber(newRate));
 	}
+#endif
 
 	// Read some part from the file and convert it
-	while (samplesReturned < AUDIOBUFSIZE)
+	returned = fTrack->ReadFrames(&pcm, &samplesReturned);
+	if (returned != 0)
 	{
-		returned = OV_Read(&vorbisFile, &pcm, AUDIOBUFSIZE - samplesReturned, NULL);
-		if (returned == 0)
+		eof = true;
+	}
+	else
+	{
+		// Convert the PCM from float to 16-bit
+		// TODO - likely completely broken...
+		for (i = 0; i < channels; i++)
 		{
-			eof = true;
-			break;
-		}
-		else
-		{
-			if (returned > 0)
+			int16 *dest   = chanBuffers[i];
+			int32* source = pcm;
+
+			for (j = 0; j < samplesReturned; j++)
 			{
-				// Convert the PCM from float to 16-bit
-				for (i = 0; i < channels; i++)
-				{
-					int16 *dest   = chanBuffers[i] + samplesReturned;
-					float *source = pcm[i];
+				int32 val = (int32)(*source++ / 65536);
 
-					for (j = 0; j < returned; j++)
-					{
-						int32 val = (int32)(*source++ * 32768.0f);
+				if (val > 32767)
+					val = 32767;
 
-						if (val > 32767)
-							val = 32767;
-
-						if (val < -32768)
-							val = -32768;
-
-						*dest++ = val;
-					}
-				}
-
-				samplesReturned += returned;
+				if (val < -32768)
+					val = -32768;
+				*dest++ = val;
 			}
 		}
 	}
@@ -465,7 +445,7 @@ void OggVorbis::Play(void)
 /*                                                                            */
 /* Input:  "sampInfo" is a pointer to the sample info structure to fill.      */
 /******************************************************************************/
-void OggVorbis::GetSamplePlayerInfo(APSamplePlayerInfo *sampInfo)
+void MediaFile::GetSamplePlayerInfo(APSamplePlayerInfo *sampInfo)
 {
 	sampInfo->bitSize   = 16;
 	sampInfo->frequency = rate;
@@ -478,7 +458,7 @@ void OggVorbis::GetSamplePlayerInfo(APSamplePlayerInfo *sampInfo)
 /*                                                                            */
 /* Output: Is the module name.                                                */
 /******************************************************************************/
-PString OggVorbis::GetModuleName(void)
+PString MediaFile::GetModuleName(void)
 {
 	return (title);
 }
@@ -490,7 +470,7 @@ PString OggVorbis::GetModuleName(void)
 /*                                                                            */
 /* Output: Is the author.                                                     */
 /******************************************************************************/
-PString OggVorbis::GetAuthor(void)
+PString MediaFile::GetAuthor(void)
 {
 	return (artist);
 }
@@ -502,7 +482,7 @@ PString OggVorbis::GetAuthor(void)
 /*                                                                            */
 /* Output: Is the number of channels.                                         */
 /******************************************************************************/
-uint16 OggVorbis::GetModuleChannels(void)
+uint16 MediaFile::GetModuleChannels(void)
 {
 	return (channels);
 }
@@ -514,9 +494,9 @@ uint16 OggVorbis::GetModuleChannels(void)
 /*                                                                            */
 /* Output: The song length.                                                   */
 /******************************************************************************/
-int16 OggVorbis::GetSongLength(void)
+int16 MediaFile::GetSongLength(void)
 {
-	return (100);
+	return (totalTime);
 }
 
 
@@ -526,15 +506,9 @@ int16 OggVorbis::GetSongLength(void)
 /*                                                                            */
 /* Output: The song position.                                                 */
 /******************************************************************************/
-int16 OggVorbis::GetSongPosition(void)
+int16 MediaFile::GetSongPosition(void)
 {
-	int16 newPos;
-
-	newPos = (int16)((OV_Time_Tell(&vorbisFile) * 1000.0) * 100 / totalTime);
-	if (newPos > 99)
-		newPos = 99;
-
-	return (newPos);
+	return (fTrack->CurrentTime() / 1000000);
 }
 
 
@@ -544,15 +518,12 @@ int16 OggVorbis::GetSongPosition(void)
 /*                                                                            */
 /* Input:  "pos" is the new song position.                                    */
 /******************************************************************************/
-void OggVorbis::SetSongPosition(int16 pos)
+void MediaFile::SetSongPosition(int16 pos)
 {
-	double newTime;
-
 	// Calculate the new position
-	newTime = (totalTime * pos) / 100.0;
 	eof     = false;
-
-	OV_TimeSeek(&vorbisFile, newTime / 1000.0);
+	bigtime_t newPos = pos * 1000000;
+	fTrack->SeekToTime(&newPos);
 }
 
 
@@ -567,15 +538,15 @@ void OggVorbis::SetSongPosition(int16 pos)
 /*                                                                            */
 /* Output: The total module time or 0 if time table is not supported.         */
 /******************************************************************************/
-PTimeSpan OggVorbis::GetTimeTable(uint16 songNum, PList<PTimeSpan> &posTimes)
+PTimeSpan MediaFile::GetTimeTable(uint16 /*songNum*/, PList<PTimeSpan> &posTimes)
 {
 	int32 i;
 
 	// Copy the position times
 	for (i = 0; i < 100; i++)
-		posTimes.AddTail((totalTime * i) / 100);
+		posTimes.AddTail((totalTime * i) * 10);
 
-	return (totalTime);
+	return (totalTime * 1000);
 }
 
 
@@ -590,7 +561,7 @@ PTimeSpan OggVorbis::GetTimeTable(uint16 songNum, PList<PTimeSpan> &posTimes)
 /*                                                                            */
 /* Output: True if the information are returned, false if not.                */
 /******************************************************************************/
-bool OggVorbis::GetInfoString(uint32 line, PString &description, PString &value)
+bool MediaFile::GetInfoString(uint32 line, PString &description, PString &value)
 {
 	// Is the line number out of range?
 	if (line >= 9)
@@ -602,10 +573,10 @@ bool OggVorbis::GetInfoString(uint32 line, PString &description, PString &value)
 		// Track Number
 		case 0:
 		{
-			description.LoadString(res, IDS_OGG_INFODESCLINE0);
+			description.LoadString(res, IDS_MEDIAFILE_INFODESCLINE0);
 
 			if (trackNumber == 0)
-				value.LoadString(res, IDS_OGG_INFO_UNKNOWN);
+				value.LoadString(res, IDS_MEDIAFILE_INFO_UNKNOWN);
 			else
 				value.SetUNumber(trackNumber);
 
@@ -615,10 +586,10 @@ bool OggVorbis::GetInfoString(uint32 line, PString &description, PString &value)
 		// Album
 		case 1:
 		{
-			description.LoadString(res, IDS_OGG_INFODESCLINE1);
+			description.LoadString(res, IDS_MEDIAFILE_INFODESCLINE1);
 
 			if (album.IsEmpty())
-				value.LoadString(res, IDS_OGG_INFO_UNKNOWN);
+				value.LoadString(res, IDS_MEDIAFILE_INFO_UNKNOWN);
 			else
 				value = album;
 
@@ -628,10 +599,10 @@ bool OggVorbis::GetInfoString(uint32 line, PString &description, PString &value)
 		// Genre
 		case 2:
 		{
-			description.LoadString(res, IDS_OGG_INFODESCLINE2);
+			description.LoadString(res, IDS_MEDIAFILE_INFODESCLINE2);
 
 			if (genre.IsEmpty())
-				value.LoadString(res, IDS_OGG_INFO_UNKNOWN);
+				value.LoadString(res, IDS_MEDIAFILE_INFO_UNKNOWN);
 			else
 				value = genre;
 
@@ -641,10 +612,10 @@ bool OggVorbis::GetInfoString(uint32 line, PString &description, PString &value)
 		// Organization
 		case 3:
 		{
-			description.LoadString(res, IDS_OGG_INFODESCLINE3);
+			description.LoadString(res, IDS_MEDIAFILE_INFODESCLINE3);
 
 			if (organization.IsEmpty())
-				value.LoadString(res, IDS_OGG_INFO_UNKNOWN);
+				value.LoadString(res, IDS_MEDIAFILE_INFO_UNKNOWN);
 			else
 				value = organization;
 
@@ -654,10 +625,10 @@ bool OggVorbis::GetInfoString(uint32 line, PString &description, PString &value)
 		// Copyright
 		case 4:
 		{
-			description.LoadString(res, IDS_OGG_INFODESCLINE4);
+			description.LoadString(res, IDS_MEDIAFILE_INFODESCLINE4);
 
 			if (copyright.IsEmpty())
-				value.LoadString(res, IDS_OGG_INFO_UNKNOWN);
+				value.LoadString(res, IDS_MEDIAFILE_INFO_UNKNOWN);
 			else
 				value = copyright;
 
@@ -667,10 +638,10 @@ bool OggVorbis::GetInfoString(uint32 line, PString &description, PString &value)
 		// Description
 		case 5:
 		{
-			description.LoadString(res, IDS_OGG_INFODESCLINE5);
+			description.LoadString(res, IDS_MEDIAFILE_INFODESCLINE5);
 
 			if (this->description.IsEmpty())
-				value.LoadString(res, IDS_OGG_INFO_NONE);
+				value.LoadString(res, IDS_MEDIAFILE_INFO_NONE);
 			else
 				value = this->description;
 
@@ -680,10 +651,10 @@ bool OggVorbis::GetInfoString(uint32 line, PString &description, PString &value)
 		// Vendor
 		case 6:
 		{
-			description.LoadString(res, IDS_OGG_INFODESCLINE6);
+			description.LoadString(res, IDS_MEDIAFILE_INFODESCLINE6);
 
 			if (vendor.IsEmpty())
-				value.LoadString(res, IDS_OGG_INFO_UNKNOWN);
+				value.LoadString(res, IDS_MEDIAFILE_INFO_UNKNOWN);
 			else
 				value = vendor;
 
@@ -693,10 +664,10 @@ bool OggVorbis::GetInfoString(uint32 line, PString &description, PString &value)
 		// Bitrate
 		case 7:
 		{
-			description.LoadString(res, IDS_OGG_INFODESCLINE7);
+			description.LoadString(res, IDS_MEDIAFILE_INFODESCLINE7);
 
 			if (bitrate == -1)
-				value.LoadString(res, IDS_OGG_INFO_UNKNOWN);
+				value.LoadString(res, IDS_MEDIAFILE_INFO_UNKNOWN);
 			else
 				value.SetUNumber(bitrate);
 
@@ -706,112 +677,11 @@ bool OggVorbis::GetInfoString(uint32 line, PString &description, PString &value)
 		// Frequency
 		case 8:
 		{
-			description.LoadString(res, IDS_OGG_INFODESCLINE8);
+			description.LoadString(res, IDS_MEDIAFILE_INFODESCLINE8);
 			value.SetUNumber(rate);
 			break;
 		}
 	}
 
 	return (true);
-}
-
-
-
-/******************************************************************************/
-/* Allocation functions.                                                      */
-/******************************************************************************/
-void *OggVorbis::_ogg_calloc(int32 count, int32 bytes)
-{
-	void *buffer = _ogg_malloc(bytes * count);
-	memset(buffer, 0, bytes * count);
-
-	return (buffer);
-}
-
-
-
-void *OggVorbis::_ogg_malloc(int32 bytes)
-{
-	uint8 *buffer = new uint8[4 + bytes];
-	*((int32 *)buffer) = bytes;
-
-	return (buffer + 4);
-}
-
-
-
-void *OggVorbis::_ogg_realloc(void *oldData, int32 newSize)
-{
-	void *newData = _ogg_malloc(newSize);
-	memcpy(newData, oldData, *(((int32 *)oldData) - 1));
-	_ogg_free(oldData);
-
-	return (newData);
-}
-
-
-
-void OggVorbis::_ogg_free(void *data)
-{
-	if (data != NULL)
-		delete[] ((uint8 *)data - 4);
-}
-
-
-
-/******************************************************************************/
-/* Common functions                                                           */
-/******************************************************************************/
-/* ilog2()                                                                    */
-/******************************************************************************/
-int32 OggVorbis::ilog2(uint32 v)
-{
-	int32 ret = 0;
-
-	if (v)
-		--v;
-
-	while (v)
-	{
-		ret++;
-		v >>= 1;
-	}
-
-	return (ret);
-}
-
-
-
-/******************************************************************************/
-/* ilog()                                                                     */
-/******************************************************************************/
-int32 OggVorbis::ilog(uint32 v)
-{
-	int32 ret = 0;
-
-	while (v)
-	{
-		ret++;
-		v >>= 1;
-	}
-
-	return (ret);
-}
-
-
-
-/******************************************************************************/
-/* icount()                                                                   */
-/******************************************************************************/
-int32 OggVorbis::icount(uint32 v)
-{
-	int32 ret = 0;
-
-	while (v)
-	{
-		ret += v & 1;
-		v >>= 1;
-	}
-
-	return (ret);
 }
