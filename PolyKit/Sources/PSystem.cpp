@@ -201,6 +201,12 @@ uint32 PSystem::ConvertOSError(uint32 osError)
 			polyErr = P_FILE_ERR_NOT_A_DIRECTORY;
 			break;
 		}
+		
+		case B_IS_A_DIRECTORY:
+		{
+			polyErr = P_FILE_ERR_IS_A_DIRECTORY;
+			break;
+		}
 
 		case B_LINK_LIMIT:
 		{
