@@ -6,7 +6,8 @@
 /*                                                                            */
 /* Copyright (C) 1998-2002 by The APlayer-Team.                               */
 /* All rights reserved.                                                       */
-/******************************************************************************/
+//
+// Copyright 2011, Adrien Destugues (pulkomandy@pulkomandy.ath.cx)
 
 #include <GridLayout.h>
 
@@ -39,7 +40,8 @@ extern PSettings *spinSettings;
 /******************************************************************************/
 /* Constructor                                                                */
 /******************************************************************************/
-SpinSquareWindow::SpinSquareWindow(SpinSquareAgent *spinAgent, PResource *resource, PString title) : BWindow(BRect(0.0f, 0.0f, 100*8, 100*2), NULL, B_TITLED_WINDOW, B_NOT_ZOOMABLE)
+SpinSquareWindow::SpinSquareWindow(SpinSquareAgent *spinAgent, PResource *resource, PString title)
+	: BWindow(BRect(0.0f, 0.0f, 100*8, 100*2), NULL, B_TITLED_WINDOW, B_NOT_ZOOMABLE)
 	, itemCount(0)
 {
 	BRect rect;
@@ -183,6 +185,8 @@ void SpinSquareWindow::DrawWindow(APAgent_ChannelChange *channelInfo)
 		uint16 i, todo;
 
 		todo = channelInfo->channels;
+		
+		// TODO also do this when the window size changed
 		if (todo != itemCount)
 		{
 			itemCount = todo;
@@ -195,17 +199,34 @@ void SpinSquareWindow::DrawWindow(APAgent_ChannelChange *channelInfo)
 				delete item;
 			}
 			
-			// create new ones
-			int lines = (int)sqrt(todo * Bounds().Height() / Bounds().Width());
-			if (lines == 0) lines++;
-			int ratio = todo / lines;
-
-			while(ratio * lines < todo) ratio++;
-			
-			for (int j = 0; j < lines; j++)
-			for (i = 0; i < ratio; i++)
+			// Compute optimal line count
+			float width = Bounds().Width();
+			float height = Bounds().Height();
+			float bestRatio = 999;
+			int bestLines;
+			int lines, col;
+			for(lines = itemCount; lines > 0; --lines)
 			{
-				layout->AddView(new SpinSquareView(), i, j);
+				col = (int)ceilf(itemCount/(float)lines);
+				int sqwidth = (int)(width / lines);
+				int sqheight = (int)(height / col);
+				
+				float ratio = sqwidth / (float)sqheight;
+				if (ratio < 1.f) ratio = 1.f / ratio;
+				if (ratio < bestRatio) {
+					bestLines = lines;
+					bestRatio = ratio;
+				}
+			}
+			
+			lines = bestLines;
+			col = (int)ceilf(itemCount/(float)lines);
+			
+			// create new ones
+			for (i = 0; i < col; i++)
+			for (int j = 0; j < lines; j++)
+			{
+				layout->AddView(new SpinSquareView(), j, i);
 			}
 		}
 		

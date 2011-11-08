@@ -6,7 +6,8 @@
 /*                                                                            */
 /* Copyright (C) 1998-2002 by The APlayer-Team.                               */
 /* All rights reserved.                                                       */
-/******************************************************************************/
+//
+// Copyright 2011, Adrien Destugues (pulkomandy@pulkomandy.ath.cx)
 
 
 // PolyKit headers

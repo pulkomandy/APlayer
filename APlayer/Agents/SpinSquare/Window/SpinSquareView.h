@@ -6,7 +6,8 @@
 /*                                                                            */
 /* Copyright (C) 1998-2002 by The APlayer-Team.                               */
 /* All rights reserved.                                                       */
-/******************************************************************************/
+//
+// Copyright 2011, Adrien Destugues (pulkomandy@pulkomandy.ath.cx)
 
 
 #ifndef __SpinSquareView_h
@@ -33,8 +34,6 @@ public:
 
 	void ChannelChanged(uint32 flags, const APChannel *channel);
 	void StopAnimation(void);
-	
-	BSize MinSize() {return BSize(64, 64);}
 
 protected:
 	bool animate;
