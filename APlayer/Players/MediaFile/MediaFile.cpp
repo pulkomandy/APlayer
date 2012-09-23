@@ -392,23 +392,25 @@ void MediaFile::Play(void)
 	}
 	else
 	{
-		// Convert the PCM from float to 16-bit
-		// TODO - likely completely broken...
-		for (i = 0; i < channels; i++)
+		// The Media Kit provides us with samples in this order :
+		// C1 C2
+		// C1 C2
+		// C1 C2
+		// ...
+		//
+		// While APlayer wants:
+		// C1 C1 C1 C1 ...
+		// C2 C2 C2 C2 ...
+		//
+		// So we have to flip the array over
+		
+		int16* source = (int16*)pcm;
+
+		for (j = 0; j < samplesReturned; j++)
 		{
-			int16 *dest   = chanBuffers[i];
-			int32* source = pcm;
-
-			for (j = 0; j < samplesReturned; j++)
+			for(i = 0; i < channels; i++)
 			{
-				int32 val = (int32)(*source++ / 65536);
-
-				if (val > 32767)
-					val = 32767;
-
-				if (val < -32768)
-					val = -32768;
-				*dest++ = val;
+				*(chanBuffers[i] + j) = *source++;
 			}
 		}
 	}
