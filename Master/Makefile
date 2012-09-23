@@ -5,9 +5,10 @@ VERSION := 4.0.1
 #build date is not currently used.
 BUILDDATE := $(shell date +%b_%d_%Y)
 
-OBJDIR := __OBJ_x86
-DEPDIR := __DEP_x86
-RULESDIR := __RULES_x86
+ARCH := $(shell setgcc | cut -d' ' -f3)
+OBJDIR := __OBJ_$(ARCH)
+DEPDIR := __DEP_$(ARCH)
+RULESDIR := __RULES_$(ARCH)
 MAKEFILEDIR := makefiles_x86
 
 CC := gcc -c -pipe
@@ -50,7 +51,7 @@ CFLAGS += -Wconversion -Wpointer-arith
 CFLAGS += -Wstrict-prototypes -Wmissing-prototypes -Wmissing-declarations
 #CFLAGS += -Wcast-qual -Wshadow
 
-APLAYER_LIBS := ../APlayer/bin/BeOS_x86/lib/APlayerKit.so ../APlayer/bin/BeOS_x86/lib/PolyKit.so
+APLAYER_LIBS := ../APlayer/bin/BeOS_$(ARCH)/lib/APlayerKit.so ../APlayer/bin/BeOS_$(ARCH)/lib/PolyKit.so
 APLAYER_INCLUDES := ../PolyKit/Sources ../PolyKit/Sources/BeOS ../APlayer/APlayerKit
 
 #Restriction: No binary can have the same name as any other binary. :/

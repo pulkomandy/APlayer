@@ -4,7 +4,7 @@
 NAME := APlayerKit.so
 
 # The directory where the binary will be created.
-$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_x86/lib
+$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_$(ARCH)/lib
 
 # A list of relative paths to where the sources for the binary are.
 # The make system will gather the sources in these paths by itself,
@@ -24,9 +24,9 @@ $(NAME)_TYPE := SHARED
 # List of needed libraries.
 # Example:
 # LIBS := be root
-$(NAME)_LIBS := ../APlayer/bin/BeOS_x86/lib/PolyKit.so be
+$(NAME)_LIBS := ../APlayer/bin/BeOS_$(ARCH)/lib/PolyKit.so be
 
-$(NAME)_EXTRA_DEENDENCIES := ../APlayer/bin/BeOS_x86/lib/PolyKit.so
+$(NAME)_EXTRA_DEENDENCIES := ../APlayer/bin/BeOS_$(ARCH)/lib/PolyKit.so
 
 # List of resources.
 # Example:
@@ -51,7 +51,7 @@ $(NAME)_EXTRA_LDFLAGS :=
 #The actual make engine.
 include Makefile.rules
 
-../APlayer/bin/BeOS_x86/lib/PolyKit.so: $(PolyKit.so_TARGET)
+../APlayer/bin/BeOS_$(ARCH)/lib/PolyKit.so: $(PolyKit.so_TARGET)
 	@echo Creating link to PolyKit.so
-	@mkdir -p ../APlayer/bin/BeOS_x86/lib 2>/dev/null
-	@ln -sf  ../../../$(PolyKit.so_TARGET) ../APlayer/bin/BeOS_x86/lib/PolyKit.so
+	@mkdir -p ../APlayer/bin/BeOS_$(ARCH)/lib 2>/dev/null
+	@ln -sf `readlink -f $(PolyKit.so_TARGET)` ../APlayer/bin/BeOS_$(ARCH)/lib/

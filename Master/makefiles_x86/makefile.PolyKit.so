@@ -4,7 +4,7 @@
 NAME := PolyKit.so
 
 # The directory where the binary will be created.
-$(NAME)_TARGET_DIR := ../PolyKit/bin/BeOS/x86
+$(NAME)_TARGET_DIR := ../PolyKit/bin/BeOS/$(ARCH)
 
 # A list of relative paths to where the sources for the binary are.
 # The make system will gather the sources in these paths by itself,

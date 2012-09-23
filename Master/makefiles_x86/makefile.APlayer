@@ -2,7 +2,7 @@ NAME := APlayer
 
 ROOTDIR := ../APlayer/Server
 
-$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_x86
+$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_$(ARCH)
 
 $(NAME)_SOURCE_PATHS := \
 	$(ROOTDIR)/Clients \
