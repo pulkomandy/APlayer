@@ -2,7 +2,7 @@ NAME := Scope
 
 ROOTDIR := ../APlayer/Agents/Scope
 
-$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_x86/add-ons/Agents
+$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_$(ARCH)/add-ons/Agents
 
 $(NAME)_SOURCE_PATHS := $(ROOTDIR) $(ROOTDIR)/Window
 

@@ -1,6 +1,6 @@
 NAME := Raw
 
-$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_x86/add-ons/Converters
+$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_$(ARCH)/add-ons/Converters
 
 $(NAME)_SOURCE_PATHS := ../APlayer/Converters/Raw
 

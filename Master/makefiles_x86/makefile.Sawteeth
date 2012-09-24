@@ -1,6 +1,6 @@
 NAME := Sawteeth
 
-$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_x86/add-ons/Players
+$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_$(ARCH)/add-ons/Players
 
 $(NAME)_SOURCE_PATHS := ../APlayer/Players/Sawteeth
 

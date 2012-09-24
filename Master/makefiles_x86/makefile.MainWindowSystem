@@ -2,7 +2,7 @@ NAME := MainWindowSystem
 
 ROOTDIR := ../APlayer/Clients/MainWindowSystem
 
-$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_x86/add-ons/Clients
+$(NAME)_TARGET_DIR := ../APlayer/bin/BeOS_$(ARCH)/add-ons/Clients
 
 $(NAME)_SOURCE_PATHS := $(ROOTDIR) \
 	$(ROOTDIR)/AboutWindow \
