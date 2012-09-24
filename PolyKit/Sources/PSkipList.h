@@ -573,7 +573,7 @@ const PSkipList<KEY_TYPE, TYPE> & PSkipList<KEY_TYPE, TYPE>::operator = (const P
 /* Output: The pointer to the node or NULL if it couldn't be found.           */
 /******************************************************************************/
 template<class KEY_TYPE, class TYPE>
-PSkipList<KEY_TYPE, TYPE>::PNode* PSkipList<KEY_TYPE, TYPE>::FindNode(const KEY_TYPE key) const
+typename PSkipList<KEY_TYPE, TYPE>::PNode* PSkipList<KEY_TYPE, TYPE>::FindNode(const KEY_TYPE key) const
 {
 	PNode *node, *next;
 
@@ -609,7 +609,7 @@ PSkipList<KEY_TYPE, TYPE>::PNode* PSkipList<KEY_TYPE, TYPE>::FindNode(const KEY_
 /* Output: The pointer to the node or NULL if it couldn't be found.           */
 /******************************************************************************/
 template<class KEY_TYPE, class TYPE>
-PSkipList<KEY_TYPE, TYPE>::PNode* PSkipList<KEY_TYPE, TYPE>::FindNodeAndUpdate(const KEY_TYPE key) const
+typename PSkipList<KEY_TYPE, TYPE>::PNode* PSkipList<KEY_TYPE, TYPE>::FindNodeAndUpdate(const KEY_TYPE key) const
 {
 	PNode *node, *next;
 
@@ -641,7 +641,7 @@ PSkipList<KEY_TYPE, TYPE>::PNode* PSkipList<KEY_TYPE, TYPE>::FindNodeAndUpdate(c
 /* Output: The pointer to the node or NULL if it couldn't be found.           */
 /******************************************************************************/
 template<class KEY_TYPE, class TYPE>
-PSkipList<KEY_TYPE, TYPE>::PNode* PSkipList<KEY_TYPE, TYPE>::RemoveNode(const KEY_TYPE key)
+typename PSkipList<KEY_TYPE, TYPE>::PNode* PSkipList<KEY_TYPE, TYPE>::RemoveNode(const KEY_TYPE key)
 {
 	// Find nearest node and update the vector with pointers to this node
 	PNode *node = FindNodeAndUpdate(key);

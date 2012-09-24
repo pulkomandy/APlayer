@@ -51,6 +51,23 @@ typedef struct APOpenedDisplayWindow
 } APOpenedDisplayWindow;
 
 
+class APAddOnWindows;
+
+/******************************************************************************/
+/* APAddOnDisplayWindowFilter class                                           */
+/******************************************************************************/
+class APAddOnWindowFilter : public BMessageFilter
+{
+public:
+	APAddOnWindowFilter(APAddOnWindows *windowObject);
+	virtual ~APAddOnWindowFilter(void);
+
+	virtual filter_result Filter(BMessage *message, BHandler **target);
+
+protected:
+	APAddOnWindows *winObj;
+};
+
 
 /******************************************************************************/
 /* APAddOnWindows class                                                       */
@@ -70,27 +87,10 @@ public:
 	void CloseWindows(void);
 
 protected:
-	friend APAddOnWindowFilter;
+	friend class APAddOnWindowFilter;
 
 	APList<APOpenedConfigWindow *> configWindows;
 	APList<APOpenedDisplayWindow *> displayWindows;
-};
-
-
-
-/******************************************************************************/
-/* APAddOnDisplayWindowFilter class                                           */
-/******************************************************************************/
-class APAddOnWindowFilter : public BMessageFilter
-{
-public:
-	APAddOnWindowFilter(APAddOnWindows *windowObject);
-	virtual ~APAddOnWindowFilter(void);
-
-	virtual filter_result Filter(BMessage *message, BHandler **target);
-
-protected:
-	APAddOnWindows *winObj;
 };
 
 #endif

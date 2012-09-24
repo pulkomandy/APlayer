@@ -663,7 +663,7 @@ const PList<TYPE> & PList<TYPE>::operator = (const PList<TYPE> &newList)
 /* Output: A pointer to the new node.                                         */
 /******************************************************************************/
 template<class TYPE>
-PList<TYPE>::PNode *PList<TYPE>::AllocateNode(void) const
+typename PList<TYPE>::PNode *PList<TYPE>::AllocateNode(void) const
 {
 	PNode *newNode;
 
@@ -700,7 +700,7 @@ PList<TYPE>::PNode *PList<TYPE>::AllocateNode(void) const
 /* Except: PBoundsException.                                                  */
 /******************************************************************************/
 template<class TYPE>
-PList<TYPE>::PNode *PList<TYPE>::FindNode(int32 index, int32 *pos) const
+typename PList<TYPE>::PNode *PList<TYPE>::FindNode(int32 index, int32 *pos) const
 {
 	PNode *workNode;
 	int32 workPos;

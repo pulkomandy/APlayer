@@ -1,28 +1,17 @@
-/******************************************************************************/
-/* MediaKit Player Stub Interface.                                            */
-/******************************************************************************/
-/* This source, or parts thereof, may be used in any software as long the     */
-/* license of APlayer is keep. See the LICENSE file for more information.     */
-/*                                                                            */
-/* Copyright (C) 1998-2002 by The APlayer-Team.                               */
-/* All rights reserved.                                                       */
-/******************************************************************************/
-
+/* GMA Player stub interface
+ * Copyright 2012, Adrien Destugues <pulkomandy@gmail.com>
+ * This file is distributed under the terms of the MIT Licence
+ */
 
 #define _BUILDING_APLAYER_ADDON_
 
-// PolyKit headers
-#include "POS.h"
 #include "PString.h"
 #include "PResource.h"
 
-// APlayerKit headers
-#include "Import_Export.h"
 #include "APGlobalData.h"
-#include "APAddOns.h"
 
 #include "ResourceIDs.h"
-#include "MediaFile.h"
+#include "GMEPlayer.h"
 
 /******************************************************************************/
 /* Add-On function: Load() is called when the add-on is loaded into the       */
@@ -38,13 +27,13 @@ void Load(APGlobalData *global, PString fileName)
 	PString shortDescr, longDescr;
 
 	// Get the file type strings
-	type.LoadString(&res, IDS_MEDIAFILE_MIME);
-	ext.LoadString(&res, IDS_MEDIAFILE_EXTENSION);
-	shortDescr.LoadString(&res, IDS_MEDIAFILE_SHORT_DESCRIPTION);
-	longDescr.LoadString(&res, IDS_MEDIAFILE_LONG_DESCRIPTION);
+	type.LoadString(&res, IDS_GME_MIME);
+	ext.LoadString(&res, IDS_GME_EXTENSION);
+	shortDescr.LoadString(&res, IDS_GME_SHORT_DESCRIPTION);
+	longDescr.LoadString(&res, IDS_GME_LONG_DESCRIPTION);
 
 	// Install the mime type + icon
-	global->fileTypes->RegisterFileType(&res, IDI_MEDIAFILE_FILEICON, type, ext, longDescr, shortDescr);
+	global->fileTypes->RegisterFileType(&res, IDI_GME_FILEICON, type, ext, longDescr, shortDescr);
 }
 
 
@@ -72,7 +61,7 @@ void Unload(APGlobalData* /*global*/)
 /******************************************************************************/
 APAddOnBase *AllocateInstance(APGlobalData *global, PString fileName)
 {
-	return new MediaFile(global, fileName);
+	return new GMEPlayer(global, fileName);
 }
 
 

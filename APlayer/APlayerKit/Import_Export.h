@@ -25,7 +25,7 @@
 #if __p_os == __p_beos
 
 // BeOS Intel version
-#ifdef __INTEL__
+#if defined(__BeOS) && defined(__INTEL__)
 
 #ifdef _BUILDING_APLAYERKIT_
 #define _IMPEXP_APKIT		__declspec(dllexport)

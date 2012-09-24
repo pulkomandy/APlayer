@@ -17,7 +17,7 @@ $(NAME)_EXTRA_DEENDENCIES := $(APlayerKit.so_TARGET)
 
 $(NAME)_TYPE := APP
 
-$(NAME)_LIBS := $(APLAYER_LIBS) be root
+$(NAME)_LIBS := $(APLAYER_LIBS) be root stdc++
 
 $(NAME)_RSRCS := $(ROOTDIR)/BeOS/Server_x86.rsrc
 

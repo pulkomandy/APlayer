@@ -39,6 +39,10 @@
 /* This version of the player uses APlayers own mixing routines, but we still */
 /* uses some of the functions. Thats why we still have the class.             */
 /******************************************************************************/
+
+class Instr;
+class Sample;
+
 class MED_Mixer
 {
 public:

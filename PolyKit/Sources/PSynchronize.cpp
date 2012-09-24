@@ -102,7 +102,7 @@ int32 AtomicDecrement(vint32 *variable)
 /*                                                                            */
 /* Output: Is the array number of the object you got, or one of the errors.   */
 /******************************************************************************/
-int32 MultipleObjectsWait(PSync **objects, int32 count, bool waitAll, uint32 timeout)
+int32 MultipleObjectsWait(PSync **objects, int32 count, bool waitAll, bigtime_t timeout)
 {
 	PSyncError err;
 	int32 i;

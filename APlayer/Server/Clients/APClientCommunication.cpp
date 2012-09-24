@@ -784,12 +784,12 @@ bool APClientCommunication::CanChangePosition(APClientCommunication *comm, BLoop
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::ChangeChannels(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::ChangeChannels(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
 	bool enable;
-	int16 startChan, stopChan;
+	int32 startChan, stopChan;
 
 	// Check the arguments
 	if (args.CountItems() != 4)
@@ -834,7 +834,7 @@ bool APClientCommunication::ChangeChannels(APClientCommunication *comm, BLooper 
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::DisableAddOn(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::DisableAddOn(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	PString addOnName, sectionName;
 	AddOnInfo *addOn;
@@ -962,7 +962,7 @@ bool APClientCommunication::DisableAddOn(APClientCommunication *comm, BLooper *l
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::EnableAddOn(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::EnableAddOn(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	PString addOnName, sectionName, dirName;
 	AddOnInfo *addOn;
@@ -1112,7 +1112,7 @@ bool APClientCommunication::EnableAddOn(APClientCommunication *comm, BLooper *lo
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::EndPlayer(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::EndPlayer(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1173,7 +1173,7 @@ bool APClientCommunication::EndPlayer(APClientCommunication *comm, BLooper *loop
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetAuthor(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetAuthor(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1215,7 +1215,7 @@ bool APClientCommunication::GetAuthor(APClientCommunication *comm, BLooper *loop
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetCurrentSong(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetCurrentSong(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1261,7 +1261,7 @@ bool APClientCommunication::GetCurrentSong(APClientCommunication *comm, BLooper 
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetMaxSongNumber(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetMaxSongNumber(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1307,7 +1307,7 @@ bool APClientCommunication::GetMaxSongNumber(APClientCommunication *comm, BLoope
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetModuleChannels(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetModuleChannels(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1353,7 +1353,7 @@ bool APClientCommunication::GetModuleChannels(APClientCommunication *comm, BLoop
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetModuleFormat(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetModuleFormat(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1396,7 +1396,7 @@ bool APClientCommunication::GetModuleFormat(APClientCommunication *comm, BLooper
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetModuleInformation(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetModuleInformation(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1447,7 +1447,7 @@ bool APClientCommunication::GetModuleInformation(APClientCommunication *comm, BL
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetModuleName(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetModuleName(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1489,7 +1489,7 @@ bool APClientCommunication::GetModuleName(APClientCommunication *comm, BLooper *
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetModuleSize(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetModuleSize(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1535,7 +1535,7 @@ bool APClientCommunication::GetModuleSize(APClientCommunication *comm, BLooper *
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetPlayerName(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetPlayerName(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1577,7 +1577,7 @@ bool APClientCommunication::GetPlayerName(APClientCommunication *comm, BLooper *
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetSongLength(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetSongLength(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1624,7 +1624,7 @@ bool APClientCommunication::GetSongLength(APClientCommunication *comm, BLooper *
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetSongPosition(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetSongPosition(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1671,7 +1671,7 @@ bool APClientCommunication::GetSongPosition(APClientCommunication *comm, BLooper
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetTimeList(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetTimeList(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1726,7 +1726,7 @@ bool APClientCommunication::GetTimeList(APClientCommunication *comm, BLooper *lo
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::GetTotalTime(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::GetTotalTime(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1772,7 +1772,7 @@ bool APClientCommunication::GetTotalTime(APClientCommunication *comm, BLooper *l
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::HoldPlaying(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::HoldPlaying(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1818,7 +1818,7 @@ bool APClientCommunication::HoldPlaying(APClientCommunication *comm, BLooper *lo
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::InitPlayer(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::InitPlayer(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1890,7 +1890,7 @@ bool APClientCommunication::InitPlayer(APClientCommunication *comm, BLooper *loo
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::LoadFile(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::LoadFile(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -1934,7 +1934,7 @@ bool APClientCommunication::LoadFile(APClientCommunication *comm, BLooper *loope
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::OpenConfigWindow(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::OpenConfigWindow(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	PString addOnName;
 	APMRSWList<AddOnInfo *> *addOnList;
@@ -2013,7 +2013,7 @@ bool APClientCommunication::OpenConfigWindow(APClientCommunication *comm, BLoope
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::OpenDisplayWindow(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::OpenDisplayWindow(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	PString addOnName;
 	APMRSWList<AddOnInfo *> *addOnList;
@@ -2092,7 +2092,7 @@ bool APClientCommunication::OpenDisplayWindow(APClientCommunication *comm, BLoop
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::PausePlayer(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::PausePlayer(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -2137,7 +2137,7 @@ bool APClientCommunication::PausePlayer(APClientCommunication *comm, BLooper *lo
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::RemoveFile(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::RemoveFile(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -2212,7 +2212,7 @@ bool APClientCommunication::RemoveFile(APClientCommunication *comm, BLooper *loo
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::ResumePlayer(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::ResumePlayer(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -2257,7 +2257,7 @@ bool APClientCommunication::ResumePlayer(APClientCommunication *comm, BLooper *l
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::SaveSettings(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::SaveSettings(APClientCommunication * /*comm*/, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	// Check the arguments
 	if (args.CountItems() != 0)
@@ -2307,7 +2307,7 @@ bool APClientCommunication::SaveSettings(APClientCommunication *comm, BLooper *l
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::SetMixerSettings(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::SetMixerSettings(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -2390,7 +2390,7 @@ bool APClientCommunication::SetMixerSettings(APClientCommunication *comm, BLoope
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::SetOutputAgent(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::SetOutputAgent(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -2435,11 +2435,11 @@ bool APClientCommunication::SetOutputAgent(APClientCommunication *comm, BLooper 
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::SetPosition(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::SetPosition(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
-	int16 newPos;
+	int32 newPos;
 
 	// Check the arguments
 	if (args.CountItems() != 2)
@@ -2485,7 +2485,7 @@ bool APClientCommunication::SetVolume(APClientCommunication *comm, BLooper *loop
 {
 	APFileHandle handle;
 	uint32 uniqueID;
-	uint16 newVol;
+	uint32 newVol;
 
 	// Check the arguments
 	if (args.CountItems() != 2)
@@ -2527,7 +2527,7 @@ bool APClientCommunication::SetVolume(APClientCommunication *comm, BLooper *loop
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::StartedNormally(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::StartedNormally(APClientCommunication * /*comm*/, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	// Check the arguments
 	if (args.CountItems() != 0)
@@ -2562,7 +2562,7 @@ bool APClientCommunication::StartPlayer(APClientCommunication *comm, BLooper *lo
 {
 	APFileHandle handle;
 	uint32 uniqueID;
-	int16 songNum;
+	int32 songNum;
 
 	// Check the arguments
 	if (args.CountItems() != 2)
@@ -2607,7 +2607,7 @@ bool APClientCommunication::StartPlayer(APClientCommunication *comm, BLooper *lo
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::StopPlayer(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::StopPlayer(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;
@@ -2652,7 +2652,7 @@ bool APClientCommunication::StopPlayer(APClientCommunication *comm, BLooper *loo
 /*                                                                            */
 /* Output: True for success, false for failure.                               */
 /******************************************************************************/
-bool APClientCommunication::UnloadFile(APClientCommunication *comm, BLooper *looper, const PList<PString> &args, PString &result)
+bool APClientCommunication::UnloadFile(APClientCommunication *comm, BLooper * /*looper*/, const PList<PString> &args, PString &result)
 {
 	APFileHandle handle;
 	uint32 uniqueID;

@@ -410,7 +410,7 @@ void APViewAboutBox::Pulse(void)
 					{
 						append = false;
 
-						if (str.GetAt(0) == "¤")
+						if (str.GetAt(0) == '¤')
 						{
 							do
 							{

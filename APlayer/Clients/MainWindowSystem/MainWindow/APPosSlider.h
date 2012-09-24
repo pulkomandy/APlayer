@@ -24,10 +24,10 @@ class APPosSlider : public BSlider
 public:
 	APPosSlider(BRect frame, BMessage *message, uint32 resizingMode, uint32 flags);
 	virtual ~APPosSlider(void);
-
-protected:
 	virtual void MouseDown(BPoint point);
 	virtual void MouseUp(BPoint point);
+
+protected:
 	virtual void DrawThumb(void);
 	virtual void DrawFocusMark(void);
 

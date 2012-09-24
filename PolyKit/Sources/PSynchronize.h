@@ -52,7 +52,7 @@ class PSync;
 _IMPEXP_PKLIB int32 AtomicIncrement(vint32 *variable);
 _IMPEXP_PKLIB int32 AtomicDecrement(vint32 *variable);
 
-_IMPEXP_PKLIB int32 MultipleObjectsWait(PSync **objects, int32 count, bool waitAll, uint32 timeout = PSYNC_INFINITE);
+_IMPEXP_PKLIB int32 MultipleObjectsWait(PSync **objects, int32 count, bool waitAll, bigtime_t timeout = PSYNC_INFINITE);
 
 
 
@@ -147,7 +147,7 @@ protected:
 	void Initialize(PString name, bool manualReset, bool initialState);
 
 	// MultibleObjectsWait() needs to read the state variable
-	friend int32 MultipleObjectsWait(PSync **objects, int32 count, bool waitAll, uint32 timeout);
+	friend int32 MultipleObjectsWait(PSync **objects, int32 count, bool waitAll, bigtime_t timeout);
 
 	sem_id semID;
 	bool state;

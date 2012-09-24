@@ -21,7 +21,7 @@
 /******************************************************************************/
 
 // BeOS Intel
-#ifdef __INTEL__
+#if defined(__BeOS__) && defined(__INTEL__)
 
 #ifdef _BUILDING_POLYKIT_LIBRARY_
 #define _IMPEXP_PKLIB		__declspec(dllexport)
@@ -31,7 +31,7 @@
 
 #else
 
-// BeOS PowerPC
+// BeOS PowerPC, any Haiku
 #define _IMPEXP_PKLIB
 #endif
 
