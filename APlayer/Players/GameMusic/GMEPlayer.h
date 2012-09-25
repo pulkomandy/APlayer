@@ -80,6 +80,10 @@ protected:
 	uint8 *buffer;
 	uint32 mixerFreq;
 	uint16 songTab[2];
+
+private:
+	int16 oldPos;
+	static const int timeScale = 100; // milliseconds per position
 };
 
 #endif

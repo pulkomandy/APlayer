@@ -183,18 +183,13 @@ PString GMEPlayer::GetModTypeString(int32 /*index*/)
 /******************************************************************************/
 ap_result GMEPlayer::ModuleCheck(int32 /*index*/, PFile* file)
 {
-	// TODO use gme_identify_header
 	// TODO use the index to separate the subtypes of players (AY, SPC, ...)
-	Music_Emu* theEmu;
-	gme_err_t error = gme_open_file(file->GetFullPath().GetString(), &theEmu,
-		gme_info_only);
+	gme_type_t format = 0;
+	gme_err_t error = gme_identify_file(file->GetFullPath().GetString(), &format);
 
-	gme_delete(theEmu);
-
-	if (error == NULL)
+	if (format != 0)
 		return AP_OK;
 	else {
-		puts(error);
 		return AP_ERROR;
 	}
 }
@@ -227,7 +222,7 @@ ap_result GMEPlayer::LoadModule(int32 /*index*/, PFile* file,
 	}
 
 	gme_track_info(theEmu, &fSongInfos, 0);
-		// TODO handle subsongs
+	gme_set_fade(theEmu, fSongInfos->play_length);
 
 	return (retVal);
 }
@@ -333,6 +328,9 @@ void GMEPlayer::EndPlayer(int32 /*index*/)
 /******************************************************************************/
 void GMEPlayer::InitSound(int32 /*index*/, uint16 songNum)
 {
+	gme_free_info(fSongInfos);
+	gme_track_info(theEmu, &fSongInfos, songNum);
+
 	gme_start_track(theEmu, songNum);
 }
 
@@ -345,12 +343,31 @@ void GMEPlayer::Play(void)
 {
 	uint32 size, i;
 	APChannel *channel;
-	uint16 *tempBuf;
+	int16 pos;
 
 	// Fill out the sample buffers
 	// The function want the total size in bytes
 	//emuEngine->sid6581.EmuFillBuffer(*emuEngine, *tune, buffer, DEFAULT_BUFFER_SIZE);
 	gme_play(theEmu, DEFAULT_BUFFER_SIZE / 2, (short int*)buffer);
+
+	// Check for position change
+	pos = GetSongPosition();
+	if (pos != oldPos)
+	{
+		oldPos = pos;
+		ChangePosition();
+	}
+
+	// Check for end
+	if (gme_track_ended(theEmu))
+	{
+		// Seek back to the start of the file
+		SetSongPosition(0);
+		endReached = true;
+		return;
+	}
+	
+
 
 	// Calculate the buffer size in samples
 	size = DEFAULT_BUFFER_SIZE / 4;		// / 2 because it's 16 bit
@@ -438,7 +455,7 @@ const uint16 *GMEPlayer::GetSubSongs(void)
 /******************************************************************************/
 int16 GMEPlayer::GetSongLength(void)
 {
-	return 1000;
+	return fSongInfos->play_length / timeScale;
 }
 
 
@@ -450,13 +467,13 @@ int16 GMEPlayer::GetSongLength(void)
 /******************************************************************************/
 int16 GMEPlayer::GetSongPosition(void)
 {
-	return gme_tell(theEmu) * 1000 / fSongInfos->play_length;
+	return gme_tell(theEmu) / timeScale;
 }
 
 
 void GMEPlayer::SetSongPosition(int16 pos)
 {
-	gme_seek(theEmu, pos);
+	gme_seek(theEmu, pos * timeScale);
 }
 
 
@@ -480,10 +497,10 @@ PTimeSpan GMEPlayer::GetTimeTable(uint16 songNum, PList<PTimeSpan> &posTimes)
 	gme_free_info(infos);
 
 	// Copy the position times
-	for (i = 0; i < 1000; i++)
-		posTimes.AddTail(totalTime * i / 1000);
+	for (i = 0; i < totalTime / timeScale; i++)
+		posTimes.AddTail(i * timeScale);
 
-	return (totalTime);
+	return totalTime;
 }
 
 
