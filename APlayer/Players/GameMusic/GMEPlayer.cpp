@@ -187,10 +187,10 @@ ap_result GMEPlayer::ModuleCheck(int32 /*index*/, PFile* file)
 	gme_type_t format = 0;
 	gme_err_t error = gme_identify_file(file->GetFullPath().GetString(), &format);
 
-	if (format != 0)
+	if (format != 0 && error == NULL) {
 		return AP_OK;
-	else {
-		return AP_ERROR;
+	} else {
+		return AP_UNKNOWN;
 	}
 }
 
@@ -222,7 +222,6 @@ ap_result GMEPlayer::LoadModule(int32 /*index*/, PFile* file,
 	}
 
 	gme_track_info(theEmu, &fSongInfos, 0);
-	gme_set_fade(theEmu, fSongInfos->play_length);
 
 	return (retVal);
 }
@@ -330,6 +329,7 @@ void GMEPlayer::InitSound(int32 /*index*/, uint16 songNum)
 {
 	gme_free_info(fSongInfos);
 	gme_track_info(theEmu, &fSongInfos, songNum);
+	gme_set_fade(theEmu, fSongInfos->play_length);
 
 	gme_start_track(theEmu, songNum);
 }
@@ -359,7 +359,7 @@ void GMEPlayer::Play(void)
 	}
 
 	// Check for end
-	if (gme_track_ended(theEmu))
+	if (gme_track_ended(theEmu) || pos >= fSongInfos->play_length / timeScale)
 	{
 		// Seek back to the start of the file
 		SetSongPosition(0);
