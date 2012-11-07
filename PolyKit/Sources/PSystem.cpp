@@ -19,6 +19,8 @@
 #include "PSynchronize.h"
 #include "PSystem.h"
 
+#include <support/Debug.h>
+
 
 /******************************************************************************/
 /* Initialize static member variables.                                        */
@@ -85,7 +87,7 @@ uint32 PSystem::Random(uint32 max)
 /*                                                                            */
 /* Output: Is the PolyKit error code.                                         */
 /******************************************************************************/
-uint32 PSystem::ConvertOSError(uint32 osError)
+uint32 PSystem::ConvertOSError(int32 osError)
 {
 	uint32 polyErr = P_ERR_ANY;
 
@@ -220,6 +222,11 @@ uint32 PSystem::ConvertOSError(uint32 osError)
 			break;
 		}
 
+		case EROFS:
+		{
+			polyErr = P_FILE_ERR_BAD_ACCESS_MODE;
+		}
+
 		//
 		// Security errors
 		//
@@ -300,8 +307,7 @@ uint32 PSystem::ConvertOSError(uint32 osError)
 #ifdef PDEBUG
 		default:
 		{
-			printf("Error %ld: %s\n", osError, strerror(osError));
-			ASSERT(false);
+			debugger(strerror(osError));
 			break;
 		}
 #endif

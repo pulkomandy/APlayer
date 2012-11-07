@@ -98,7 +98,7 @@ public:
 	static void Sleep(uint32 milliSeconds);
 	static uint32 Random(uint32 max);
 
-	static uint32 ConvertOSError(uint32 osError);
+	static uint32 ConvertOSError(int32 osError);
 	static PString GetErrorString(uint32 error);
 
 	static POperativeSystem GetOSVersion(void);

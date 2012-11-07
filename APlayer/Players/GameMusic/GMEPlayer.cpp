@@ -373,7 +373,7 @@ void GMEPlayer::Play(void)
 	size = DEFAULT_BUFFER_SIZE / 4;		// / 2 because it's 16 bit
 
 	short int* source = (short int*)buffer;
-	for (int j = 0; j < size; j++)
+	for (unsigned int j = 0; j < size; j++)
 	{
 		for(i = 0; i < 2; i++)
 		{
@@ -426,8 +426,7 @@ PString GMEPlayer::GetModuleName(void)
 /******************************************************************************/
 PString GMEPlayer::GetAuthor(void)
 {
-	return fSongInfos->author; // TODO	
-	//return (tune->info.authorString);
+	return fSongInfos->author;	
 }
 
 
@@ -516,7 +515,7 @@ PTimeSpan GMEPlayer::GetTimeTable(uint16 songNum, PList<PTimeSpan> &posTimes)
 /******************************************************************************/
 bool GMEPlayer::GetInfoString(uint32 line, PString &description, PString &value)
 {
-	uint32 maxLine = 3;
+	static const uint32 maxLine = 4;
 
 	// Is the line number out of range?
 	if (line > maxLine)
@@ -525,7 +524,6 @@ bool GMEPlayer::GetInfoString(uint32 line, PString &description, PString &value)
 	// Find out which line to take
 	switch (line)
 	{
-		// Copyright
 		case 0:
 		{
 			description.LoadString(res, IDS_GME_INFODESCLINE0);
@@ -533,83 +531,40 @@ bool GMEPlayer::GetInfoString(uint32 line, PString &description, PString &value)
 			break;
 		}
 
-		// Load Addr
+		// TODO this should be the "Module Format"
 		case 1:
 		{
 			description.LoadString(res, IDS_GME_INFODESCLINE1);
-			//value.Format("0x%04X", tune->info.loadAddr);
+			value = fSongInfos->system;
 			break;
 		}
 
-		// Init Addr
 		case 2:
 		{
 			description.LoadString(res, IDS_GME_INFODESCLINE2);
-			//value.Format("0x%04X", tune->info.initAddr);
+			value = fSongInfos->game;
 			break;
 		}
 
-		// Play Addr
 		case 3:
 		{
 			description.LoadString(res, IDS_GME_INFODESCLINE3);
-			//value.Format("0x%04X", tune->info.playAddr);
+			value = fSongInfos->comment;
 			break;
 		}
-	}
 
-	line -= 4;
-	//if (tune->info.musPlayer)
-	{
-		switch (line)
+		case 4:
 		{
-			// Information line 1
-			case 0:
-			{
-				description.LoadString(res, IDS_GME_INFODESCLINE4);
-				value = fSongInfos->comment;
-				break;
-			}
-
-			// Information line 2
-			case 1:
-			{
-				description.LoadString(res, IDS_GME_INFODESCLINE5);
-	//			value = tune->info.infoStrings[1];
-				break;
-			}
-
-			// Information line 3
-			case 2:
-			{
-				description.LoadString(res, IDS_GME_INFODESCLINE6);
-	//			value = tune->info.infoStrings[2];
-				break;
-			}
-
-			// Information line 4
-			case 3:
-			{
-				description.LoadString(res, IDS_GME_INFODESCLINE7);
-	//			value = tune->info.infoStrings[3];
-				break;
-			}
-
-			// Information line 5
-			case 4:
-			{
-				description.LoadString(res, IDS_GME_INFODESCLINE8);
-	//			value = tune->info.infoStrings[4];
-				break;
-			}
+			description.LoadString(res, IDS_GME_INFODESCLINE4);
+			value = fSongInfos->dumper;
+			break;
 		}
-
 		// TOOD add missing infos
 
 		line -= 5;
 	}
 
-	return (true);
+	return (value != NULL);
 }
 
 

@@ -19,49 +19,25 @@ resource(51) "Game Music file";
 
 resource(100) "Copyright:";
 
-resource(101) "Load Addr:";
+resource(101) "System:";
 
-resource(102) "Init Addr:";
+resource(102) "Game:";
 
-resource(103) "Play Addr:";
+resource(103) "Song:";
 
-resource(104) "Compute! File Info:";
+resource(104) "Comment:";
 
-resource(105) "";
+resource(105) "Dumper:";
 
 resource(106) "";
 
 resource(107) "";
-
-resource(108) "";
-
-resource(109) "STIL information:";
 
 resource(200) "n/a";
 
 resource(300) "Select";
 
 resource(900) "General Settings";
-
-resource(901) "SID filter";
-
-resource(902) "MOS 8580 waveforms";
-
-resource(903) "Force song speed";
-
-resource(910) "MPU Memory Mode";
-
-resource(911) "Full bank-switching";
-
-resource(912) "Transparent ROM";
-
-resource(913) "PlaySID environment";
-
-resource(920) "C64 Clock Speed";
-
-resource(921) "PAL";
-
-resource(922) "NTSC";
 
 resource(930) "Filter Adjustment";
 
