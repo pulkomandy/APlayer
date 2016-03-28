@@ -49,8 +49,8 @@ class PSync;
 #pragma export on
 #endif
 
-_IMPEXP_PKLIB int32 AtomicIncrement(vint32 *variable);
-_IMPEXP_PKLIB int32 AtomicDecrement(vint32 *variable);
+_IMPEXP_PKLIB int32 AtomicIncrement(int32 *variable);
+_IMPEXP_PKLIB int32 AtomicDecrement(int32 *variable);
 
 _IMPEXP_PKLIB int32 MultipleObjectsWait(PSync **objects, int32 count, bool waitAll, bigtime_t timeout = PSYNC_INFINITE);
 

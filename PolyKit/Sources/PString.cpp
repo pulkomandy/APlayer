@@ -2827,7 +2827,7 @@ uint16 PChar::ChangeCase(uint16 uniChar)
 /******************************************************************************/
 typedef struct PString::PStringData
 {
-	vint32	refCount;		// Number of objects that points to this string
+	int32	refCount;		// Number of objects that points to this string
 	int32	stringLen;		// Length of the string in characters
 	int32	allocatedLen;	// Number of characters allocated
 	uint16 *string;			// Pointer to the string which is always stored in unicode
