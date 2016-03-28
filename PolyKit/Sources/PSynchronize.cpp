@@ -61,7 +61,7 @@ static PList<PSyncItem> syncWaitList;
 /*                                                                            */
 /* Output: Is the result after the increment.                                 */
 /******************************************************************************/
-int32 AtomicIncrement(vint32 *variable)
+int32 AtomicIncrement(int32 *variable)
 {
 	int32 result;
 
@@ -80,7 +80,7 @@ int32 AtomicIncrement(vint32 *variable)
 /*                                                                            */
 /* Output: Is the result after the decrement.                                 */
 /******************************************************************************/
-int32 AtomicDecrement(vint32 *variable)
+int32 AtomicDecrement(int32 *variable)
 {
 	int32 result;
 

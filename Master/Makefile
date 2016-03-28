@@ -5,7 +5,7 @@ VERSION := 4.0.1
 #build date is not currently used.
 BUILDDATE := $(shell date +%b_%d_%Y)
 
-ARCH := $(shell setgcc | cut -d' ' -f3)
+ARCH := $(shell getarch)
 OBJDIR := __OBJ_$(ARCH)
 DEPDIR := __DEP_$(ARCH)
 RULESDIR := __RULES_$(ARCH)

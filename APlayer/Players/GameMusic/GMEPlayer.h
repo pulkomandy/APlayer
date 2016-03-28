@@ -24,7 +24,7 @@
 #include "APAddOns.h"
 
 // Player headers
-#include "libgme/gme.h"
+#include <gme/gme.h>
 
 
 /******************************************************************************/
