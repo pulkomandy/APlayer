@@ -1,0 +1,10 @@
+
+resource(100) "Bit Size:";
+
+resource(101) "Frequency:";
+
+resource(102) "Sample Loops:";
+
+resource(200) "Yes";
+
+resource(201) "No";

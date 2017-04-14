@@ -30,7 +30,7 @@ APP_MIME_SIG =
 #	same name (source.c or source.cpp) are included from different directories.
 #	Also note that spaces in folder names do not work well with this Makefile.
 SRCS = \
-		AboutWindow/APWindowAbout.cpp \
+	AboutWindow/APWindowAbout.cpp \
 	Common_GUI/APDiskButton.cpp \
 	Common_GUI/APKeyFilter.cpp \
 	Common_GUI/APPictureButton.cpp \
@@ -75,11 +75,11 @@ SRCS = \
 
 #	Specify the resource definition files to use. Full or relative paths can be
 #	used.
-RDEFS =
+RDEFS = MainWindowSystem.rdef
 
 #	Specify the resource files to use. Full or relative paths can be used.
 #	Both RDEFS and RSRCS can be utilized in the same Makefile.
-RSRCS = BeOS/MainWindowSystem_x86.rsrc
+RSRCS =
 
 # End Pe/Eddie support.
 # @<-src@

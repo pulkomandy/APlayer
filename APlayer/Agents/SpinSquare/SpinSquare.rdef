@@ -1,0 +1,13 @@
+
+resource(1) "Spinning Squares";
+
+resource(11) #'CSTR' array {
+	"Spinning squares visual agent.\nWritten by Thomas Neumann.\n\nTh"
+	"is visual will show a square for each channel a module use, but "
+	"only up to the first 16 channels. The boxes will then rotate and"
+	" change shape to the music.\n\nNote that this visual will not wo"
+	"rk for all kind of modules, only those where the player tells AP"
+	"layer what to play instead of giving the sample data directly."
+};
+
+resource(100) "Spinning Squares";

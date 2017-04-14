@@ -1,0 +1,125 @@
+
+resource(1) "ProWizard";
+
+resource(11) #'CSTR' array {
+	"Converts ProTracker clones to ProTracker format.\nOriginal Amiga"
+	" program written by Nicolas Franck.\nConverted to C++ by Thomas "
+	"Neumann.\nAdditional code and format descriptions by Sylvain \"A"
+	"sle\" Chipaux.\n\nCurrent version can convert these formats:\n\n"
+	""
+};
+
+resource(100) "ProWizard Converter";
+
+resource(1001) "Error 1:\nOut of memory";
+
+resource(1002) #'CSTR' array {
+	"Error 2:\nThe file is recognized as a %s module, but it can't be"
+	" converted."
+};
+
+resource(5000) "AC1D Packer";
+
+resource(5001) "Channel Player v1";
+
+resource(5002) "Channel Player v2";
+
+resource(5003) "Channel Player v3";
+
+resource(5004) "Digital Illusions";
+
+resource(5005) "Eureka Packer";
+
+resource(5006) "FC-M Packer";
+
+resource(5007) "Fuchs Tracker";
+
+resource(5008) "Fuzzac Packer";
+
+resource(5009) "Game Music Creator";
+
+resource(5010) "Heatseeker mc1.0";
+
+resource(5011) "Hornet Packer";
+
+resource(5012) "IceTracker v1.0";
+
+resource(5013) "Kefrens Sound Machine";
+
+resource(5014) "KRIS Tracker (Chip Tracker)";
+
+resource(5015) "Laxity Packer";
+
+resource(5016) "Module Protector";
+
+resource(5017) "Noise Packer v1";
+
+resource(5018) "Noise Packer v2";
+
+resource(5019) "Noise Packer v3";
+
+resource(5020) "NoiseRunner";
+
+resource(5021) "NoiseTracker Pak";
+
+resource(5022) "PhaPacker";
+
+resource(5023) "Power Music";
+
+resource(5024) "Promizer v0.1 (Avalon Packer)";
+
+resource(5025) "Promizer v1.0c";
+
+resource(5026) "Promizer v1.8a";
+
+resource(5027) "Promizer v2.0";
+
+resource(5028) "Promizer v4.0";
+
+resource(5029) "ProPacker v1.0";
+
+resource(5030) "ProPacker v2.1";
+
+resource(5031) "ProPacker v3.0";
+
+resource(5032) "ProRunner v1";
+
+resource(5033) "ProRunner v2";
+
+resource(5034) "Pygmy Packer";
+
+resource(5035) "SKYT Packer";
+
+resource(5036) "SoundTracker v2.6";
+
+resource(5037) "StarTrekker Packer";
+
+resource(5038) "STIM (SlamTilt)";
+
+resource(5039) "The Dark Demon";
+
+resource(5040) "The Player v4.0A";
+
+resource(5041) "The Player v4.0B";
+
+resource(5042) "The Player v4.1A";
+
+resource(5043) "The Player v5.0A";
+
+resource(5044) "The Player v6.0A";
+
+resource(5045) "The Player v6.1A";
+
+resource(5046) "Tracker Packer v1";
+
+resource(5047) "Tracker Packer v2";
+
+resource(5048) "Tracker Packer v3";
+
+resource(5049) "Unic Tracker";
+
+resource(5050) "Wanton Packer";
+
+resource(5051) "Xann Packer";
+
+resource(5052) "Zen Packer";

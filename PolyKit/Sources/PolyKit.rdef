@@ -1,0 +1,196 @@
+resource app_signature "application/x-vnd.Polycode.PolyKit";
+
+resource app_version {
+	major  = 2,
+	middle = 0,
+	minor  = 1,
+
+	variety = B_APPV_FINAL,
+	internal = 0,
+
+	short_info = "Class library",
+	long_info = "PolyKit is a library with some helper classes used by various programs including APlayer."
+};
+
+resource(-2147483648) "Invalid argument passed to function";
+
+resource(-2147483647) "Out of memory";
+
+resource(-2147483646) "Out of resources";
+
+resource(-2147483645) "Can't perform the operation. Missing proper initialization";
+
+resource(-2147483644) "Can't perform the operation";
+
+resource(-2147483643) "Invalid identifier";
+
+resource(-2147483642) "Invalid index value";
+
+resource(-2147483641) "Unsupported operative system";
+
+resource(-2147483640) "The data buffer passed to a function is too small";
+
+resource(-2147483639) "Timed out";
+
+resource(-2147479552) "Illegal file operation";
+
+resource(-2147479551) "File or directory name too long";
+
+resource(-2147479550) "Entry could not be found";
+
+resource(-2147479549) "Entry does already exists";
+
+resource(-2147479548) "There is not enough space on the disk";
+
+resource(-2147479547) "The directory is invalid";
+
+resource(-2147479546) "File operation on a directory";
+
+resource(-2147479545) #'CSTR' array {
+	"An attempt was made to move the file pointer before the beginnin"
+	"g of the file"
+};
+
+resource(-2147479544) "EOF reached";
+
+resource(-2147479543) "Link error in the file system";
+
+resource(-2147479542) "File or directory is locked";
+
+resource(-2147479541) "File is corrupted";
+
+resource(-2147479540) "Entry name is invalid";
+
+resource(-2147479539) "Invalid access mode";
+
+resource(-2147475456) "Access denied";
+
+resource(-2147471360) "An entry does already exist and cannot be overwritten";
+
+resource(-2147471359) "An entry could not be found";
+
+resource(-2147467264) "No soundcard is installed in the machine";
+
+resource(-2147467263) "Required sound software is not started";
+
+resource(-2147467262) "Unknown sound error occured";
+
+resource(-2147463168) "The socket was interrupted";
+
+resource(-2147463167) "The socket would block";
+
+resource(-2147463166) "Socket is closed";
+
+resource(-2147463165) "Network interface is busy";
+
+resource(-2147463164) "The socket is already connected";
+
+resource(-2147463163) "The listener rejected the connection";
+
+resource(-1) "Any error";
+
+resource(0) "No error";
+
+resource(1) "Abort";
+
+resource(2) "Retry";
+
+resource(3) "Ignore";
+
+resource(4) "Ok";
+
+resource(5) "Cancel";
+
+resource(6) "Yes";
+
+resource(7) "No";
+
+resource(10001) "%dddd, %MMMM %dd, %yyyy";
+
+resource(10002) "%M/%d/%yy";
+
+resource(10003) "%h:%mm:%ss %tt";
+
+resource(10014) ".";
+
+resource(10015) ",";
+
+resource(10040) "AM";
+
+resource(10041) "PM";
+
+resource(10042) "Monday";
+
+resource(10043) "Tuesday";
+
+resource(10044) "Wednesday";
+
+resource(10045) "Thursday";
+
+resource(10046) "Friday";
+
+resource(10047) "Saturday";
+
+resource(10048) "Sunday";
+
+resource(10049) "Mon";
+
+resource(10050) "Tue";
+
+resource(10051) "Wed";
+
+resource(10052) "Thu";
+
+resource(10053) "Fri";
+
+resource(10054) "Sat";
+
+resource(10055) "Sun";
+
+resource(10056) "January";
+
+resource(10057) "February";
+
+resource(10058) "March";
+
+resource(10059) "April";
+
+resource(10060) "May";
+
+resource(10061) "June";
+
+resource(10062) "July";
+
+resource(10063) "August";
+
+resource(10064) "September";
+
+resource(10065) "October";
+
+resource(10066) "November";
+
+resource(10067) "December";
+
+resource(10068) "Jan";
+
+resource(10069) "Feb";
+
+resource(10070) "Mar";
+
+resource(10071) "Apr";
+
+resource(10072) "May";
+
+resource(10073) "Jun";
+
+resource(10074) "Jul";
+
+resource(10075) "Aug";
+
+resource(10076) "Sep";
+
+resource(10077) "Oct";
+
+resource(10078) "Nov";
+
+resource(10079) "Dec";

@@ -37,11 +37,11 @@ SRCS = \
 
 #	Specify the resource definition files to use. Full or relative paths can be
 #	used.
-RDEFS =
+RDEFS = MikMod.rdef
 
 #	Specify the resource files to use. Full or relative paths can be used.
 #	Both RDEFS and RSRCS can be utilized in the same Makefile.
-RSRCS = BeOS/MikMod_x86.rsrc
+RSRCS =
 
 # End Pe/Eddie support.
 # @<-src@

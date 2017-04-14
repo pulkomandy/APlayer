@@ -1,0 +1,13 @@
+
+resource(1) "Decruncher";
+
+resource(11) #'CSTR' array {
+	"Can decrunch different single file packed formats.\nWritten by T"
+	"homas Neumann based on code by Marc Espie (PP) and Jah (SQSH).\n"
+	"\nCurrent version can decrunch these formats:\n\nPowerPacker Dat"
+	"a files\nXPK-SQSH"
+};
+
+resource(100) "Decruncher";
+
+resource(1001) "Error 1:\nFile seems to be corrupt. Can't be decrunched.";

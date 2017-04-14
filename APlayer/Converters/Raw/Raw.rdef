@@ -1,0 +1,6 @@
+
+resource(1) "Raw";
+
+resource(21) "audio/x-raw";
+
+resource(61) ".raw";

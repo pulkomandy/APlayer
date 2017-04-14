@@ -1,0 +1,11 @@
+
+resource(1) "Reverb";
+
+resource(11) #'CSTR' array {
+	"DSP effect agent.\nWritten by Thomas Neumann based on the MikMod"
+	" routine.\n\nThis agent will add a reverb effect to the sound ou"
+	"tput. How much reverb it should add can be changed in the settin"
+	"gs."
+};
+
+resource(500) "Reverb:";
