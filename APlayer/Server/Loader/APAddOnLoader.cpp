@@ -133,8 +133,8 @@ bool APAddOnLoader::Load(void)
 			}
 		}
 	}
-//	else
-//		printf("%s - %s\n", fullFileName, strerror(imageID));
+	else
+		printf("Failed to load add-on: %s - %s\n", fileName.GetString(), strerror(imageID));
 
 	return (false);
 }
