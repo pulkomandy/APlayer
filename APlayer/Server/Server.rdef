@@ -1,0 +1,188 @@
+resource app_signature "application/x-vnd.Polycode.APlayer";
+
+resource app_flags B_SINGLE_LAUNCH;
+
+resource app_version {
+	major  = 4,
+	middle = 0,
+	minor  = 1,
+
+	variety = B_APPV_FINAL,
+	internal = 0,
+
+	short_info = "Module Player",
+	long_info = "APlayer is a module player which can play a lot of module formats where many of them are from the Amiga."
+};
+
+resource file_types message {
+	"types" = "audio/x-669",
+	"types" = "audio/x-16sv",
+	"types" = "audio/x-8svx",
+	"types" = "audio/x-ahx",
+	"types" = "audio/x-aiff",
+	"types" = "audio/x-psid",
+	"types" = "audio/x-dsm",
+	"types" = "audio/x-amf",
+	"types" = "audio/x-far",
+	"types" = "audio/x-xm",
+	"types" = "audio/x-fred",
+	"types" = "audio/x-fc",
+	"types" = "audio/x-gdm",
+	"types" = "audio/x-imf",
+	"types" = "audio/x-it",
+	"types" = "audio/x-jam",
+	"types" = "audio/x-med",
+	"types" = "audio/x-wav",
+	"types" = "audio/x-mikmod",
+	"types" = "audio/x-mod",
+	"types" = "audio/x-mpeg",
+	"types" = "audio/x-mtm",
+	"types" = "audio/x-vorbis",
+	"types" = "audio/x-okt",
+	"types" = "audio/x-sawteeth",
+	"types" = "audio/x-stm",
+	"types" = "audio/x-s3m",
+	"types" = "audio/x-sfx",
+	"types" = "audio/x-bp",
+	"types" = "audio/x-stx",
+	"types" = "audio/x-tfmx",
+	"types" = "audio/x-ult",
+	"types" = "audio/x-umx",
+	"types" = "audio/aiff",
+	"types" = "audio/mpeg",
+	"types" = "audio/riff",
+	"types" = "audio/wav",
+	"types" = "audio/x-riff",
+	"types" = "audio/x-uni",
+	"types" = "text/x-aplayer-playlist"
+};
+
+resource(1) "APlayer";
+
+resource(10) "%s Settings";
+
+resource(100) "Save";
+
+resource(101) "Use";
+
+resource(102) "Cancel";
+
+resource(1001) "Error 1:\nNot enough memory.";
+
+resource(1002) "Error 2:\nA file error occurred on file (%s) with error 0x%X.\n%";
+
+resource(1003) "Error 3:\nCouldn't start the client add-on %s. Server will stop.";
+
+resource(1099) #'CSTR' array {
+	"Error 99:\nUncaught exception! Please contact the programmer wit"
+	"h a bug report."
+};
+
+resource(1100) #'CSTR' array {
+	"Error 100:\nThe add-on (%s) does not have the current version. T"
+	"he add-on have version %.2f and the version needed is %.2f."
+};
+
+resource(1500) #'CSTR' array {
+	"Error 500:\nProblems with finding the function (%s) in image fil"
+	"e (%s). Failed with error 0x%X.\n%s"
+};
+
+resource(2001) "1,Unknown command set to server (%s).";
+
+resource(2002) "2,Invalid argument list.";
+
+resource(2003) "3,Invalid file handle.";
+
+resource(2004) "4,A file error occurred on file (%s) with error 0x%X.\n%s.";
+
+resource(2005) "5,Unknown module format in file (%s).";
+
+resource(2006) #'CSTR' array {
+	"6,Failed to load the file (%s).\n\nPlayer %s returned the follow"
+	"ing error:\n%s."
+};
+
+resource(2007) "7,Failed to initialize the player and mixer.";
+
+resource(2008) "8,Invalid add-on type.";
+
+resource(2009) "9,Add-on (%s) could not be found in the intern list.";
+
+resource(2010) "10,Add-on (%s) does not have a configuration window.";
+
+resource(2011) "11,Add-on (%s) does not have a display window.";
+
+resource(2012) "12,Add-on (%s) could not be loaded.";
+
+resource(2013) "13,Could not start the client add-on %s.";
+
+resource(2014) #'CSTR' array {
+	"14,Could not save the server settings file. Failed with error 0x"
+	"%X.\n%s."
+};
+
+resource(2015) #'CSTR' array {
+	"15,There doesn't exist any output agent, so APlayer can't play a"
+	"nything."
+};
+
+resource(2016) "16,Couldn't find the output agent (%s).";
+
+resource(2017) "17,A sound hardware failure occurred with error 0x%X.\n%s";
+
+resource(2018) "18,Failed to initialize the sound output agent.";
+
+resource large_icon array {
+	$"3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F"
+	$"3F3F3F3F3F3F3F3F3F3F3F003F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F"
+	$"0E0E0E0E0E0E0E0E0E0E0000000E0E0E0E3F0E0E3F0E0E3F3F3F3F3F3F3F3F3F"
+	$"3F3F3F3F3F3F3F3F3F3F0000003F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F"
+	$"3F3F3F3F3F3F3F3F3F3F0000003F3F3F3F3F3F2323232323233F3F3F3F3F3F3F"
+	$"3F3F3F3F3F3F3F3F3F3F0000003F3F3F3F232323232323232323233F3F3F3F3F"
+	$"3F3F3F3F3F3F3F3F3F3F0000003F3F3F2323232323232323232323233F3F3F3F"
+	$"3F3F3F3F3F3F3F3F3F3F0000003F3F23232323232323232323232323233F3F3F"
+	$"3F3F3F3F3F3F3F3F3F3F0000003F3F23232323232323232323232323233F3F3F"
+	$"3F3F3F3F3F3F3F3F3F3F0000003F2323232323233F3F3F3F2323232323233F3F"
+	$"3F3F3F3F3F3F3F3F3F3F0000003F23232323233F3F3F3F3F3F23232323233F3F"
+	$"3F3F3F3F3F3F3F3F3F3F0000003F23232323233F3F3F3F3F3F23232323233F3F"
+	$"3F3F3F3F3F3F3F3F3F3F0000003F232323233F3F3F3F3F3F3F3F232323233F3F"
+	$"3F3F3F3F3F3F3F3F3F3F0000003F232323233F3F3F3F3F3F3F3F232323233F3F"
+	$"3F3F3F3F3F3F3F3F3F3F0000003F232323233F3F3F3F3F3F3F3F232323233F3F"
+	$"0E0E0E0E0E0E0E0E0E0E0000000E232323232323232323232323232323233F3F"
+	$"3F3F3F3F0000000000000000003F232323232323232323232323232323233F3F"
+	$"3F3F3F000000000000000000003F232323232323232323232323232323233F3F"
+	$"3F3F00003F3F000000000000003F232323232323232323232323232323233F3F"
+	$"3F0000003F3F00003F000000003F232323233F3F3F3F3F3F3F3F232323233F3F"
+	$"3F000000000000003F000000003F232323233F3F3F3F3F3F3F3F232323233F3F"
+	$"3F0000000000003F3F000000003F232323233F3F3F3F3F3F3F3F232323233F3F"
+	$"3F00000000003F3F3F000000003F232323233F3F3F3F3F3F3F3F232323233F3F"
+	$"3F0000003F3F3F3F3F000000003F232323233F3F3F3F3F3F3F3F232323233F3F"
+	$"3F3F3F3F3F3F3F3F00000000003F232323233F3F3F3F3F3F3F3F232323233F3F"
+	$"3F3F3F3F3F3F3F00000000003F3F232323233F3F3F3F3F3F3F3F232323233F3F"
+	$"3F3F3F00000000000000003F3F3F232323233F3F3F3F3F3F3F3F232323233F3F"
+	$"3F3F3F3F0000000000003F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F"
+	$"0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E0E3F0E0E3F0E0E3F0E"
+	$"3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F"
+	$"3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F"
+	$"3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F"
+};
+
+resource mini_icon array {
+	$"3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F"
+	$"0E0E0E0E0E00000E0E0E3F0E3F3F3F3F"
+	$"3F3F3F3F3F00003F3F23232323233F3F"
+	$"3F3F3F3F3F00003F232323232323233F"
+	$"3F3F3F3F3F00003F2323233F2323233F"
+	$"3F3F3F3F3F00003F23233F3F3F23233F"
+	$"3F3F3F3F3F00003F23233F3F3F23233F"
+	$"3F3F3F3F3F00003F232323232323233F"
+	$"3F3F00000000003F232323232323233F"
+	$"3F003F000000003F23233F3F3F23233F"
+	$"3F0000003F00003F23233F3F3F23233F"
+	$"3F00003F3F00003F23233F3F3F23233F"
+	$"3F3F3F3F0000003F23233F3F3F23233F"
+	$"3F3F000000003F3F23233F3F3F23233F"
+	$"0E0E0E0E0E0E0E0E0E0E0E0E3F0E0E3F"
+	$"3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F3F"
+};

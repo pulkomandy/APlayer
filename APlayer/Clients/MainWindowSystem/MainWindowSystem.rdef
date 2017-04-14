@@ -1,0 +1,1223 @@
+
+resource(1) #'BBMP' archive BBitmap {
+	"_frame" = rect { 0.00000, 0.00000, 11.0000, 11.0000 },
+	"_cspace" = 4,
+	"_bmflags" = 1,
+	"_rowbytes" = 12,
+	"_data" = array {
+		$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF37373737373737FFFFFFFF373737373737"
+		$"373737FFFFFF3737FFFFFFFFFF3737FFFFFFFFFFFFFFFFFFFF3737FFFFFF3737"
+		$"FFFFFFFFFF3737FFFF37373737FFFFFFFF3737FF373737373737FFFFFF3737FF"
+		$"FFFF3737FFFFFFFFFF3737FFFFFF373737373737373737FFFFFFFF3737373737"
+		$"3737FFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	}
+};
+
+resource(2) #'BBMP' archive BBitmap {
+	"_frame" = rect { 0.00000, 0.00000, 11.0000, 11.0000 },
+	"_cspace" = 4,
+	"_bmflags" = 1,
+	"_rowbytes" = 12,
+	"_data" = array {
+		$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+		$"FFFFFFFFFFFFFF22FFFFFFFF22FFFFFFFFFF2222FFFFFFFF2222FFFFFF222222"
+		$"22222222222222FFFF22222222222222222222FFFFFF2222FFFFFFFF2222FFFF"
+		$"FFFFFF22FFFFFFFF22FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+		$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	}
+};
+
+resource(10) #'BBMP' archive BBitmap {
+	"_frame" = rect { 0.00000, 0.00000, 11.0000, 11.0000 },
+	"_cspace" = 4,
+	"_bmflags" = 1,
+	"_rowbytes" = 12,
+	"_data" = array {
+		$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF34FFFFFFFFFFFFFFFFFFFF"
+		$"343A34FFFFFF34FFFFFFFF343A3A34FFFF343A34FFFF343A3A34FFFFFF343A34"
+		$"FF343A3A34FFFFFFFF343A34343A3A34FFFFFFFFFF343A3A3A3A34FFFFFFFFFF"
+		$"FF343A3A3A34FFFFFFFFFFFFFF343A3A34FFFFFFFFFFFFFFFFFF3434FFFFFFFF"
+		$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	}
+};
+
+resource(1) "MainWindowSystem";
+
+resource(2) #'CSTR' array {
+	"Main window system manager.\nProgrammed by Thomas Neumann.\n\nTh"
+	"is client makes sure that you can use APlayer via normal GUI win"
+	"dows."
+};
+
+resource(10) "APlayer";
+
+resource(11) "APlayer Update";
+
+resource(12) "About APlayer";
+
+resource(13) "Settings";
+
+resource(14) "Module Information";
+
+resource(15) "Instrument/Sample Information";
+
+resource(19) "Main Window System error";
+
+resource(20) "Position: ???/??? = ??%";
+
+resource(21) "Subsongs: ??/??";
+
+resource(22) "Time: ??:??:??";
+
+resource(23) "Time: -??:??:??";
+
+resource(24) "Position: %03d/%03d = %2d%%";
+
+resource(25) "Subsongs: %u/%u";
+
+resource(26) "Time: %HH:%mm:%ss";
+
+resource(27) "Time: -%HH:%mm:%ss";
+
+resource(28) "None";
+
+resource(50) "Open";
+
+resource(51) "Add";
+
+resource(52) "Select";
+
+resource(60) "Description";
+
+resource(61) "Value";
+
+resource(70) "Skip|Skip and remove|Stop playing";
+
+resource(71) "Save";
+
+resource(72) "Use";
+
+resource(73) "Cancel";
+
+resource(74) "Download";
+
+resource(75) "Ok";
+
+resource(80) "Display…";
+
+resource(81) "Settings…";
+
+resource(100) "Sort Ascending";
+
+resource(101) "Sort Descending";
+
+resource(102) "Shuffle";
+
+resource(110) "Select All";
+
+resource(111) "Deselect All";
+
+resource(120) "Load List";
+
+resource(121) "Append List";
+
+resource(122) "Save List";
+
+resource(200) "n/a";
+
+resource(201) "Unknown";
+
+resource(202) "Module Name/File Name:";
+
+resource(203) "Author:";
+
+resource(204) "Module Format:";
+
+resource(205) "Active Player:";
+
+resource(206) "Used Channels:";
+
+resource(207) "Total Time:";
+
+resource(208) "Module Size:";
+
+resource(209) "File Name:";
+
+resource(300) "Instruments";
+
+resource(301) "Samples";
+
+resource(310) "Name";
+
+resource(311) "Number of samples";
+
+resource(320) "Name";
+
+resource(321) "Length";
+
+resource(322) "LStart";
+
+resource(323) "LLength";
+
+resource(324) "Bits";
+
+resource(325) "Vol";
+
+resource(326) "Pan";
+
+resource(327) "Middle C";
+
+resource(328) "Info";
+
+resource(329) "Type";
+
+resource(330) "Save format";
+
+resource(331) "Save";
+
+resource(340) "Octave: %d-%d";
+
+resource(341) "Polyphony: %s";
+
+resource(342) "On";
+
+resource(343) "Off";
+
+resource(350) "Sample";
+
+resource(351) "Synth";
+
+resource(352) "Hybrid";
+
+resource(400) "address:port";
+
+resource(500) "No updates are available. Try again later.";
+
+resource(501) "Downloading done.";
+
+resource(510) "A new version of APlayer has been detected and is";
+
+resource(511) "available for download. Download this version by selecting";
+
+resource(512) "one of the listed locations and then press the download button.";
+
+resource(513) "Version: %u.%u.%u";
+
+resource(514) "Version: %u.%u.%u Beta %u";
+
+resource(515) "File name: %s";
+
+resource(516) "File size: %s bytes";
+
+resource(517) "Released: %s";
+
+resource(518) "Where do you want to download APlayer from:";
+
+resource(519) "FTP - %s";
+
+resource(520) "HTTP - %s";
+
+resource(1000) "\n\nServer error %d:\n%s";
+
+resource(1001) "Error 1:\nCan't connect to the APlayer server.";
+
+resource(1002) "Error 2:\nFailed to add file in the APlayer server list.";
+
+resource(1003) "Error 3:\nFailed to load module.";
+
+resource(1004) "Error 4:\nFailed to initialize the player.";
+
+resource(1005) "Error 5:\nFailed to start playing the module.";
+
+resource(1006) #'CSTR' array {
+	"Error 6:\nFailed to save the module list. Failed with error 0x%0"
+	"8X: %s."
+};
+
+resource(1007) #'CSTR' array {
+	"Error 7:\nFailed to load the module list. Failed with error 0x%0"
+	"8X: %s."
+};
+
+resource(1008) #'CSTR' array {
+	"Error 8:\nThe file (%s) could not be recognized as a module list"
+	" file."
+};
+
+resource(1009) #'CSTR' array {
+	"Error 9:\nFailed to add the file (%s) to the list. Failed with e"
+	"rror 0x%08X: %s."
+};
+
+resource(1010) "Error 10:\nCould not open the display window.";
+
+resource(1011) "Error 11:\nCould not open the configuration window.";
+
+resource(1012) "Error 12:\nCould not enable the add-on.";
+
+resource(1013) "Error 13:\nCould not disable the add-on.";
+
+resource(1014) #'CSTR' array {
+	"Error 14:\nYou can't open the add-on display window when the add"
+	"-on is disabled. Enable it and try again."
+};
+
+resource(1015) #'CSTR' array {
+	"Error 15:\nYou can't open the add-on settings window when the ad"
+	"d-on is disabled. Enable it and try again."
+};
+
+resource(1016) #'CSTR' array {
+	"Error 16:\nYou can't disable this client add-on, because it's th"
+	"e one your using right now."
+};
+
+resource(1017) "Error 17:\nCould not save server settings.";
+
+resource(1018) "Error 18:\nDownloading of the new version failed.";
+
+resource(1019) "Error 19:\nOut of memory.";
+
+resource(1020) #'CSTR' array {
+	"Error 20:\nA file error occurred on file (%s) with error 0x%X.\n"
+	"%s"
+};
+
+resource(1080) #'CSTR' array {
+	"Error 80:\nYou haven't selected any samples. Select the sample y"
+	"ou want to save."
+};
+
+resource(1081) #'CSTR' array {
+	"Error 81:\nYou haven't selected any sample format to save the sa"
+	"mple as."
+};
+
+resource(1082) "Error 82:\nYou can't save a sample with no length.";
+
+resource(1083) "Error 83:\nOnly samples can be saved.";
+
+resource(1084) #'CSTR' array {
+	"Error 84\nThe previous selected sample is not available anymore."
+	" Maybe a new module has been loaded while the save panel was ope"
+	"ned."
+};
+
+resource(2500) #'CSTR' array {
+	"Press the left mouse button over here to switch between\nelapsed"
+	" and remaining time"
+};
+
+resource(2501) "Opens the module information window";
+
+resource(2502) "Mute/Unmute the volume";
+
+resource(2503) "Change the volume";
+
+resource(2504) #'CSTR' array {
+	"Add new modules to the list.\nThe modules will be added in the b"
+	"ottom or\nright before the first selected module in the list"
+};
+
+resource(2505) "Remove the selected modules from the list";
+
+resource(2506) #'CSTR' array {
+	"Will swap two selected modules in the list.\nSelect the two modu"
+	"les you want to swap and press this button"
+};
+
+resource(2507) #'CSTR' array {
+	"Shows a pop-up menu, where you can select different things to do"
+	" on the module list"
+};
+
+resource(2508) #'CSTR' array {
+	"Move all the selected items one item up.\nIf you hold down shift"
+	" while pressing the button,\nall the selected modules will be mo"
+	"ved to the top of the list"
+};
+
+resource(2509) #'CSTR' array {
+	"Move all the selected items one item down.\nIf you hold down shi"
+	"ft while pressing the button,\nall the selected modules will be "
+	"moved to the bottom of the list"
+};
+
+resource(2510) #'CSTR' array {
+	"Shows a pop-up menu where you can do different selections on the"
+	" module list"
+};
+
+resource(2511) #'CSTR' array {
+	"Shows a pop-up menu where you can read and write the module list"
+	" to disk"
+};
+
+resource(2512) #'CSTR' array {
+	"Shows the total time of items selected + the total time in the m"
+	"odule list"
+};
+
+resource(2513) #'CSTR' array {
+	"Shows the selected number of items + the total number of items i"
+	"n the module list"
+};
+
+resource(2514) #'CSTR' array {
+	"Shows the current position in the playing module.\nPress the lef"
+	"t mouse button on the circle and hold it while\nmoving the mouse"
+	" to the left or right to change the position"
+};
+
+resource(2515) #'CSTR' array {
+	"When pressing in the first 2 seconds of a module, the previous m"
+	"odule in the list will be loaded.\nIf you press the button after"
+	" the first 2 seconds, the module will start over again."
+};
+
+resource(2516) "Play the previous subsong";
+
+resource(2517) "Rewind";
+
+resource(2518) #'CSTR' array {
+	"Adds new modules to the module list.\nThe module list will be cl"
+	"eared before the new modules are added"
+};
+
+resource(2519) "Fast forward";
+
+resource(2520) "Play the next subsong";
+
+resource(2521) "Loads the next module in the module list";
+
+resource(2522) #'CSTR' array {
+	"Pressing once, ejects the current playing module.\nPressing twic"
+	"e, it will clear the module list"
+};
+
+resource(2523) "Pause/starting the playing module";
+
+resource(2524) "When active, the current playing module will play forever";
+
+resource(2525) #'CSTR' array {
+	"Opens the sample info window where you can see\na lot of informa"
+	"tion about the samples in the\ncurrent playing module"
+};
+
+resource(3001) "File";
+
+resource(3002) "Window";
+
+resource(3003) "Help";
+
+resource(3011) "Open…";
+
+resource(3013) "Quit";
+
+resource(3021) "Settings…";
+
+resource(3023) "Players";
+
+resource(3024) "Agents";
+
+resource(3025) "Clients";
+
+resource(3031) "Help…";
+
+resource(3033) "About APlayer…";
+
+resource(4000) "Options";
+
+resource(4001) "General";
+
+resource(4002) "Jump to added module";
+
+resource(4003) "Add to list as default";
+
+resource(4004) "Remember list on exit";
+
+resource(4005) "Remember playing module";
+
+resource(4006) "Remember module position";
+
+resource(4007) "Show item number in list";
+
+resource(4008) "Button tooltips";
+
+resource(4009) "Show module name in titlebar";
+
+resource(4010) "Set Audio:Length attribute";
+
+resource(4011) "Scan added files";
+
+resource(4020) "Loading";
+
+resource(4021) "Double buffering";
+
+resource(4022) "Early load";
+
+resource(4023) "When a module error is reached";
+
+resource(4024) "Show error dialog";
+
+resource(4025) "Skip file";
+
+resource(4026) "Skip file and remove from list";
+
+resource(4027) "Stop playing";
+
+resource(4030) "Playing";
+
+resource(4031) "Never ending module timeout";
+
+resource(4032) "seconds";
+
+resource(4033) "At end of module list";
+
+resource(4034) "Eject module";
+
+resource(4035) "Jump to start";
+
+resource(4036) "Loop module";
+
+resource(4100) "Paths";
+
+resource(4101) "Start scan path:";
+
+resource(4102) "Module path:";
+
+resource(4103) "APML path:";
+
+resource(4200) "Mixer";
+
+resource(4201) "General";
+
+resource(4202) "Mixer frequency:";
+
+resource(4203) "Stereo separation:";
+
+resource(4204) "Interpolation";
+
+resource(4205) "Dolby Prologic surround";
+
+resource(4206) "Emulate Amiga led filter";
+
+resource(4210) "Mixer Output";
+
+resource(4211) "Output agent:";
+
+resource(4212) "No settings available";
+
+resource(4220) "Channels";
+
+resource(4221) "0-15";
+
+resource(4222) "16-31";
+
+resource(4223) "32-47";
+
+resource(4224) "48-63";
+
+resource(4300) "Network";
+
+resource(4301) "Proxy Server";
+
+resource(4302) "Use proxy";
+
+resource(4303) "Proxy address:";
+
+resource(4310) "Updates";
+
+resource(4311) "Check for APlayer updates:";
+
+resource(4312) "Never";
+
+resource(4313) "On startup";
+
+resource(4314) "Daily";
+
+resource(4315) "Weekly";
+
+resource(4316) "Monthly";
+
+resource(4317) "Check now";
+
+resource(4318) "Download to:";
+
+resource(4400) "File Types";
+
+resource(4401) "File Types";
+
+resource(4402) "Type";
+
+resource(4403) "Preferred Application";
+
+resource(4404) "Extensions";
+
+resource(4405) "Register selected types";
+
+resource(4406) "Register all types";
+
+resource(4410) "Options";
+
+resource(4411) "Change module file type";
+
+resource(4412) "Register file types on startup";
+
+resource(4500) "Players";
+
+resource(4501) "Agents";
+
+resource(4502) "Clients";
+
+resource(4503) "Name";
+
+resource(4504) "Version";
+
+resource(4505) "Description";
+
+resource(4506) "Settings";
+
+resource(4507) "Display";
+
+resource(20000) "¤2";
+
+resource(20001) "¤B¤6¤3Version ";
+
+resource(20002) "";
+
+resource(20003) "¤5¤3A Polycode production (www.polycode.dk)";
+
+resource(20004) "";
+
+resource(20005) "";
+
+resource(20006) "Credits:";
+
+resource(20007) "";
+
+resource(20008) "¤4Programming (";
+
+resource(20009) "¤4¤7B";
+
+resource(20010) "¤4¤6e";
+
+resource(20011) "¤5OS version): Thomas Neumann";
+
+resource(20012) "";
+
+resource(20013) "Documentation: Jaakko Leikas";
+
+resource(20014) "";
+
+resource(20015) "MP3 player: Michael Hipp, Claes Löfqvist, Thomas Neumann";
+
+resource(20016) "";
+
+resource(20017) "Sawteeth player: Arvid Norberg";
+
+resource(20018) "";
+
+resource(20019) "Make file system: Linus Almstrom";
+
+resource(20020) "";
+
+resource(20021) "APlayer logo: Morten Sigaard Kristensen";
+
+resource(20022) "";
+
+resource(20023) "Install logo: Rene H. Møller";
+
+resource(20024) "";
+
+resource(20025) "";
+
+resource(20026) "";
+
+resource(20027) "Special thanks to these people:";
+
+resource(20028) "";
+
+resource(20029) "¤3Be Corporation";
+
+resource(20030) "¤3Brian Tietz";
+
+resource(20031) "¤3Miodrag Vallat";
+
+resource(20032) "¤3Michael Schwendt";
+
+resource(20033) "¤3Jaakko Leikas";
+
+resource(20034) "¤3Linus Almstrom";
+
+resource(20035) "¤3Cédric Degéa";
+
+resource(20036) "¤3Arvid Norberg";
+
+resource(20037) "¤3Sylvain Chipaux";
+
+resource(20038) "¤3Nicolas Franck";
+
+resource(20039) "¤3Marco Nelissen";
+
+resource(20040) "¤3Rainer Ried";
+
+resource(20041) "¤3And to all you users out there :)";
+
+resource(20042) "";
+
+resource(20043) "";
+
+resource(20044) "";
+
+resource(20045) "Features in APlayer:";
+
+resource(20046) "";
+
+resource(20047) "¤3Support up to 111 module formats";
+
+resource(20048) "¤3Can load packed files";
+
+resource(20049) "¤3Edit and Save your favourite lists of modules";
+
+resource(20050) "¤3Shows the module length, no matter what type it is";
+
+resource(20051) "¤3Save your favorite modules as sample files";
+
+resource(20052) "¤3Rip the samples from most of the supported modules";
+
+resource(20053) "¤3Jam to your favorite modules";
+
+resource(20054) "";
+
+resource(20055) "";
+
+resource(20056) "";
+
+resource(20057) "Agents installed (in no particular order):";
+
+resource(20058) "¤7¤9";
+
+resource(20059) "¤5Players installed (in no particular order):";
+
+resource(20060) "¤7¤8";
+
+resource(20061) "¤5Clients installed (in no particular order):";
+
+resource(20062) "¤7¤A";
+
+resource(20063) "¤5¤3Thank you for using APlayer!";
+
+resource(20064) "";
+
+resource(20065) "";
+
+resource(20066) "";
+
+resource(20067) "";
+
+resource(20068) "";
+
+resource(20069) "";
+
+resource(20070) "";
+
+resource(20071) "";
+
+resource(20072) "";
+
+resource(20073) "";
+
+resource(20074) "";
+
+resource(20075) "";
+
+resource(20076) "";
+
+resource(20077) "";
+
+resource(20078) "";
+
+resource(20079) "";
+
+resource(20080) "¤1";
+
+resource(1) #'CURS' array {
+	$"10010000000007E00FF018183C0C6E066706638661C660E66076303C18180FF0"
+	$"07E00000000007E00FF018183C0C6E066706638661C660E66076303C18180FF0"
+	$"07E00000"
+};
+
+resource(2) #'CURS' array {
+	$"10010000000000000000000000000000000000000000FE0082009200BA009200"
+	$"8200FE00000000000000000000000000000000000000FE00FE00FE00FE00FE00"
+	$"FE00FE00"
+};
+
+resource(3) #'CURS' array {
+	$"10010000000000000000000000000000000000000000FE0082009A00A2009A00"
+	$"8200FE00000000000000000000000000000000000000FE00FE00FE00FE00FE00"
+	$"FE00FE00"
+};
+
+resource(4) #'CURS' array {
+	$"10010000FFFFC003FFFF2004200419980E30066006600C30191822842564FFFF"
+	$"C003FFFFFFFFFFFFFFFF2004200419980F30066006600C301918238427E4FFFF"
+	$"FFFFFFFF"
+};
+
+resource(1) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFF222204FFFFFFFFFFFFFF"
+	$"FFFFFFFFFF2222222204FFFFFFFFFFFF"
+	$"FFFFFFFFFF2222222204FFFFFFFFFFFF"
+	$"FFFFFFFFFFFF222204FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFF22222222FFFFFFFFFFFFFF"
+	$"FFFFFFFFFF2222222204FFFFFFFFFFFF"
+	$"FFFFFFFFFFFF22222204FFFFFFFFFFFF"
+	$"FFFFFFFFFFFF22222204FFFFFFFFFFFF"
+	$"FFFFFFFFFFFF22222204FFFFFFFFFFFF"
+	$"FFFFFFFFFFFF22222204FFFFFFFFFFFF"
+	$"FFFFFF222222222222222222FFFFFFFF"
+	$"FFFFFF22222222222222222204FFFFFF"
+	$"FFFFFFFF040404040404040404FFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(2) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFC6C6C6C6C6C6C6C6FFFFFFFFFFFFFF"
+	$"FFFF1717171717171717FFFFFFFFFFFF"
+	$"FFC6C6C6C6C6C6C6FFFFFFFFFFFFFFFF"
+	$"FFFF17171717171717FFFFFFFFFFFFFF"
+	$"FFC6C6C6C6C6C6FFFFFFFFFFFFFFFFFF"
+	$"FFFF171717171717FFFFFFFFFFFFFFFF"
+	$"FFC6C6C6C6C6FFFFFFFFFFFFFFFFFFFF"
+	$"FFFF1717171717FFFFFFFFFFFFFFFFFF"
+	$"FFC6C6C6C6FFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFF17171717FFFFFFFFFFFFFFFFFFFF"
+	$"FFC6C6C6FFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFF171717FFFFFFFFFFFFFFFFFFFFFF"
+	$"FFC6C6FFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFF1717FFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(3) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBDFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFBDBDBDBDBDBDBDBDBDBDFFFFFFFF"
+	$"FFFFBDBDBDBDBDBDBDBDBDBD04FFFFFF"
+	$"FFFFFFFFFFFFBDBD0404040404FFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFF0404FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(4) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFBDBDBDBDBDBDBDBDBDBDFFFFFFFF"
+	$"FFFFBDBDBDBDBDBDBDBDBDBD04FFFFFF"
+	$"FFFFFF04040404040404040404FFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(5) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFD8D8FFFFFFFF"
+	$"FFFFFFBDBDFFFFFFFFD8D8D8D8FFFFFF"
+	$"FFFFFFBDBD04FFFFD8D8D8D8D8D8FFFF"
+	$"FFFFFFBDBD04FFFFFFFFD8D8040404FF"
+	$"FFFFFFBDBD04FFFFFFFFD8D804FFFFFF"
+	$"FFFFFFBDBD04FFFFFFFFD8D804FFFFFF"
+	$"FFFFFFBDBD04FFFFFFFFD8D804FFFFFF"
+	$"FFFFFFBDBD04FFFFFFFFD8D804FFFFFF"
+	$"FFFFFFBDBD04FFFFFFFFD8D804FFFFFF"
+	$"FFBDBDBDBDBDBD04FFFFD8D804FFFFFF"
+	$"FFFFBDBDBDBD04FFFFFFD8D804FFFFFF"
+	$"FFFFFFBDBD04FFFFFFFFFF0404FFFFFF"
+	$"FFFFFFFF04FFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(6) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFBDBDBDFFFFFFFFBDBDBDBDBDFFFF"
+	$"FFFFBDBDBD04FFFFFFBDBDBDBDBD04FF"
+	$"FFBDBD04BDBD04FFFFFFFFFFBDBD04FF"
+	$"FFBDBD04BDBD04FFFFFFFFBDBD04FFFF"
+	$"FFBDBD04BDBD04FFFFFFFFBDBD04FFFF"
+	$"FFBDBDBDBDBD04FFFFFFFFBDBD04FFFF"
+	$"FFBDBDBDBDBD04FFFFFFBDBD04FFFFFF"
+	$"FFBDBD04BDBD04FFFFFFBDBD04FFFFFF"
+	$"FFBDBD04BDBD04FFFFBDBD04FFFFFFFF"
+	$"FFBDBD04BDBD04FFFFBDBDBDBDBDFFFF"
+	$"FFBDBD04BDBD04BDFFBDBDBDBDBD04FF"
+	$"FFFF0404FF0404FF04FF0404040404FF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFF39"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFF3939"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFF393939"
+};
+
+resource(7) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBDFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFBDBDBDBDFFFFFFFFFFFFFF"
+	$"FFFFFFFFBDBDBDBDBDBDFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD040404FFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFF0404FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(8) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBDFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFBDBDBDBDBDBD04FFFFFFFFFF"
+	$"FFFFFFFFFFBDBDBDBD04FFFFFFFFFFFF"
+	$"FFFFFFFFFFFFBDBD04FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFF04FFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(9) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FF24BDBDBDBDBDBDBD242424242424FF"
+	$"FF24BDBDBDBDBDBD04242424242424FF"
+	$"FF24BDBDBDBDBD0424242424242424FF"
+	$"FFFFBDBDBDBDBDFFFFFFFFFFFFFFFFFF"
+	$"FFFFBDBDBDBDBDBDFFFFFFFFFFFFFFFF"
+	$"FFFFBDBD0404BDBDBDFFFFFFFFFFFFFF"
+	$"FFFFBD04FFFF04BDBDBDFFFFFFFFFFFF"
+	$"FFFF04FFFFFFFF04BDBDBDFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFF04BDBDBDFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFF04BDBDBDFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFF04BD04FFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFF04FFFFFF39"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFF3939"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFF393939"
+};
+
+resource(10) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFBDBD3F3F3F3F3F3F3F3F3FBDBDFFFF"
+	$"FFBDBD3F000000003F00003FBDBD04FF"
+	$"FFBDBD3F3F3F3F3F3F3F3F3FBDBD04FF"
+	$"FFBDBD3F00003F000000003FBDBD04FF"
+	$"FFBDBD3F3F3F3F3F3F3F3F3FBDBD04FF"
+	$"FFBDBD3F0000003F0000003FBDBD04FF"
+	$"FFBDBD3F3F3F3F3F3F3F3F3FBDBD04FF"
+	$"FFBDBDBDBDBDBDBDBDBDBDBDBDBD04FF"
+	$"FFBDBDBD3F3F3F3F3F3F3FBDBDBD04FF"
+	$"FFBDBDBD3F3F3F3F3F3F3FBDBDBD04FF"
+	$"FFBDBDBD3F3FBDBD3F3F3FBDBDBD04FF"
+	$"FFBDBDBD3F3FBDBD3F3F3FBDBDBD04FF"
+	$"FFFFBDBD3F3FBDBD3F3F3FBDBDBD0439"
+	$"FFFFFF04040404040404040404043939"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFF393939"
+};
+
+resource(11) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFBDBD3F3F3F3F3F3F3F3F3FBDBDFFFF"
+	$"FFBDBD3F000000003F00003FBDBD04FF"
+	$"FFBDBD3F3F3F3F3F3F3F3F3FBDBD04FF"
+	$"FFBDBD3F00003F000000003FBDBD04FF"
+	$"FFBDBD3F3F3F3F3F3F3F3F3FBDBD04FF"
+	$"FFBDBD3F0000003F0000003FBDBD04FF"
+	$"FFBDBD3F3F3F3F3F3F3F3F3FBDBD04FF"
+	$"FFBDBDBDBDBDBDBDBDBDBDBDBDBD04FF"
+	$"FFBDBDBDBD3F3F3F3F3F3F3FBDBD04FF"
+	$"FFBDBDBDBD3F3F3F3F3F3F3FBDBD04FF"
+	$"FFBDBDBDBD3F3F00003F3F3FBDBD04FF"
+	$"FFBDBDBDBD3F3F00003F3F3FBDBD04FF"
+	$"FFFFBDBDBD3F3F00003F3F3FBDBD0439"
+	$"FFFFFF04040404040404040404043939"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFF393939"
+};
+
+resource(12) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFF8CFFFFFFFFFFFFB2FFFFFFFFFF"
+	$"FFFFFFB204FFFFFFFFB2B204FFFFFFFF"
+	$"FFFFFF8C04FFFFFFB2B2B204FFFFFFFF"
+	$"FFFFFFB204FFFFB2B2B2B204FFFFFFFF"
+	$"FFFFFF8C04FFB2B2B2B2B204FFFFFFFF"
+	$"FFFFFFB204B2B2B2B2B2B204FFFFFFFF"
+	$"FFFFFF8C0404B2B2B2B2B204FFFFFFFF"
+	$"FFFFFFB204FF04B2B2B2B204FFFFFFFF"
+	$"FFFFFF8C04FFFF04B2B2B204FFFFFFFF"
+	$"FFFFFFB204FFFFFF04B2B204FFFFFFFF"
+	$"FFFFFF8C04FFFFFFFF04B204FFFFFFFF"
+	$"FFFFFFFF04FFFFFFFFFF0404FFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(13) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"8CFFFFFFFFFFB2FFFFFFFFFFB2FFFFFF"
+	$"B204FFFFFFB2B204FFFFFFB2B204FFFF"
+	$"8C04FFFFB2B2B204FFFFB2B2B204FFFF"
+	$"B204FFB2B2B2B204FFB2B2B2B204FFFF"
+	$"8C04B2B2B2B2B204B2B2B2B2B204FFFF"
+	$"B2B2B2B2B2B2B2B2B2B2B2B2B204FFFF"
+	$"8C04B2B2B2B2B204B2B2B2B2B204FFFF"
+	$"B20404B2B2B2B20404B2B2B2B204FFFF"
+	$"8C04FF04B2B2B204FF04B2B2B204FFFF"
+	$"B204FFFF04B2B204FFFF04B2B204FFFF"
+	$"8C04FFFFFF04B204FFFFFF04B204FFFF"
+	$"B204FFFFFFFF0404FFFFFFFF0404FFFF"
+	$"FF04FFFFFFFFFF04FFFFFFFFFF04FFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(14) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFB2FFFFFFFFFFFFB2FFFFFF"
+	$"FFFFFFFFB2B204FFFFFFFFB2B204FFFF"
+	$"FFFFFFB2B2B204FFFFFFB2B2B204FFFF"
+	$"FFFFB2B2B2B204FFFFB2B2B2B204FFFF"
+	$"FFB2B2B2B2B204FFB2B2B2B2B204FFFF"
+	$"B2B2B2B2B2B204B2B2B2B2B2B204FFFF"
+	$"04B2B2B2B2B20404B2B2B2B2B204FFFF"
+	$"FF04B2B2B2B204FF04B2B2B2B204FFFF"
+	$"FFFF04B2B2B204FFFF04B2B2B204FFFF"
+	$"FFFFFF04B2B204FFFFFF04B2B204FFFF"
+	$"FFFFFFFF04B204FFFFFFFF04B204FFFF"
+	$"FFFFFFFFFF0404FFFFFFFFFF0404FFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(15) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFB2FFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFB2B2FFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFB2B2B2FFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFB2B2B2B2FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFB2B2B2B2B2FFFFFFFFFFFF"
+	$"FFFFFFFFFFB2B2B2B2B2B2FFFFFFFFFF"
+	$"FFFFFFFFFFB2B2B2B2B200FFFFFFFFFF"
+	$"FFFFFFFFFFB2B2B2B200FFFFFFFFFFFF"
+	$"FFFFFFFFFFB2B2B200FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFB2B200FFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFB200FFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFF00FFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(16) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFB2FFFFFFFFFFB2FFFFFFFFFFFFFF"
+	$"FFFFB2B2FFFFFFFFB2B2FFFFFFFFFFFF"
+	$"FFFFB2B2B2FFFFFFB2B2B2FFFFFFFFFF"
+	$"FFFFB2B2B2B2FFFFB2B2B2B2FFFFFFFF"
+	$"FFFFB2B2B2B2B2FFB2B2B2B2B2FFFFFF"
+	$"FFFFB2B2B2B2B2B2B2B2B2B2B2B2FFFF"
+	$"FFFFB2B2B2B2B200B2B2B2B2B200FFFF"
+	$"FFFFB2B2B2B200FFB2B2B2B200FFFFFF"
+	$"FFFFB2B2B200FFFFB2B2B200FFFFFFFF"
+	$"FFFFB2B200FFFFFFB2B200FFFFFFFFFF"
+	$"FFFFB200FFFFFFFFB200FFFFFFFFFFFF"
+	$"FFFF00FFFFFFFFFF00FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(17) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFB2FFFFFFFFFFB2FFFFFFFFFF8C06FF"
+	$"FFB2B2FFFFFFFFB2B2FFFFFFFFB206FF"
+	$"FFB2B2B2FFFFFFB2B2B2FFFFFF8C06FF"
+	$"FFB2B2B2B2FFFFB2B2B2B2FFFFB206FF"
+	$"FFB2B2B2B2B2FFB2B2B2B2B2FF8C06FF"
+	$"FFB2B2B2B2B2B2B2B2B2B2B2B2B206FF"
+	$"FFB2B2B2B2B200B2B2B2B2B2008C06FF"
+	$"FFB2B2B2B200FFB2B2B2B200FFB206FF"
+	$"FFB2B2B200FFFFB2B2B200FFFF8C06FF"
+	$"FFB2B200FFFFFFB2B200FFFFFFB206FF"
+	$"FFB200FFFFFFFFB200FFFFFFFF8C06FF"
+	$"FF00FFFFFFFFFF00FFFFFFFFFF0606FF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(18) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFB2FFFFFFFFFF8C06FFFFFFFF"
+	$"FFFFFFFFB2B2FFFFFFFFB206FFFFFFFF"
+	$"FFFFFFFFB2B2B2FFFFFF8C06FFFFFFFF"
+	$"FFFFFFFFB2B2B2B2FFFFB206FFFFFFFF"
+	$"FFFFFFFFB2B2B2B2B2FF8C06FFFFFFFF"
+	$"FFFFFFFFB2B2B2B2B2B2B206FFFFFFFF"
+	$"FFFFFFFFB2B2B2B2B2008C06FFFFFFFF"
+	$"FFFFFFFFB2B2B2B200FFB206FFFFFFFF"
+	$"FFFFFFFFB2B2B200FFFF8C06FFFFFFFF"
+	$"FFFFFFFFB2B200FFFFFFB206FFFFFFFF"
+	$"FFFFFFFFB200FFFFFFFF8C06FFFFFFFF"
+	$"FFFFFFFF00FFFFFFFFFF0606FFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(19) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFB2B204FFFFFFFFFFFFFF"
+	$"FFFFFFFFFFB2B2B2B204FFFFFFFFFFFF"
+	$"FFFFFFFFB2B2B2B2B2B204FFFFFFFFFF"
+	$"FFFFFFB2B2B2B2B2B2B2B204FFFFFFFF"
+	$"FFFFB2B2B2B2B2B2B2B2B2B204FFFFFF"
+	$"FFFFFF04040404040404040404FFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFB2B2B2B2B2B2B2B2B2B2FFFFFFFF"
+	$"FFFFB2B2B2B2B2B2B2B2B2B204FFFFFF"
+	$"FFFFFF04040404040404040404FFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(20) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFF3737FFFFFF3737FFFFFFFFFF"
+	$"FFFFFFFF373704FFFF373704FFFFFFFF"
+	$"FFFFFFFF373704FFFF373704FFFFFFFF"
+	$"FFFFFFFF373704FFFF373704FFFFFFFF"
+	$"FFFFFFFF373704FFFF373704FFFFFFFF"
+	$"FFFFFFFF373704FFFF373704FFFFFFFF"
+	$"FFFFFFFF373704FFFF373704FFFFFFFF"
+	$"FFFFFFFF373704FFFF373704FFFFFFFF"
+	$"FFFFFFFF373704FFFF373704FFFFFFFF"
+	$"FFFFFFFF373704FFFF373704FFFFFFFF"
+	$"FFFFFFFF373704FFFF373704FFFFFFFF"
+	$"FFFFFFFFFF0404FFFFFF0404FFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(21) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFB2B2B2B2B2B2B2B2B2FFFFFFFF"
+	$"FFFFB2B2B2B2B2B2B2B2B2B2B2FFFFFF"
+	$"FFFFB2B204040404040404B2B204FFFF"
+	$"FFFFB2B204FFFFFFFFFFFFB2B204FFFF"
+	$"FFFFFF0404FFFFFFFFFFFFB2B204FFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFB2B204FFFF"
+	$"FFFFB2B204FFFFFFFFFFFFB2B204FFFF"
+	$"FFB2B2B2B204FFFFFFFFFFB2B204FFFF"
+	$"B2B2B2B2B2B204FFFFFFFFB2B204FFFF"
+	$"FF04B2B2040404FFFFFFFFB2B204FFFF"
+	$"FFFFB2B204FFFFFFFFFFFFB2B204FFFF"
+	$"FFFFB2B2B2B2B2B2B2B2B2B2B204FFFF"
+	$"FFFF04B2B2B2B2B2B2B2B2B204FFFFFF"
+	$"FFFFFF040404040404040404FFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(22) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFF39FFFFFFFFFFFFFFFF"
+	$"FFFFFF39FFFFFF39FFFF39FFFFFFFFFF"
+	$"FFFFFF39FFFFFF3939FF39FFFFFFFFFF"
+	$"FFFFFF3939FFFF3939FF3939FF39FFFF"
+	$"FFFF39393939FF39393939393939FFFF"
+	$"FF2B2A2A2A2A2A2A2A2A2A2A2A2B2BFF"
+	$"FFFF39393939FF39393939393939FFFF"
+	$"FFFFFF3939FFFF3939FF3939FF39FFFF"
+	$"FFFFFF39FFFFFF3939FF3939FFFFFFFF"
+	$"FFFFFF39FFFFFF39FFFF39FFFFFFFFFF"
+	$"FFFFFFFFFFFFFF39FFFF39FFFFFFFFFF"
+	$"FFFFFFFFFFFFFF39FFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(100) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFB2B23F3F3F3F3F3F3F3F3FB2B2FFFF"
+	$"FFB2B23F000000003F00003FB2B204FF"
+	$"FFB2B23F3F3F3F3F3F3F3F3FB2B204FF"
+	$"FFB2B23F00003F000000003FB2B204FF"
+	$"FFB2B23F3F3F3F3F3F3F3F3FB2B204FF"
+	$"FFB2B23F0000003F0000003FB2B204FF"
+	$"FFB2B23F3F3F3F3F3F3F3F3FB2B204FF"
+	$"FFB2B2B2B2B2B2B2B2B2B2B2B2B204FF"
+	$"FFB2B2B23F3F3F3F3F3F3FB2B2B204FF"
+	$"FFB2B2B23F3F3F3F3F3F3FB2B2B204FF"
+	$"FFB2B2B23F3FB2B23F3F3FB2B2B204FF"
+	$"FFB2B2B23F3FB2B23F3F3FB2B2B204FF"
+	$"FFFFB2B23F3FB2B23F3F3FB2B2B204FF"
+	$"FFFFFF040404040404040404040404FF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};
+
+resource(101) #'MICN' array {
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+	$"FFB2B23F3F3F3F3F3F3F3F3FB2B2FFFF"
+	$"FFB2B23F000000003F00003FB2B204FF"
+	$"FFB2B23F3F3F3F3F3F3F3F3FB2B204FF"
+	$"FFB2B23F00003F000000003FB2B204FF"
+	$"FFB2B23F3F3F3F3F3F3F3F3FB2B204FF"
+	$"FFB2B23F0000003F0000003FB2B204FF"
+	$"FFB2B23F3F3F3F3F3F3F3F3FB2B204FF"
+	$"FFB2B2B2B2B2B2B2B2B2B2B2B2B204FF"
+	$"FFB2B2B2B23F3F3F3F3F3F3FB2B204FF"
+	$"FFB2B2B2B23F3F3F3F3F3F3FB2B204FF"
+	$"FFB2B2B2B23F3F00003F3F3FB2B204FF"
+	$"FFB2B2B2B23F3F00003F3F3FB2B204FF"
+	$"FFFFB2B2B23F3F00003F3F3FB2B204FF"
+	$"FFFFFF040404040404040404040404FF"
+	$"FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF"
+};

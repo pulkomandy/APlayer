@@ -1,0 +1,8 @@
+
+resource(1) "BeOS MediaKit";
+
+resource(11) #'CSTR' array {
+	"Sound output agent which uses the BeOS MediaKit.\nWritten by Tho"
+	"mas Neumann.\n\nThis agent plays the sound using the BeOS BSound"
+	"Player class in the MediaKit."
+};

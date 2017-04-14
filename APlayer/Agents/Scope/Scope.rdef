@@ -1,0 +1,13 @@
+
+resource(1) "Scope";
+
+resource(11) #'CSTR' array {
+	"Simple scope visual agent.\nWritten by Thomas Neumann.\n\nThis s"
+	"imple visual agent will show the sound coming out of the left an"
+	"d right speakers in each window. The sound are shown like sample"
+	"s are shown graphically."
+};
+
+resource(100) "Scope";
+
+resource(2500) "Click here to change the scope type";
