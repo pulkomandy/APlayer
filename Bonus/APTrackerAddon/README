@@ -1,0 +1,32 @@
+APlayer Tracker add-on
+by Ove Peter
+(ovepeter@gmx.de)
+
+
+
+About APlayer Tracker add-on
+
+APlayer Tracker add-on is a BeOS Tracker add-on which can be used to add items to the playlist of APlayer. It is compatible with BeOS R5 for x86 and PPC.
+
+
+Installation
+
+Please place the executable "APlayer-A" in "/boot/home/config/add-ons/Tracker". You may want to rename it to "APlayer-P" or whatever to change the keyboard shortcut, as it can be done with every other BeOS Tracker add-on.
+Additionally, you'll need to have the main APlayer application installed, of course - this is only an add-on!
+
+
+Usage
+
+From the Tracker, choose some files (e.g. MP3's or directories) and then Rightclick-->Add-Ons-->APlayer-A or just use the keyboard shortcut. APlayer will add the chosen files to its current playlist (and start up if it wasn't active). 
+
+The nice thing is that the add-on will scan all subfolders for files too and also works on files which don't have the correct mime-type for doubleclicking. You may also invoke the add-on when you have no files chosen at all, but have a Tracker window opened (a directory) with files in it.
+
+Doubleclicking the executable will display an about box with the program's version and a short help., btw.
+
+
+Known Bugs
+
+- When adding a lot of files (especially when loading from a CD medium), BeOS will eventually lock up or go to Kernel Debug Land!! This seems to be a problem within BeOS' caching mechanism itself :((  I must research this further and probably come up with a workaround (i.e. better loading/scanning code), as not all BeOS apps have this problem with loading a lot of files from CD.
+This bug only affects x86 and NOT PPC.
+
+Have fun!
