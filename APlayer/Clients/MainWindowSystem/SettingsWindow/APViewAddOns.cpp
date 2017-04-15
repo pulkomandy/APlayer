@@ -20,10 +20,12 @@
 #include "Colors.h"
 
 // APlayerKit headers
-#include "ColumnListView.h"
 #include "APGlobalData.h"
 #include "APList.h"
 #include "Layout.h"
+
+// Santa headers
+#include <santa/ColumnListView.h>
 
 // Client headers
 #include "MainWindowSystem.h"
@@ -236,15 +238,15 @@ void APViewAddOns::SaveSettings(void)
 /******************************************************************************/
 void APViewAddOns::SaveWindowSettings(void)
 {
-	int32 *order;
+	int32 order[3];
 	int32 sortKey[1];
 	CLVSortMode sortMode[1];
 
 	// Get the display order
-	order = addOnsColList->DisplayOrder();
+	addOnsColList->GetDisplayOrder(&order[0]);
 
 	// Get the sort information
-	addOnsColList->Sorting(sortKey, sortMode);
+	addOnsColList->GetSorting(sortKey, sortMode);
 
 	try
 	{
@@ -269,12 +271,8 @@ void APViewAddOns::SaveWindowSettings(void)
 	}
 	catch(...)
 	{
-		delete[] order;
 		throw;
 	}
-
-	// Clean up
-	delete[] order;
 }
 
 

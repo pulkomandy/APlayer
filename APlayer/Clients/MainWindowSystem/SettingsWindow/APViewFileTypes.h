@@ -19,7 +19,9 @@
 
 // APlayerKit headers
 #include "APGlobalData.h"
-#include "ColumnListView.h"
+
+// Santa headers
+#include <santa/ColumnListView.h>
 
 // Client headers
 #include "MainWindowSystem.h"

@@ -13,8 +13,8 @@
 #include "POS.h"
 
 // APlayerKit headers
-#include "ColumnListView.h"
-#include "CLVColumnLabelView.h"
+#include <santa/ColumnListView.h>
+#include <santa/CLVColumnLabelView.h>
 
 // Client headers
 #include "APWindowSampleInfo.h"

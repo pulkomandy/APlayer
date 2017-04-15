@@ -36,17 +36,7 @@ SRCS = \
 	APGlobal.cpp \
 	APGlobalData.cpp \
 	APMultiFiles.cpp \
-	APServerCommunication.cpp \
-	ColumnListView/BetterScrollView.cpp \
-	ColumnListView/CLVColumn.cpp \
-	ColumnListView/CLVColumnLabelView.cpp \
-	ColumnListView/CLVEasyItem.cpp \
-	ColumnListView/CLVListItem.cpp \
-	ColumnListView/ColumnListView.cpp \
-	ColumnListView/MouseWatcher.cpp \
-	ColumnListView/NewStrings.cpp \
-	ColumnListView/PrefilledBitmap.cpp \
-	ColumnListView/ScrollViewCorner.cpp
+	APServerCommunication.cpp
 
 #	Specify the resource definition files to use. Full or relative paths can be
 #	used.
