@@ -71,15 +71,13 @@ typedef struct STMNOTE
 
 #define NUMTRACKERS		3
 
-static char *signatures[NUMTRACKERS] =
-{
+static const char* signatures[NUMTRACKERS] = {
 	"!Scream!",
 	"BMOD2STM",
 	"WUZAMOD!"
 };
 
-static int32 version[NUMTRACKERS] =
-{
+static const int32 version[NUMTRACKERS] = {
 	IDS_MIKC_NAME_STM,
 	IDS_MIKC_NAME_STM_MOD2STM,
 	IDS_MIKC_NAME_STM_WUZAMOD

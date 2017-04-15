@@ -268,7 +268,7 @@ typedef struct MP_CHANNEL
 	uint8		pitFlg;			// Pitch envelope settings
 
 	uint8		keyOff;			// If true = fade out and stuff
-	void *		handle;			// Which sample-handle
+	uint8*		handle;			// Which sample-handle
 	uint8		noteDelay;		// (Used for note delay)
 	int32		start;			// The starting byte index in the sample
 } MP_CHANNEL;

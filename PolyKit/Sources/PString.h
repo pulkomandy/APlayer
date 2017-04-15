@@ -37,6 +37,8 @@
 class _IMPEXP_PKLIB PCharacterSet
 {
 public:
+	virtual ~PCharacterSet() {}
+
 	virtual uint16 ToUnicode(const char *chr, int8 &charLen) = 0;
 	virtual const char *FromUnicode(uint16 chr, int8 &len) = 0;
 

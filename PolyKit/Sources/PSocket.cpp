@@ -274,7 +274,7 @@ void PSocket::ReceiveData(void *data, uint32 *length)
 	else
 	{
 		// Datagram socket
-		int clientSockLen;
+		//int clientSockLen;
 
 		for (;;)
 		{
@@ -282,7 +282,7 @@ void PSocket::ReceiveData(void *data, uint32 *length)
 			EventWait(connectedSocket, PSW_READ, timeoutValue);
 
 			// Receive the data
-			clientSockLen = sizeof(clientSockAddr);
+			//clientSockLen = sizeof(clientSockAddr);
 			// error = recvfrom(connectedSocket, data, *length, 0, (struct sockaddr *)&clientSockAddr, &clientSockLen);
 			error = recv(connectedSocket, data, *length, 0);
 			if (error == 0)

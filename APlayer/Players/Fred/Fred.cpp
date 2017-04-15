@@ -899,7 +899,7 @@ ap_result Fred::LoadFinal(PFile *file, PString &errorStr)
 
 					// Fill out the sample array in case if the last sample
 					// isn't whole
-					memset(instruments[i].sampleAdr, instruments[i].length, 0);
+					memset(instruments[i].sampleAdr, 0, instruments[i].length);
 
 					// Load the sample data
 					file->Seek(instruments[i].sampleOffset, PFile::pSeekBegin);

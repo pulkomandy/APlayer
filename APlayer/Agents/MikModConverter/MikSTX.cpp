@@ -83,8 +83,7 @@ typedef struct STXNOTE
 
 #define NUMTRACKERS		3
 
-static char *signatures[NUMTRACKERS] =
-{
+static const char *signatures[NUMTRACKERS] = {
 	"!Scream!",
 	"BMOD2STM",
 	"WUZAMOD!"

@@ -30,8 +30,7 @@ typedef int8 (*SampleEmuRout)(SIDSamples *);
 /******************************************************************************/
 /* sidSampleChannel structure                                                 */
 /******************************************************************************/
-typedef struct sidSampleChannel
-{
+typedef struct {
 	bool active;
 	int8 mode;
 	uint8 repeat;
@@ -54,7 +53,7 @@ typedef struct sidSampleChannel
 	CPULWord period_stp;
 	CPULWord pos_stp;
 	CPULWord posAdd_stp;
-};
+} sidSampleChannel;
 
 
 

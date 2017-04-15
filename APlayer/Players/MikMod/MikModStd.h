@@ -79,7 +79,7 @@ typedef struct SAMPLE
 	uint16		aVibPos;		// Autovibrato pos [player use]
 //	uint8		divFactor;		// For sample scaling, maintains proper period slides
 	uint32		seekPos;		// Seek position in file
-	void *		handle;			// Sample handle. Points to the sample in memory
+	uint8*		handle;			// Sample handle. Points to the sample in memory
 } SAMPLE;
 
 
