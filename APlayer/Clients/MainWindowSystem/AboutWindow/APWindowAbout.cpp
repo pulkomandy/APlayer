@@ -301,7 +301,7 @@ void APViewAboutBox::Pulse(void)
 		counter = 0;
 
 		// Lock the bitmap window
-		scrollWin->Lock();		
+		scrollWin->Lock();
 
 		if (showMode != apLogo)
 		{
@@ -410,7 +410,7 @@ void APViewAboutBox::Pulse(void)
 					{
 						append = false;
 
-						if (str.GetAt(0) == '¤')
+						if (str.GetAt(0) == PChar("¤", 2))
 						{
 							do
 							{
