@@ -50,6 +50,14 @@ dist/lib:
 $(SUBDIRS):
 	$(MAKE) -C $@
 
+clean:
+	rm -rf dist/APlayer
+	rm -rf dist/lib
+	rm -rf dist/add-ons
+	rm -rf */objects*
+	rm -rf */*/objects*
+	rm -rf */*/*/objects*
+
 # Dependency chain
 APlayer/APlayerKit: PolyKit/Sources
 APlayer: APlayer/APlayerKit PolyKit/Sources
