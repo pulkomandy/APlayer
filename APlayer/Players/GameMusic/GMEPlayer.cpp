@@ -33,8 +33,6 @@ This file is distributed under the terms of the MIT licence.
 /******************************************************************************/
 /* Other constants                                                            */
 /******************************************************************************/
-#define GME_Version			"0.5.5"
-
 #define DEFAULT_BUFFER_SIZE		8192
 
 
@@ -150,7 +148,10 @@ PString GMEPlayer::GetDescription(int32 /*index*/)
 {
 	PString description;
 
-	description.Format(res, IDS_GME_DESCRIPTION, GME_Version);
+	description.Format(res, IDS_GME_DESCRIPTION,
+		BString().SetToFormat("%d.%d.%d",
+			GME_VERSION >> 8, (GME_VERSION >> 4) & 0xF,
+			GME_VERSION & 0xF).String());
 	return (description);
 }
 
@@ -213,7 +214,7 @@ ap_result GMEPlayer::LoadModule(int32 /*index*/, PFile* file,
 
 	gme_err_t error = gme_open_file(file->GetFullPath().GetString(), &theEmu,
 		44100 /* TODO get actual baudrate from config */);
-	
+
 	if (error != NULL)
 	{
 		errorStr.SetString(error);
@@ -273,7 +274,7 @@ bool GMEPlayer::InitPlayer(int32 /*index*/)
 		// Allocate converter buffers
 		// TODO we should allocate one for each channel of the emulated device
 		// and perfrm the mixing ourselves (or use GME code if possible, but
-		// still making the channels visible to APlayer, for the spinning 
+		// still making the channels visible to APlayer, for the spinning
 		// squares and whatnot)
 		memset(chanBuffers, 0, sizeof(int16 *) * 2);
 
@@ -366,7 +367,7 @@ void GMEPlayer::Play(void)
 		endReached = true;
 		return;
 	}
-	
+
 
 
 	// Calculate the buffer size in samples
@@ -426,7 +427,7 @@ PString GMEPlayer::GetModuleName(void)
 /******************************************************************************/
 PString GMEPlayer::GetAuthor(void)
 {
-	return fSongInfos->author;	
+	return fSongInfos->author;
 }
 
 
@@ -489,7 +490,7 @@ void GMEPlayer::SetSongPosition(int16 pos)
 PTimeSpan GMEPlayer::GetTimeTable(uint16 songNum, PList<PTimeSpan> &posTimes)
 {
 	int32 i;
-	
+
 	gme_info_t* infos;
 	gme_track_info(theEmu, &infos, songNum);
 	int32 totalTime = infos->play_length;
