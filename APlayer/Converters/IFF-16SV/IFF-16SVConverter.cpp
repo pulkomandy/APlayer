@@ -825,7 +825,7 @@ ap_result IFF16SVConverter::SaveHeader(PFile *file, const APConverter_SampleForm
 		stereoFile->Close();
 
 		// Build a new file name
-		newName = file->GetFullPath() + "aps" + PString::CreateHexNumber((uint32)stereoFile);
+		newName = file->GetFullPath() + "aps" + PString::CreateHexNumber((uintptr_t)stereoFile);
 		stereoFile->Open(newName, PFile::pModeReadWrite | PFile::pModeCreate);
 	}
 

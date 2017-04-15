@@ -52,10 +52,11 @@
 //#define NETWORK_UPDATE_FILE				"HTTP://update.aplayer.dk/check_product_update.php?product=APlayer&os=BeOS&cpu=PowerPC"
 #define NETWORK_UPDATE_FILE				"HTTP://update.aplayer.dk/check_product_update.php?product=APlayer&os=BeOS&cpu=PowerPC&beta=true"
 
-#elif __p_os == __p_beos && __INTEL__
+#elif __p_os == __p_beos
 
 //#define NETWORK_UPDATE_FILE				"HTTP://update.aplayer.dk/check_product_update.php?product=APlayer&os=BeOS&cpu=x86"
-#define NETWORK_UPDATE_FILE				"HTTP://update.aplayer.dk/check_product_update.php?product=APlayer&os=BeOS&cpu=x86&beta=true"
+//#define NETWORK_UPDATE_FILE				"HTTP://update.aplayer.dk/check_product_update.php?product=APlayer&os=BeOS&cpu=x86&beta=true"
+#define NETWORK_UPDATE_FILE ""
 
 #endif
 
