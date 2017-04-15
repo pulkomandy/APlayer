@@ -26,7 +26,7 @@
 // Define __p_os according to the native operative system
 //
 // BeOS
-#ifdef __BEOS__ 
+#ifdef __BEOS__
 #define __p_os				__p_beos
 #endif
 
@@ -36,7 +36,7 @@
 
 // BeOS headers
 #if __p_os == __p_beos
-#include "BeOS.h"
+#include "BeOS/BeOS.h"
 #endif
 
 // Debug headers
