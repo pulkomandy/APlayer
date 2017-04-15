@@ -20,8 +20,10 @@
 
 // APlayerKit headers
 #include "APGlobalData.h"
-#include "ColumnListView.h"
 #include "Layout.h"
+
+// Santa headers
+#include <santa/ColumnListView.h>
 
 // Client headers
 #include "MainWindowSystem.h"
@@ -286,17 +288,17 @@ APViewSamples::~APViewSamples(void)
 /******************************************************************************/
 void APViewSamples::SaveSettings(void)
 {
-	int32 *order;
 	int32 sortKey[1];
 	CLVSortMode sortMode[1];
 	CLVColumn *column;
 	int32 width[11];
+	int32 order[11];
 
 	// Get the display order
-	order = columnListView->DisplayOrder();
+	columnListView->GetDisplayOrder(&order[0]);
 
 	// Get the sort information
-	columnListView->Sorting(sortKey, sortMode);
+	columnListView->GetSorting(sortKey, sortMode);
 
 	// Get the column widths
 	for (int32 i = 0; i < 11; i++)
@@ -364,12 +366,8 @@ void APViewSamples::SaveSettings(void)
 	}
 	catch(...)
 	{
-		delete[] order;
 		throw;
 	}
-
-	// Clean up
-	delete[] order;
 }
 
 

@@ -19,9 +19,11 @@
 #include "PList.h"
 
 // APlayerKit headers
-#include "ColumnListView.h"
 #include "APGlobalData.h"
 #include "APList.h"
+
+// Santa headers
+#include <santa/ColumnListView.h>
 
 // Client headers
 #include "MainWindowSystem.h"

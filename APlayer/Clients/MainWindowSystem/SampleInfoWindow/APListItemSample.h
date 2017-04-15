@@ -18,7 +18,9 @@
 
 // APlayer headers
 #include "APAddOns.h"
-#include "CLVListItem.h"
+
+// Santa headers
+#include <santa/CLVListItem.h>
 
 
 /******************************************************************************/

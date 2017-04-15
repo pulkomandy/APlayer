@@ -12,9 +12,9 @@
 // PolyKit headers
 #include "POS.h"
 
-// APlayerKit headers
-#include "ColumnListView.h"
-#include "CLVColumnLabelView.h"
+// Santa headers
+#include <santa/ColumnListView.h>
+#include <santa/CLVColumnLabelView.h>
 
 // Client headers
 #include "APWindowModuleInfo.h"

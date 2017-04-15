@@ -17,9 +17,11 @@
 #include "PDirectory.h"
 #include "Colors.h"
 
+// Santa headers
+#include <santa/ColumnListView.h>
+#include <santa/CLVColumn.h>
+
 // APlayerKit headers
-#include "ColumnListView.h"
-#include "CLVColumn.h"
 #include "Layout.h"
 
 // Client headers

@@ -15,9 +15,11 @@
 #include "PResource.h"
 
 // APlayerKit headers
-#include "CLVListItem.h"
 #include "Layout.h"
 #include "Colors.h"
+
+// Santa headers
+#include <santa/CLVListItem.h>
 
 // Client headers
 #include "APGlobalData.h"

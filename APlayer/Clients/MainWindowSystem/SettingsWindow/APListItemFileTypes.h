@@ -17,7 +17,9 @@
 
 // APlayerKit headers
 #include "APFileTypes.h"
-#include "CLVListItem.h"
+
+// Santa headers
+#include <santa/CLVListItem.h>
 
 
 /******************************************************************************/

@@ -16,8 +16,10 @@
 
 // APlayerKit headers
 #include "APAddOns.h"
-#include "CLVListItem.h"
 #include "Layout.h"
+
+// Santa headers
+#include <santa/CLVListItem.h>
 
 // Client headers
 #include "APListItemSample.h"

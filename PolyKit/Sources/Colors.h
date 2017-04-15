@@ -1,8 +1,9 @@
 // Useful until be gets around to making these sorts of things
 // globals akin to be_plain_font, etc.
 
-#ifndef __Colors_h
+#if !defined(__Colors_h) && !defined(_SGB_COLORS_H_)
 #define __Colors_h
+#define _SGB_COLORS_H_ // This header defines the same things that SGB does
 
 #include "POS.h"
 

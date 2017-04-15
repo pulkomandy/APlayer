@@ -16,8 +16,8 @@
 #include "POS.h"
 #include "PString.h"
 
-// APlayerKit headers
-#include "CLVListItem.h"
+// Santa headers
+#include <santa/CLVListItem.h>
 
 
 /******************************************************************************/

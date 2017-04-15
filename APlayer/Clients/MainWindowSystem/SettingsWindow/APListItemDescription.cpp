@@ -14,8 +14,10 @@
 #include "PString.h"
 
 // APlayerKit headers
-#include "CLVListItem.h"
 #include "Colors.h"
+
+// Santa headers
+#include <santa/CLVListItem.h>
 
 // Client headers
 #include "APListItemDescription.h"

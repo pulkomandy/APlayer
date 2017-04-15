@@ -97,7 +97,7 @@ RSRCS =
 #	- 	if your library does not follow the standard library naming scheme,
 #		you need to specify the path to the library and it's name.
 #		(e.g. for mylib.a, specify "mylib.a" or "path/mylib.a")
-LIBS = be tracker ../../../dist/lib/APlayerKit.so ../../../dist/lib/PolyKit.so $(STDCPPLIBS)
+LIBS = be tracker santa ../../../dist/lib/APlayerKit.so ../../../dist/lib/PolyKit.so $(STDCPPLIBS)
 
 #	Specify additional paths to directories following the standard libXXX.so
 #	or libXXX.a naming scheme. You can specify full paths or paths relative
@@ -114,7 +114,7 @@ SYSTEM_INCLUDE_PATHS =
 #	Additional paths paths to look for local headers. These use the form
 #	#include "header". Directories that contain the files in SRCS are
 #	automatically included.
-LOCAL_INCLUDE_PATHS = ../../PolyKit/ ../../PolyKit/BeOS ../../APlayerKit ../../APlayerKit/ColumnListView
+LOCAL_INCLUDE_PATHS = ../../PolyKit/ ../../PolyKit/BeOS ../../APlayerKit
 
 #	Specify the level of optimization that you want. Specify either NONE (O0),
 #	SOME (O1), FULL (O2), or leave blank (for the default optimization level).
