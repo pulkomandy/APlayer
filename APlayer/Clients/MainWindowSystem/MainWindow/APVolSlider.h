@@ -19,7 +19,7 @@
 /******************************************************************************/
 /* Hook function type defination                                              */
 /******************************************************************************/
-typedef void (*valueChangedFunc)(uint32 data, float newValue);
+typedef void (*valueChangedFunc)(uintptr_t data, float newValue);
 
 
 
@@ -32,14 +32,14 @@ public:
 	APVolSlider(float min, float max, orientation posture, uint32 resizingMode);
 	virtual ~APVolSlider(void);
 
-	void SetHookFunction(valueChangedFunc func, uint32 userData);
+	void SetHookFunction(valueChangedFunc func, uintptr_t userData);
 
 protected:
 	void MessageReceived(BMessage* message);
 	void AttachedToWindow();
 
 	valueChangedFunc hookFunc;
-	uint32 userDat;
+	uintptr_t userDat;
 };
 
 #endif

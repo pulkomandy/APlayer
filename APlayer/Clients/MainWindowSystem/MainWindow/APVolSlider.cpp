@@ -45,7 +45,7 @@ APVolSlider::~APVolSlider(void)
 /* Input:  "func" is a pointer to the function to call.                       */
 /*         "userData" is some data on your own.                               */
 /******************************************************************************/
-void APVolSlider::SetHookFunction(valueChangedFunc func, uint32 userData)
+void APVolSlider::SetHookFunction(valueChangedFunc func, uintptr_t userData)
 {
 	hookFunc = func;
 	userDat  = userData;
@@ -55,7 +55,7 @@ void APVolSlider::SetHookFunction(valueChangedFunc func, uint32 userData)
 void APVolSlider::AttachedToWindow()
 {
 	BSlider::AttachedToWindow();
-	
+
 	// BSlider will send messages to the window, which is not what we need here.
 	SetTarget(this);
 }
@@ -73,6 +73,6 @@ void APVolSlider::MessageReceived(BMessage* message)
 			}
 			break;
 		default:
-			BSlider::MessageReceived(message);	
+			BSlider::MessageReceived(message);
 	}
 }

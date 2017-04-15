@@ -215,15 +215,15 @@ APWindowMain::APWindowMain(MainWindowSystem *system, APGlobalData *global, BRect
 	topView->AddChild(muteBut);
 
 	volSlider = new APVolSlider(0, 256, B_VERTICAL, B_FOLLOW_TOP_BOTTOM | B_FOLLOW_LEFT);
-	volSlider->SetHookFunction(SetMasterVolume, (uint32)this);
+	volSlider->SetHookFunction(SetMasterVolume, (uintptr_t)this);
 	volSlider->SetFlags(volSlider->Flags() | B_FULL_UPDATE_ON_RESIZE);
 	volSlider->SetValue(windowSystem->playerInfo->GetVolume());
 	topView->AddToolTip(volSlider, res, IDS_TIP_MAIN_VOLUME);
-	
+
 	volSliderLayout = new BView(BRect(0, 256, 0, 0), "holder", B_FOLLOW_TOP_BOTTOM | B_FOLLOW_LEFT, 0);
 	volSliderLayout->SetLayout(new BGroupLayout(B_VERTICAL, 0));
 	volSliderLayout->AddChild(volSlider);
-	volSliderLayout->SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));	
+	volSliderLayout->SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
 	topView->AddChild(volSliderLayout);
 
 	// Create the module list
@@ -4046,7 +4046,7 @@ bool APWindowMain::MultiFileSave(APMultiFiles::APMultiFileType *type, void *user
 /* Input:  "object" is a pointer to the this object.                          */
 /*         "vol" is the new volume as a negative number.                      */
 /******************************************************************************/
-void APWindowMain::SetMasterVolume(uint32 object, float vol)
+void APWindowMain::SetMasterVolume(uintptr_t object, float vol)
 {
 	APWindowMain *win = (APWindowMain *)object;
 

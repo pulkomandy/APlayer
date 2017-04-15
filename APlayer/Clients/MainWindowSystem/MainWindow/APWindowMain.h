@@ -219,7 +219,7 @@ protected:
 	static bool MultiFileAdd(APMultiFiles::APMultiFileType *type, void *userData);
 	static bool MultiFileSave(APMultiFiles::APMultiFileType *type, void *userData);
 
-	static void SetMasterVolume(uint32 object, float vol);
+	static void SetMasterVolume(uintptr_t object, float vol);
 
 	MainWindowSystem *windowSystem;
 	APGlobalData *globalData;

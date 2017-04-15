@@ -6715,7 +6715,7 @@ void PString::FormatIt(PString formatString, va_list argList)
 					precision = (precision * 10) + ((int32)(*format++ - 0x0030));
 			}
 		}
-		
+
 		// Have we reached the end of the format string?
 		if (format == formatEnd)
 			return;
@@ -7072,7 +7072,7 @@ void PString::FormatIt(PString formatString, va_list argList)
 				int32 typeLen, missing;
 
 				// Convert to hexadecimal
-				ToHex(typeBuffer, typeLen, (uint32)va_arg(argList, void *), true);
+				ToHex(typeBuffer, typeLen, (uintptr_t)va_arg(argList, void *), true);
 
 				// Insert the ':' character in the middle and missing zeros
 				// in the beginning

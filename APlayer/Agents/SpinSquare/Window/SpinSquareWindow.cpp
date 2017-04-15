@@ -58,11 +58,11 @@ SpinSquareWindow::SpinSquareWindow(SpinSquareAgent *spinAgent, PResource *resour
 
 	// Create background view
 	rect = Bounds();
-	
+
 	layout = new BGridLayout(4, 4);
 	layout->SetInsets(4, 4, 4, 4);
 	SetLayout(layout);
-	
+
 	layout->TargetView()->SetViewColor(ui_color(B_PANEL_BACKGROUND_COLOR));
 
 	// Get the window positions
@@ -107,7 +107,7 @@ SpinSquareWindow::~SpinSquareWindow(void)
 			spinSettings->WriteIntEntryValue("Window", "WinX", x);
 			spinSettings->WriteIntEntryValue("Window", "WinY", y);
 		}
-		
+
 		x = (int)winPos.Width();
 		y = (int)winPos.Height();
 		if ((spinSettings->GetIntEntryValue("Window", "WinW") != x) ||
@@ -185,20 +185,20 @@ void SpinSquareWindow::DrawWindow(APAgent_ChannelChange *channelInfo)
 		uint16 i, todo;
 
 		todo = channelInfo->channels;
-		
+
 		// TODO also do this when the window size changed
 		if (todo != itemCount)
 		{
 			itemCount = todo;
 			// remove all the existing squares
 			BLayoutItem* item;
-			while((item = layout->RemoveItem(0L)))
+			while((item = layout->RemoveItem((int32)0L)))
 			{
 				item->View()->Parent()->RemoveChild(item->View());
 				delete item->View();
 				delete item;
 			}
-			
+
 			// Compute optimal line count
 			float width = Bounds().Width();
 			float height = Bounds().Height();
@@ -210,7 +210,7 @@ void SpinSquareWindow::DrawWindow(APAgent_ChannelChange *channelInfo)
 				col = (int)ceilf(itemCount/(float)lines);
 				int sqwidth = (int)(width / lines);
 				int sqheight = (int)(height / col);
-				
+
 				float ratio = sqwidth / (float)sqheight;
 				if (ratio < 1.f) ratio = 1.f / ratio;
 				if (ratio < bestRatio) {
@@ -218,10 +218,10 @@ void SpinSquareWindow::DrawWindow(APAgent_ChannelChange *channelInfo)
 					bestRatio = ratio;
 				}
 			}
-			
+
 			lines = bestLines;
 			col = (int)ceilf(itemCount/(float)lines);
-			
+
 			// create new ones
 			for (i = 0; i < col; i++)
 			for (int j = 0; j < lines; j++)
@@ -229,7 +229,7 @@ void SpinSquareWindow::DrawWindow(APAgent_ChannelChange *channelInfo)
 				layout->AddView(new SpinSquareView(), j, i);
 			}
 		}
-		
+
 		for (i = 0; i < itemCount; i++) {
 			SpinSquareView* square = static_cast<SpinSquareView*>(static_cast<BLayout*>(layout)->ItemAt(i)->View());
 			square->ChannelChanged(channelInfo->channelFlags[i], channelInfo->channelInfo[i]);
