@@ -170,7 +170,7 @@ typedef unsigned short					unichar;
 ////////////////////////////////////////////////////////////////////////////////
 // Error codes base lines
 ////////////////////////////////////////////////////////////////////////////////
-#define PGeneralErrorBase		(LONG_MIN)						// 0x80000000
+#define PGeneralErrorBase		(INT32_MIN)						// 0x80000000
 #define PFileErrorBase			(PGeneralErrorBase + 0x1000)	// 0x80001000
 #define PSecurityErrorBase		(PFileErrorBase + 0x1000)		// 0x80002000
 #define PKeyErrorBase			(PSecurityErrorBase + 0x1000)	// 0x80003000
